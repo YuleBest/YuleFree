@@ -1,21 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2024/07/26/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+    <title>首篇文章！一个简单的介绍</title>
+    <url>/2024/07/27/%E9%A6%96%E7%AF%87%E6%96%87%E7%AB%A0%EF%BC%81%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E4%BB%8B%E7%BB%8D/</url>
+    <content><![CDATA[<hr>
+<h1 id="啊？这是啥？"><a href="#啊？这是啥？" class="headerlink" title="啊？这是啥？"></a>啊？这是啥？</h1><p>没错，这是<strong>于乐Yule</strong>的个人博客哦！</p>
+<h1 id="哦-这样啊-诶？于乐又是谁呀？"><a href="#哦-这样啊-诶？于乐又是谁呀？" class="headerlink" title="哦~ 这样啊~ 诶？于乐又是谁呀？"></a>哦~ 这样啊~ 诶？于乐又是谁呀？</h1><img src="https://img.picgo.net/2024/07/27/touxiangf714cb57449eb4a6.jpg" alt="touxiang" style="zoom:20%;" />
 
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>于乐就是本人啦，本人是一名<strong>六花厨</strong>兼业余数码爱好者喵<del>，一个无名小卒罢了</del>，如果你喜欢我的内容，可以通过下面的方式Follow我哦~</p>
+<h2 id="关注我"><a href="#关注我" class="headerlink" title="关注我"></a>关注我</h2><ul>
+<li>酷安：<a href="http://www.coolapk.com/u/18214705">http://www.coolapk.com/u/18214705</a></li>
+<li>Telegram：<a href="https://t.me/YuleBest">https://t.me/YuleBest</a></li>
+</ul>
+<h2 id="催更"><a href="#催更" class="headerlink" title="催更"></a>催更</h2><ul>
+<li>E-Mail：<a href="mailto:&#121;&#x75;&#x6c;&#x65;&#45;&#98;&#101;&#x73;&#116;&#64;&#111;&#x75;&#x74;&#x6c;&#111;&#111;&#x6b;&#46;&#x63;&#111;&#109;">&#121;&#x75;&#x6c;&#x65;&#45;&#98;&#101;&#x73;&#116;&#64;&#111;&#x75;&#x74;&#x6c;&#111;&#111;&#x6b;&#46;&#x63;&#111;&#109;</a></li>
+<li>QQ：<a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=60YAsZK3jwXC4mMykJIXGRPRrTsK5i8K&authKey=L+XziaWnvt+ZVWDPIEq1dbe5rLxtL70SgQEzGWzxo5A88xHDy0AsD8amoiIBZcJo&noverify=0&group_code=570243407">Yule 的数码交流群</a></li>
+</ul>
+<h1 id="那这个网站会记录什么呢（追问）"><a href="#那这个网站会记录什么呢（追问）" class="headerlink" title="那这个网站会记录什么呢（追问）"></a>那这个网站会记录什么呢（追问）</h1><blockquote>
+<p>那作用可就多了！（兴奋）</p>
+</blockquote>
+<p>比如开心或不开心时的<strong>日记</strong>呀，平时当乐子人的<strong>杂谈</strong>呀，还有<del>很多很多的</del><strong>技术帖</strong>呀，都可以往这里发！<br>持续关注哦~</p>
 ]]></content>
+      <categories>
+        <category>特别企划</category>
+      </categories>
+      <tags>
+        <tag>首篇</tag>
+        <tag>杂谈</tag>
+      </tags>
   </entry>
 </search>

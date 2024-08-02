@@ -193,4 +193,90 @@
         <tag>尘世·第一辑</tag>
       </tags>
   </entry>
+  <entry>
+    <title>过检测v3.0教程（Apatch）</title>
+    <url>/2024/08/02/%E8%BF%87%E6%A3%80%E6%B5%8Bv3-0%E6%95%99%E7%A8%8B%EF%BC%88Apatch%EF%BC%89/</url>
+    <content><![CDATA[<p>本期教程是过检测教程，可以过 Native Test 25 和密钥认证 1.6 联网版的测试，效果如图：</p>
+<p><img src="https://img.picgo.net/2024/08/03/8e721a0b226cd2d1fa45f7f137315fa8e8511c021c5025a.jpg" alt="8e721a0b226cd2d1fa45f7f137315fa"></p>
+<p>要求如下：</p>
+<ul>
+<li>解锁 Bootloader</li>
+<li>已刷入 Apatch 任意版本</li>
+</ul>
+<p>本期的所有资源都会打包放在云盘里：<a href="https://cloud.189.cn/t/zyAbEzyU7NBn">https://cloud.189.cn/t/zyAbEzyU7NBn</a>  （访问码<u>tdn6</u>）</p>
+<p>下面教程开始。</p>
+<hr>
+<h2 id="安装、配置Bata版Apatch"><a href="#安装、配置Bata版Apatch" class="headerlink" title="安装、配置Bata版Apatch"></a>安装、配置Bata版Apatch</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol>
+<li><p>打开云盘链接，下载压缩包并解压，文件目录如下</p>
+<blockquote>
+<ul>
+<li><p>Apatch 最新测试版和内核模块:<br>APatch10884 美化版.apk（来自<a href="http://www.coolapk.com/u/24024215">@酒次不会搞机</a>）<br>cherish_peekaboo_1.4.2.kpm</p>
+</li>
+<li><p>LSPosed模块:<br>  隐藏应用列表_3.2.apk</p>
+</li>
+<li><p>检测应用:<br>Applist Detector_2.4.apk’<br>Holmes_1.0.apk<br>Hunter_5.5.0.apk<br>Momo_4.4.1.apk<br>Native Test_Sad Minotaur_25.apk’<br>Ruru_1.1.1.apk<br>密钥认证_1.6.0（联网版）.apk<br>强度排行榜.txt</p>
+</li>
+<li><p>系统模块:<br>LSPosed-1.9.3 去日志.zip<br>Tricky-Store-3.7.zip<br>Zygisk-Next-1.1.0-330-a1b0e69-release.zip<br>keybox.xml</p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>在文件管理器点击其中的 <em>APatch10884 美化版.apk</em> 进行安装</p>
+</li>
+</ol>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><ol start="3">
+<li><p>进入 Apatch，点击更新，设置好密钥后，点击<strong>嵌入模块</strong>，选择 <em>cherish_peekaboo_1.4.2.kpm</em> ，点击开始修补</p>
+<img src="https://img.picgo.net/2024/08/02/APca3bd436b4c98c95.gif" alt="AP" style="zoom: 50%;" />
+</li>
+<li><p>重启手机</p>
+</li>
+</ol>
+<hr>
+<h2 id="安装、配置模块"><a href="#安装、配置模块" class="headerlink" title="安装、配置模块"></a>安装、配置模块</h2><h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><ol>
+<li><p>按顺序在 Apatch - 底栏 - 系统模块中安装以下模块：</p>
+<ul>
+<li><em>Zygisk-Next-1.1.0-330-a1b0e69-release.zip</em></li>
+<li><em>LSPosed-1.9.3 去日志.zip</em></li>
+<li><em>Tricky-Store-3.7.zip</em></li>
+</ul>
+</li>
+<li><p>重启手机</p>
+</li>
+<li><p>打开通知，点击 LSPosed 的通知进入管理器，点击底栏的设置，关闭状态通知，点击创建快捷方式，关闭 Xposed API 调用保护</p>
+<img src="https://img.picgo.net/2024/08/03/077d9ee925b2ebdfb77946f888bbc3798d3660fa63d0347.jpg" alt="077d9ee925b2ebdfb77946f888bbc37" style="zoom:33%;" />
+</li>
+<li><p>打开文件管理，安装 <em>隐藏应用列表_3.2.apk</em> ，打开隐藏应用列表</p>
+</li>
+<li><p>重启手机</p>
+</li>
+</ol>
+<h3 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h3><ol start="6">
+<li>打开 MT 管理器，将把 <em>keybox.xml</em> 复制到 &#x2F;data&#x2F;adb&#x2F;tricky_store&#x2F; （替换掉原来的）</li>
+<li>打开隐藏应用列表，点击<u>模板管理</u>，点击<u>创建白名单模板</u>，点击第一个<u>编辑列表</u>，随便选择一个无风险的应用，返回，点击第二个<u>编辑列表</u>，选择 <em>Applist Detector、Holmes、Native Test、Ruru</em> 和你需要过检测的应用</li>
+<li>打开一遍 Apatch</li>
+</ol>
+<hr>
+<h2 id="检查效果"><a href="#检查效果" class="headerlink" title="检查效果"></a>检查效果</h2><ol>
+<li>安装<ul>
+<li><em>Applist Detector_2.4.apk’</em></li>
+<li><em>Holmes_1.0.apk</em></li>
+<li><em>Hunter_5.5.0.apk</em></li>
+<li><em>Momo_4.4.1.apk</em></li>
+<li><em>Native Test_Sad Minotaur_25.apk’</em></li>
+<li><em>Ruru_1.1.1.apk</em></li>
+<li><em>密钥认证_1.6.0（联网版）.apk</em> （需要挂梯子）</li>
+</ul>
+</li>
+<li>打开各检测软件，根据没过的提示判断进行操作</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Android刷机</category>
+      </categories>
+      <tags>
+        <tag>Android搞机</tag>
+        <tag>刷机</tag>
+        <tag>技术帖</tag>
+      </tags>
+  </entry>
 </search>

@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Root教程，但无需刷机包和第三方REC（DSU侧载）</title>
-    <url>/Android%E5%88%B7%E6%9C%BA/post3/</url>
+    <url>/post3/</url>
     <content><![CDATA[<p>这是一篇适用于 <strong>无法获取刷机包</strong> 且 <strong>没有第三方REC适配</strong> 的机型的ROOT教程，前提有二：</p>
 <ul>
 <li><p>解锁了Bootloader</p>
@@ -94,7 +94,7 @@
   </entry>
   <entry>
     <title>充电</title>
-    <url>/uncategorized/fadian/</url>
+    <url>/fadian/</url>
     <content><![CDATA[<center>感谢老板，您的支持是我最大的动力！</center>
 
 <center>充电¥50以上，可添加本人QQ，获得30天的免费速回解答问题服务，
@@ -104,7 +104,7 @@
   </entry>
   <entry>
     <title>赠友人、赠故乡、赠雨</title>
-    <url>/%E5%B0%98%E4%B8%96%C2%B7%E7%AC%AC%E4%B8%80%E8%BE%91/post2/</url>
+    <url>/post2/</url>
     <content><![CDATA[<p>夜雨纷纷，打湿大地，同时更打湿了一颗又一颗多愁善感的心。我听见，寂静的天地之中，只有那润物无声的细雨依旧在无止无休地淅淅沥沥。不知远方的故园，是否也正下着这样一场恬静的细雨？</p>
 <p>我仿佛置身于幽深的海底，四周涌动着幽寂的海水与浓郁的黑暗。思绪不禁浮想联翩，延伸向遥远的过往，还有那不知通向何方的曲折未来。猜想，你我人生的故事，究竟将会踏入怎样的篇章。</p>
 <p>也许，一切的答案都在这幽寂的雨夜之中蕴藏。</p>
@@ -137,7 +137,7 @@
   </entry>
   <entry>
     <title>首篇文章！一个简单的介绍</title>
-    <url>/%E7%89%B9%E5%88%AB%E4%BC%81%E5%88%92/post1/</url>
+    <url>/post1/</url>
     <content><![CDATA[<hr>
 <h1 id="啊？这是啥？"><a href="#啊？这是啥？" class="headerlink" title="啊？这是啥？"></a>啊？这是啥？</h1><p>没错，这是<strong>于乐Yule</strong>的个人博客哦！</p>
 <h1 id="哦-这样啊-诶？于乐又是谁呀？"><a href="#哦-这样啊-诶？于乐又是谁呀？" class="headerlink" title="哦~ 这样啊~ 诶？于乐又是谁呀？"></a>哦~ 这样啊~ 诶？于乐又是谁呀？</h1><img src="https://img.picgo.net/2024/07/27/touxiangf714cb57449eb4a6.jpg" alt="touxiang" style="zoom:20%;" />
@@ -166,7 +166,7 @@
   </entry>
   <entry>
     <title>随笔（始于2024年7月30日）</title>
-    <url>/%E7%89%B9%E5%88%AB%E4%BC%81%E5%88%92/%E5%B0%98%E4%B8%96%C2%B7%E7%AC%AC%E4%B8%80%E8%BE%91/post4/</url>
+    <url>/post4/</url>
     <content><![CDATA[<h2 id="2024年7月"><a href="#2024年7月" class="headerlink" title="2024年7月"></a>2024年7月</h2><h3 id="2024年7月30日-13-30，在高铁工地旁"><a href="#2024年7月30日-13-30，在高铁工地旁" class="headerlink" title="2024年7月30日 13:30，在高铁工地旁"></a>2024年7月30日 13:30，在高铁工地旁</h3><p>红色是发展的颜色，它碰上了绿色，便成了黄色。</p>
 <table>
 <thead>
@@ -195,7 +195,7 @@
   </entry>
   <entry>
     <title>过检测v3.0教程（Apatch）</title>
-    <url>/Android%E5%88%B7%E6%9C%BA/post5/</url>
+    <url>/post5/</url>
     <content><![CDATA[<p>本期教程是过检测教程，可以过 Native Test 25 和密钥认证 1.6 联网版的测试，效果如图：</p>
 <p><img src="https://img.picgo.net/2024/08/03/8e721a0b226cd2d1fa45f7f137315fa8e8511c021c5025a.jpg" alt="8e721a0b226cd2d1fa45f7f137315fa"></p>
 <p>要求如下：</p>

@@ -607,7 +607,7 @@
   </entry>
   <entry>
     <title>下载重定向模块开源</title>
-    <url>/cm09i0dqc0000a0ug5d69c8ss/</url>
+    <url>/post9/</url>
     <content><![CDATA[<h2 id="文件结构："><a href="#文件结构：" class="headerlink" title="文件结构："></a>文件结构：</h2><h5 id="下载重定向v1-0-zip"><a href="#下载重定向v1-0-zip" class="headerlink" title="下载重定向v1.0.zip"></a>下载重定向v1.0.zip</h5><p>|– <strong>common</strong><br>|	|– config.conf<br>|	|– post-fs-data.sh<br>|	|– system.prop<br>|	|– log.txt<br>|	|– service.sh<br>|– <strong>META-INF</strong><br>|	|– <strong>com</strong><br>|		|– <strong>google</strong><br>|			|– <strong>android</strong><br>|				|– update-binary<br>|				|– update-script<br>|– <strong>system</strong><br>|– module.prop<br>|– customize.sh<br>|– uninstall.sh</p>
 <hr>
 <h2 id="文件内容："><a href="#文件内容：" class="headerlink" title="文件内容："></a>文件内容：</h2><p>|– <strong>common</strong><br>|	|– config.conf </p>
@@ -643,5 +643,13 @@
 <hr>
 <p>by 于乐Yule</p>
 ]]></content>
+      <categories>
+        <category>Android刷机</category>
+      </categories>
+      <tags>
+        <tag>Android搞机</tag>
+        <tag>刷机</tag>
+        <tag>技术帖</tag>
+      </tags>
   </entry>
 </search>

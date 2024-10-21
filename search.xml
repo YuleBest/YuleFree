@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>下载APP</title>
+    <url>/app/</url>
+    <content><![CDATA[<h1 id="v1-0"><a href="#v1-0" class="headerlink" title="v1.0"></a>v1.0</h1><p>本版本仅使用简单的网页转APP制作，不建议使用！</p>
+<blockquote>
+<p>带我学成归来一定让各位用点好的</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Android</th>
+<th><a href="https://yulebest.github.io/down/YuleFreev1.apk">下载</a></th>
+</tr>
+</thead>
+</table>
+]]></content>
+      <categories>
+        <category>公布</category>
+      </categories>
+      <tags>
+        <tag>发布</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Root教程，但无需刷机包和第三方REC（DSU侧载）</title>
     <url>/post3/</url>
     <content><![CDATA[<p>这是一篇适用于 <strong>无法获取刷机包</strong> 且 <strong>没有第三方REC适配</strong> 的机型的ROOT教程，前提有二：</p>
@@ -90,29 +113,6 @@
         <tag>Android搞机</tag>
         <tag>刷机</tag>
         <tag>技术帖</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>下载APP</title>
-    <url>/app/</url>
-    <content><![CDATA[<h1 id="v1-0"><a href="#v1-0" class="headerlink" title="v1.0"></a>v1.0</h1><p>本版本仅使用简单的网页转APP制作，不建议使用！</p>
-<blockquote>
-<p>带我学成归来一定让各位用点好的</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>Android</th>
-<th><a href="https://yulebest.github.io/down/YuleFreev1.apk">下载</a></th>
-</tr>
-</thead>
-</table>
-]]></content>
-      <categories>
-        <category>公布</category>
-      </categories>
-      <tags>
-        <tag>发布</tag>
       </tags>
   </entry>
   <entry>
@@ -1153,7 +1153,7 @@
 <li>Telegram：<a href="https://t.me/YuleBest">https://t.me/YuleBest</a></li>
 </ul>
 <h2 id="催更"><a href="#催更" class="headerlink" title="催更"></a>催更</h2><ul>
-<li>E-Mail：<a href="mailto:&#121;&#117;&#x6c;&#x65;&#45;&#x62;&#x65;&#x73;&#116;&#64;&#111;&#x75;&#x74;&#108;&#x6f;&#x6f;&#x6b;&#x2e;&#x63;&#x6f;&#x6d;">&#121;&#117;&#x6c;&#x65;&#45;&#x62;&#x65;&#x73;&#116;&#64;&#111;&#x75;&#x74;&#108;&#x6f;&#x6f;&#x6b;&#x2e;&#x63;&#x6f;&#x6d;</a></li>
+<li>E-Mail：<a href="mailto:&#x79;&#x75;&#x6c;&#x65;&#45;&#98;&#101;&#x73;&#x74;&#64;&#x6f;&#x75;&#x74;&#x6c;&#111;&#111;&#107;&#46;&#99;&#111;&#109;">&#x79;&#x75;&#x6c;&#x65;&#45;&#98;&#101;&#x73;&#x74;&#64;&#x6f;&#x75;&#x74;&#x6c;&#111;&#111;&#107;&#46;&#99;&#111;&#109;</a></li>
 <li>QQ：<a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=60YAsZK3jwXC4mMykJIXGRPRrTsK5i8K&authKey=L+XziaWnvt+ZVWDPIEq1dbe5rLxtL70SgQEzGWzxo5A88xHDy0AsD8amoiIBZcJo&noverify=0&group_code=570243407">Yule 的数码交流群</a></li>
 </ul>
 <h1 id="那这个网站会记录什么呢（追问）"><a href="#那这个网站会记录什么呢（追问）" class="headerlink" title="那这个网站会记录什么呢（追问）"></a>那这个网站会记录什么呢（追问）</h1><blockquote>

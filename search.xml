@@ -173,121 +173,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Root教程，但无需刷机包和第三方REC（DSU侧载）</title>
-    <url>/post3/</url>
-    <content><![CDATA[<p>这是一篇适用于 <strong>无法获取刷机包</strong> 且 <strong>没有第三方REC适配</strong> 的机型的ROOT教程，前提有二：</p>
-<ul>
-<li><p>解锁了Bootloader</p>
-</li>
-<li><p>Android版本＞9</p>
-</li>
-</ul>
-<p>下面教程开始~</p>
-<hr>
-<h1 id="备份与检查支持情况"><a href="#备份与检查支持情况" class="headerlink" title="备份与检查支持情况"></a>备份与检查支持情况</h1><h3 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h3><ol>
-<li>虽然本教程的操作不需要清除数据，但还是请备份好你的所有重要资料，避免意外情况发生。</li>
-</ol>
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><ol start="2">
-<li><p>打开<a href="https://www.123pan.com/s/iBeVVv-WZ3V.html">https://www.123pan.com/s/iBeVVv-WZ3V.html</a> 下载安装DSU Sideload和Treble Check；</p>
-</li>
-<li><p>打开Treble Check，检查你的CPU体系架构与Project Treble支持情况。</p>
-<img src="https://img.picgo.net/2024/07/27/dc70a92ab1db72ab8a1313cf52744511f14510d93ac98d5.jpg" alt="dc70a92ab1db72ab8a1313cf5274451" style="zoom: 33%;" />
-
-<img src="https://img.picgo.net/2024/07/27/a4965c67c3f79af31b0b4c887726878a046ce43d6a17016.jpg" alt="a4965c67c3f79af31b0b4c887726878" style="zoom: 50%;" />
-</li>
-<li><p>下载<strong>适合你的</strong><a href="https://developer.android.google.cn/topic/generic-system-image?hl=zh-cn">GSI</a>，比较推荐<a href="https://sourceforge.net/projects/andyyan-gsi/files">https://sourceforge.net/projects/andyyan-gsi/files</a> ，怎么选择适合你的呢？我们看看文件的命名：</p>
-<ul>
-<li><em>a64</em> or <em>arm64</em>：指的就是你的CPU架构；</li>
-<li><em>v</em> or <em>g</em>：即 <em>Vanilla</em> 或 <em>Google</em>，<em>v</em> 表示没有自带谷歌框架，<em>g</em> 表示预置了谷歌框架，这个怎么选取决于你的个人爱好；</li>
-<li><em>S</em> or <em>N</em>：即 <em>SuperSU</em> 或 <em>No SuperSU</em>，<strong>我们需要超级用户权限，所以选 <em>S</em> 的</strong>；</li>
-<li><em>vndklite</em> or <em>-<em>：</em>vndklite</em> 适用于VNDKLite设备或非VNDKLite设备上的可读写系统。<strong>如果设备支持Project Treble，选择带 <em>vndklite</em> 的，如果不支持Project Treble，应选择不带的</strong>。</li>
-</ul>
-<img src="https://img.picgo.net/2024/07/28/cee3b5cfa2752b07a61125b57fcc17fb8ff0309142aa984.jpg" alt="cee3b5cfa2752b07a61125b57fcc17f" style="zoom: 50%;" /></li>
-</ol>
-<hr>
-<p>确认您的设备支持DSU侧载，并下载对应镜像文件后后，您可进行下一步。</p>
-<h1 id="安装并进入系统"><a href="#安装并进入系统" class="headerlink" title="安装并进入系统"></a>安装并进入系统</h1><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol>
-<li><p>打开DSU Sideload，点击<em>设定 - 新建文件夹 - 随便命名 - 允许 - 继续</em> ；</p>
-<p><img src="https://img.picgo.net/2024/07/28/070758e77e2664f3b0b5d8d3f3c0ad2ee054a610aa13972.jpg" alt="070758e77e2664f3b0b5d8d3f3c0ad2"></p>
-</li>
-<li><p>在软件中设定好镜像路径、空间大小（最低5GB）后点击安装，等待进度条跑完，如下图：</p>
-<p><img src="https://img.picgo.net/2024/07/27/a29978e6f0228ba5c33a5244471395ecb10bfa955063c9b.jpg" alt="a29978e6f0228ba5c33a5244471395e"></p>
-</li>
-<li><p>将手机打开USB调试，连接电脑；</p>
-</li>
-<li><p>在电脑上打开<a href="https://mrzzoxo.lanzoue.com/b02plghuh">adb终端</a>，手机上授权调试；</p>
-</li>
-<li><p>终端中执行下面的命令：</p>
- <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">adb shell sh &quot;/storage/emulated/0/Android/data/vegabobo.dsusideloader/files/install&quot;</span><br></pre></td></tr></table></figure>
-<p> 等待终端中返回信息 <code>DSU installation activity has been started!</code> 就安装成功了：</p>
-<p> <img src="https://img.picgo.net/2024/07/28/38a1d04d33579d06185507487e97413bf0af4f7ec389e91.jpg" alt="38a1d04d33579d06185507487e97413"></p>
-<p> 没有电脑的话，你也可以使用Termex、Shizuku等进行安装，可进入DSU Sideload点 <em>查看指令</em> 获取指令。</p>
-</li>
-</ol>
-<h3 id="进入系统"><a href="#进入系统" class="headerlink" title="进入系统"></a>进入系统</h3><ol start="6">
-<li><p>等待几秒钟，点击通知中的 <em>重启</em> 进入到侧载的系统；</p>
-<blockquote>
-<p>如果卡Fastboot，说明你配置有误或者你的手机不支持DSU，直接长按电源键重启后舍弃即可。</p>
-</blockquote>
-<img src="https://img.picgo.net/2024/07/28/1e6d8938c1e5a59456f1974a42f1570e717b5b3c3a14109.jpg" alt="1e6d8938c1e5a59456f1974a42f1570" style="zoom:25%;" />
-</li>
-<li><p>重启完成后，如果进入原系统，就重试；</p>
-<p>如果成功进入侧载系统，就使用数据线连接电脑，电脑打开adb终端；</p>
-</li>
-<li><p>在adb终端<strong>有序地</strong>执行：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">adb shell</span><br><span class="line">su</span><br><span class="line">cd /dev/block/bootdevice/by-name</span><br><span class="line">ls -l</span><br></pre></td></tr></table></figure>
-<p>此时，我们应注意列表中 <em>boot</em> 或 <em>init_boot</em> 镜像的地址，下以 <u>原地址</u> 代称（请忽视图中标号）；</p>
-<blockquote>
-<p>如何选择boot.img或init_boot.img？</p>
-<p>内核版本为…androidx-…（x≥13）的机器，修补&#x2F;刷入&#x2F;备份的镜像分区应为init_boot，其他的为boot，另外，若您使用APatch，则应该使用boot.</p>
-</blockquote>
-<img src="https://img.picgo.net/2024/07/28/e752a652645251a82a6805a0025317317f897f3a023eb9c.jpg" alt="e752a652645251a82a6805a00253173" style="zoom: 67%;" />
-</li>
-<li><p>在电脑上任意位置新建一个文件夹，在adb终端有序执行下面的指令，将镜像拷贝到电脑上：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">dd if=原地址 of=/sdcard/镜像名称.img</span><br><span class="line">adb pull /sdcard/镜像名称.img D:\aaaa</span><br></pre></td></tr></table></figure>
-
-<img src="https://img.picgo.net/2024/07/28/7ce508bf9cc6b0cc604370a5b6db4c8f73e14cfe22c5266.jpg" alt="7ce508bf9cc6b0cc604370a5b6db4c8" style="zoom: 80%;" />
-</li>
-<li><p>重启返回原系统。</p>
-</li>
-</ol>
-<hr>
-<p>目前，我们已经成功获取到了手机的 boot&#x2F;init_boot 镜像，可以使用<a href="https://www.coolapk.com/feed/57221213?shareKey=ODgyYzI3Y2VmZWExNjY4YTg3ZmM~&shareUid=18214705&shareFrom=com.coolapk.market_14.2.3">我的教程</a>中的第二步开始进行修补，获取Root权限啦~本篇教程到此结束！</p>
-<p align=right>写于2024年7月8日·酷安</p>
-]]></content>
-      <categories>
-        <category>Android刷机</category>
-      </categories>
-      <tags>
-        <tag>Android搞机</tag>
-        <tag>刷机</tag>
-        <tag>技术帖</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>下载APP</title>
-    <url>/app/</url>
-    <content><![CDATA[<h1 id="v1-0"><a href="#v1-0" class="headerlink" title="v1.0"></a>v1.0</h1><p>本版本仅使用简单的网页转APP制作，不建议使用！</p>
-<blockquote>
-<p>带我学成归来一定让各位用点好的</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>Android</th>
-<th><a href="https://yulebest.github.io/down/YuleFreev1.apk">下载</a></th>
-</tr>
-</thead>
-</table>
-]]></content>
-      <categories>
-        <category>公布</category>
-      </categories>
-      <tags>
-        <tag>发布</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Shell工具箱介绍</title>
     <url>/post15/</url>
     <content><![CDATA[<div align="center">
@@ -409,6 +294,131 @@
         <tag>Shell</tag>
         <tag>脚本</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>下载APP</title>
+    <url>/app/</url>
+    <content><![CDATA[<h1 id="v1-0"><a href="#v1-0" class="headerlink" title="v1.0"></a>v1.0</h1><p>本版本仅使用简单的网页转APP制作，不建议使用！</p>
+<blockquote>
+<p>带我学成归来一定让各位用点好的</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Android</th>
+<th><a href="https://yulebest.github.io/down/YuleFreev1.apk">下载</a></th>
+</tr>
+</thead>
+</table>
+]]></content>
+      <categories>
+        <category>公布</category>
+      </categories>
+      <tags>
+        <tag>发布</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Root教程，但无需刷机包和第三方REC（DSU侧载）</title>
+    <url>/post3/</url>
+    <content><![CDATA[<p>这是一篇适用于 <strong>无法获取刷机包</strong> 且 <strong>没有第三方REC适配</strong> 的机型的ROOT教程，前提有二：</p>
+<ul>
+<li><p>解锁了Bootloader</p>
+</li>
+<li><p>Android版本＞9</p>
+</li>
+</ul>
+<p>下面教程开始~</p>
+<hr>
+<h1 id="备份与检查支持情况"><a href="#备份与检查支持情况" class="headerlink" title="备份与检查支持情况"></a>备份与检查支持情况</h1><h3 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h3><ol>
+<li>虽然本教程的操作不需要清除数据，但还是请备份好你的所有重要资料，避免意外情况发生。</li>
+</ol>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><ol start="2">
+<li><p>打开<a href="https://www.123pan.com/s/iBeVVv-WZ3V.html">https://www.123pan.com/s/iBeVVv-WZ3V.html</a> 下载安装DSU Sideload和Treble Check；</p>
+</li>
+<li><p>打开Treble Check，检查你的CPU体系架构与Project Treble支持情况。</p>
+<img src="https://img.picgo.net/2024/07/27/dc70a92ab1db72ab8a1313cf52744511f14510d93ac98d5.jpg" alt="dc70a92ab1db72ab8a1313cf5274451" style="zoom: 33%;" />
+
+<img src="https://img.picgo.net/2024/07/27/a4965c67c3f79af31b0b4c887726878a046ce43d6a17016.jpg" alt="a4965c67c3f79af31b0b4c887726878" style="zoom: 50%;" />
+</li>
+<li><p>下载<strong>适合你的</strong><a href="https://developer.android.google.cn/topic/generic-system-image?hl=zh-cn">GSI</a>，比较推荐<a href="https://sourceforge.net/projects/andyyan-gsi/files">https://sourceforge.net/projects/andyyan-gsi/files</a> ，怎么选择适合你的呢？我们看看文件的命名：</p>
+<ul>
+<li><em>a64</em> or <em>arm64</em>：指的就是你的CPU架构；</li>
+<li><em>v</em> or <em>g</em>：即 <em>Vanilla</em> 或 <em>Google</em>，<em>v</em> 表示没有自带谷歌框架，<em>g</em> 表示预置了谷歌框架，这个怎么选取决于你的个人爱好；</li>
+<li><em>S</em> or <em>N</em>：即 <em>SuperSU</em> 或 <em>No SuperSU</em>，<strong>我们需要超级用户权限，所以选 <em>S</em> 的</strong>；</li>
+<li><em>vndklite</em> or <em>-<em>：</em>vndklite</em> 适用于VNDKLite设备或非VNDKLite设备上的可读写系统。<strong>如果设备支持Project Treble，选择带 <em>vndklite</em> 的，如果不支持Project Treble，应选择不带的</strong>。</li>
+</ul>
+<img src="https://img.picgo.net/2024/07/28/cee3b5cfa2752b07a61125b57fcc17fb8ff0309142aa984.jpg" alt="cee3b5cfa2752b07a61125b57fcc17f" style="zoom: 50%;" /></li>
+</ol>
+<hr>
+<p>确认您的设备支持DSU侧载，并下载对应镜像文件后后，您可进行下一步。</p>
+<h1 id="安装并进入系统"><a href="#安装并进入系统" class="headerlink" title="安装并进入系统"></a>安装并进入系统</h1><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol>
+<li><p>打开DSU Sideload，点击<em>设定 - 新建文件夹 - 随便命名 - 允许 - 继续</em> ；</p>
+<p><img src="https://img.picgo.net/2024/07/28/070758e77e2664f3b0b5d8d3f3c0ad2ee054a610aa13972.jpg" alt="070758e77e2664f3b0b5d8d3f3c0ad2"></p>
+</li>
+<li><p>在软件中设定好镜像路径、空间大小（最低5GB）后点击安装，等待进度条跑完，如下图：</p>
+<p><img src="https://img.picgo.net/2024/07/27/a29978e6f0228ba5c33a5244471395ecb10bfa955063c9b.jpg" alt="a29978e6f0228ba5c33a5244471395e"></p>
+</li>
+<li><p>将手机打开USB调试，连接电脑；</p>
+</li>
+<li><p>在电脑上打开<a href="https://mrzzoxo.lanzoue.com/b02plghuh">adb终端</a>，手机上授权调试；</p>
+</li>
+<li><p>终端中执行下面的命令：</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">adb shell sh &quot;/storage/emulated/0/Android/data/vegabobo.dsusideloader/files/install&quot;</span><br></pre></td></tr></table></figure>
+<p> 等待终端中返回信息 <code>DSU installation activity has been started!</code> 就安装成功了：</p>
+<p> <img src="https://img.picgo.net/2024/07/28/38a1d04d33579d06185507487e97413bf0af4f7ec389e91.jpg" alt="38a1d04d33579d06185507487e97413"></p>
+<p> 没有电脑的话，你也可以使用Termex、Shizuku等进行安装，可进入DSU Sideload点 <em>查看指令</em> 获取指令。</p>
+</li>
+</ol>
+<h3 id="进入系统"><a href="#进入系统" class="headerlink" title="进入系统"></a>进入系统</h3><ol start="6">
+<li><p>等待几秒钟，点击通知中的 <em>重启</em> 进入到侧载的系统；</p>
+<blockquote>
+<p>如果卡Fastboot，说明你配置有误或者你的手机不支持DSU，直接长按电源键重启后舍弃即可。</p>
+</blockquote>
+<img src="https://img.picgo.net/2024/07/28/1e6d8938c1e5a59456f1974a42f1570e717b5b3c3a14109.jpg" alt="1e6d8938c1e5a59456f1974a42f1570" style="zoom:25%;" />
+</li>
+<li><p>重启完成后，如果进入原系统，就重试；</p>
+<p>如果成功进入侧载系统，就使用数据线连接电脑，电脑打开adb终端；</p>
+</li>
+<li><p>在adb终端<strong>有序地</strong>执行：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">adb shell</span><br><span class="line">su</span><br><span class="line">cd /dev/block/bootdevice/by-name</span><br><span class="line">ls -l</span><br></pre></td></tr></table></figure>
+<p>此时，我们应注意列表中 <em>boot</em> 或 <em>init_boot</em> 镜像的地址，下以 <u>原地址</u> 代称（请忽视图中标号）；</p>
+<blockquote>
+<p>如何选择boot.img或init_boot.img？</p>
+<p>内核版本为…androidx-…（x≥13）的机器，修补&#x2F;刷入&#x2F;备份的镜像分区应为init_boot，其他的为boot，另外，若您使用APatch，则应该使用boot.</p>
+</blockquote>
+<img src="https://img.picgo.net/2024/07/28/e752a652645251a82a6805a0025317317f897f3a023eb9c.jpg" alt="e752a652645251a82a6805a00253173" style="zoom: 67%;" />
+</li>
+<li><p>在电脑上任意位置新建一个文件夹，在adb终端有序执行下面的指令，将镜像拷贝到电脑上：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">dd if=原地址 of=/sdcard/镜像名称.img</span><br><span class="line">adb pull /sdcard/镜像名称.img D:\aaaa</span><br></pre></td></tr></table></figure>
+
+<img src="https://img.picgo.net/2024/07/28/7ce508bf9cc6b0cc604370a5b6db4c8f73e14cfe22c5266.jpg" alt="7ce508bf9cc6b0cc604370a5b6db4c8" style="zoom: 80%;" />
+</li>
+<li><p>重启返回原系统。</p>
+</li>
+</ol>
+<hr>
+<p>目前，我们已经成功获取到了手机的 boot&#x2F;init_boot 镜像，可以使用<a href="https://www.coolapk.com/feed/57221213?shareKey=ODgyYzI3Y2VmZWExNjY4YTg3ZmM~&shareUid=18214705&shareFrom=com.coolapk.market_14.2.3">我的教程</a>中的第二步开始进行修补，获取Root权限啦~本篇教程到此结束！</p>
+<p align=right>写于2024年7月8日·酷安</p>
+]]></content>
+      <categories>
+        <category>Android刷机</category>
+      </categories>
+      <tags>
+        <tag>Android搞机</tag>
+        <tag>刷机</tag>
+        <tag>技术帖</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>充电</title>
+    <url>/fadian/</url>
+    <content><![CDATA[<center>感谢老板，您的支持是我最大的动力！</center>
+
+<center>充电¥50以上，可添加本人QQ，获得30天的免费速回解答问题服务，
+    只要我知道的都可以问哦~</center>
+
+<img src="https://img.picgo.net/2024/07/27/cc66b9e499afbeca503f88d0fcc43f265af2b6287f2fd0d8.jpg" alt="收款码" style="zoom:20%;" />]]></content>
   </entry>
   <entry>
     <title>749局，再次焊上了中国科幻片的大门</title>
@@ -679,16 +689,6 @@
       </tags>
   </entry>
   <entry>
-    <title>充电</title>
-    <url>/fadian/</url>
-    <content><![CDATA[<center>感谢老板，您的支持是我最大的动力！</center>
-
-<center>充电¥50以上，可添加本人QQ，获得30天的免费速回解答问题服务，
-    只要我知道的都可以问哦~</center>
-
-<img src="https://img.picgo.net/2024/07/27/cc66b9e499afbeca503f88d0fcc43f265af2b6287f2fd0d8.jpg" alt="收款码" style="zoom:20%;" />]]></content>
-  </entry>
-  <entry>
     <title>下载重定向模块开源</title>
     <url>/post9/</url>
     <content><![CDATA[<h2 id="文件结构："><a href="#文件结构：" class="headerlink" title="文件结构："></a>文件结构：</h2><h5 id="下载重定向v1-0-zip"><a href="#下载重定向v1-0-zip" class="headerlink" title="下载重定向v1.0.zip"></a>下载重定向v1.0.zip</h5><p>|– <strong>common</strong><br>|	|– config.conf<br>|	|– post-fs-data.sh<br>|	|– system.prop<br>|	|– log.txt<br>|	|– service.sh<br>|– <strong>META-INF</strong><br>|	|– <strong>com</strong><br>|		|– <strong>google</strong><br>|			|– <strong>android</strong><br>|				|– update-binary<br>|				|– update-script<br>|– <strong>system</strong><br>|– module.prop<br>|– customize.sh<br>|– uninstall.sh</p>
@@ -733,6 +733,100 @@
         <tag>Android搞机</tag>
         <tag>刷机</tag>
         <tag>技术帖</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>思修·1-1 科学认识人的本质</title>
+    <url>/post8/</url>
+    <content><![CDATA[<h1 id="第一章-把握人生的方向和道路"><a href="#第一章-把握人生的方向和道路" class="headerlink" title="第一章 把握人生的方向和道路"></a>第一章 把握人生的方向和道路</h1><h1 id="科学认识人的本质"><a href="#科学认识人的本质" class="headerlink" title="科学认识人的本质"></a>科学认识人的本质</h1><p><strong>2考点，2例题</strong></p>
+<h2 id="考核要求"><a href="#考核要求" class="headerlink" title="考核要求"></a>考核要求</h2><h3 id="识记"><a href="#识记" class="headerlink" title="识记"></a>识记</h3><ol>
+<li>马克思主义对于人的本质问题的科学解答：</li>
+</ol>
+<blockquote>
+<p>人的本质是一切社会关系的总和，社会属性是人的本质属性和根本属性。</p>
+</blockquote>
+<ol start="2">
+<li>人的自然属性和社会属性的关系</li>
+</ol>
+<h3 id="领会"><a href="#领会" class="headerlink" title="领会"></a>领会</h3><ol>
+<li><p><del>中西思想史上对于人性问题的不同认识及其历史局限</del></p>
+</li>
+<li><p>社会属性是人的根本属性</p>
+</li>
+<li><p>人的本质是一切社会关系的总和</p>
+</li>
+<li><p>人的本质是现实的、具体的、历史的、发展的</p>
+</li>
+<li><p>“人性自私论”的认识误区</p>
+</li>
+</ol>
+<h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><ol>
+<li><p><em>马克思主义产生以前</em>中外思想史上关于人的说法（略）</p>
+</li>
+<li><p><em>马克思主义</em>关于人的本质的理论（科学的人的本质）<em>（P56）</em>★★</p>
+</li>
+<li><p>走出“人性自私论”的认识误区<em>（P59）</em>★</p>
+</li>
+</ol>
+<h2 id="二、马克思主义关于人的本质的理论（科学的人的本质）★★"><a href="#二、马克思主义关于人的本质的理论（科学的人的本质）★★" class="headerlink" title="二、马克思主义关于人的本质的理论（科学的人的本质）★★"></a>二、马克思主义关于人的本质的理论（科学的人的本质）★★</h2><h3 id="考点7：人的本质★★"><a href="#考点7：人的本质★★" class="headerlink" title="考点7：人的本质★★"></a>考点7：人的本质★★</h3><ol>
+<li><p>马克思主义认为，<strong>人的本质</strong>不是单个人所固有的抽象物，在其现实性上，它<strong>是一切社会关系的总和</strong>。（P56）</p>
+</li>
+<li><p>人的属性包括：</p>
+</li>
+</ol>
+<p>&nbsp;</p>
+<ol>
+<li><p><strong>自然属性</strong>：饿了要吃饭，渴了要喝水。（P57）</p>
+</li>
+<li><p><strong>社会属性</strong>：家庭关系、邻里关系、工作关系、经济关系、政治关系、法律关系、道德关系等这些社会关系的总和决定了人的本质。<strong>社会属性是人的本质属性和根本属性。</strong>（P57）</p>
+</li>
+</ol>
+<p><strong>例题2：「单选」</strong></p>
+<p>每个人从出生起，就从属于一定的社会群体，同周围的人发生着各种各样的社会关系，如家庭关系、邻里关系、工作关系、经济关系、政治关系、法律关系、道德关系等。这些关系的总和决定了（ C ）</p>
+<table>
+<thead>
+<tr>
+<th>A.   人的观念</th>
+<th>B.   人的价值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C.   人的本质</td>
+<td>D.  人的境遇</td>
+</tr>
+</tbody></table>
+<h2 id="三、走出“人性自私论”的误区★"><a href="#三、走出“人性自私论”的误区★" class="headerlink" title="三、走出“人性自私论”的误区★"></a>三、走出“人性自私论”的误区★</h2><h3 id="考点8：走出“人性自私论”的误区★"><a href="#考点8：走出“人性自私论”的误区★" class="headerlink" title="考点8：走出“人性自私论”的误区★"></a>考点8：走出“人性自私论”的误区★</h3><ol>
+<li><strong>把人的自然属性等同于人的根本属性 （自然属性≠根本属性）</strong></li>
+</ol>
+<blockquote>
+<p>误区：社会属性才是人的根本属性，自然属性不是人的根本属性。<em>（P59）</em></p>
+</blockquote>
+<ol start="2">
+<li><strong>把历史的、具体的人的自私等同于永恒的、抽象的人性自私 （某人的自私≠所有人都自私）</strong></li>
+</ol>
+<blockquote>
+<p>误区：不能因为几个坏人就给所有人扣帽子，这是以偏概全。<em>（P59）</em></p>
+</blockquote>
+<ol start="3">
+<li><strong>把个人的正当利益等同于自私自利 （个人的正当利益≠自私自利）</strong></li>
+</ol>
+<blockquote>
+<p>误区：自私自利和正当利益是两码事，不能等同。<em>（P60）</em></p>
+</blockquote>
+<ol start="4">
+<li><strong>以“合理”二字掩盖利己主义的实质 （“合理”≠利己主义的借口）</strong></li>
+</ol>
+<blockquote>
+<p>误区：不要用“合理”给利己主义当挡箭牌。<em>（P60）</em></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+        <category>思想道德修养与法律基础</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+        <tag>思想道德修养与法律基础</tag>
       </tags>
   </entry>
   <entry>
@@ -865,191 +959,70 @@
       </tags>
   </entry>
   <entry>
-    <title>思修·1-1 科学认识人的本质</title>
-    <url>/post8/</url>
-    <content><![CDATA[<h1 id="第一章-把握人生的方向和道路"><a href="#第一章-把握人生的方向和道路" class="headerlink" title="第一章 把握人生的方向和道路"></a>第一章 把握人生的方向和道路</h1><h1 id="科学认识人的本质"><a href="#科学认识人的本质" class="headerlink" title="科学认识人的本质"></a>科学认识人的本质</h1><p><strong>2考点，2例题</strong></p>
-<h2 id="考核要求"><a href="#考核要求" class="headerlink" title="考核要求"></a>考核要求</h2><h3 id="识记"><a href="#识记" class="headerlink" title="识记"></a>识记</h3><ol>
-<li>马克思主义对于人的本质问题的科学解答：</li>
-</ol>
-<blockquote>
-<p>人的本质是一切社会关系的总和，社会属性是人的本质属性和根本属性。</p>
-</blockquote>
-<ol start="2">
-<li>人的自然属性和社会属性的关系</li>
-</ol>
-<h3 id="领会"><a href="#领会" class="headerlink" title="领会"></a>领会</h3><ol>
-<li><p><del>中西思想史上对于人性问题的不同认识及其历史局限</del></p>
-</li>
-<li><p>社会属性是人的根本属性</p>
-</li>
-<li><p>人的本质是一切社会关系的总和</p>
-</li>
-<li><p>人的本质是现实的、具体的、历史的、发展的</p>
-</li>
-<li><p>“人性自私论”的认识误区</p>
-</li>
-</ol>
-<h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><ol>
-<li><p><em>马克思主义产生以前</em>中外思想史上关于人的说法（略）</p>
-</li>
-<li><p><em>马克思主义</em>关于人的本质的理论（科学的人的本质）<em>（P56）</em>★★</p>
-</li>
-<li><p>走出“人性自私论”的认识误区<em>（P59）</em>★</p>
-</li>
-</ol>
-<h2 id="二、马克思主义关于人的本质的理论（科学的人的本质）★★"><a href="#二、马克思主义关于人的本质的理论（科学的人的本质）★★" class="headerlink" title="二、马克思主义关于人的本质的理论（科学的人的本质）★★"></a>二、马克思主义关于人的本质的理论（科学的人的本质）★★</h2><h3 id="考点7：人的本质★★"><a href="#考点7：人的本质★★" class="headerlink" title="考点7：人的本质★★"></a>考点7：人的本质★★</h3><ol>
-<li><p>马克思主义认为，<strong>人的本质</strong>不是单个人所固有的抽象物，在其现实性上，它<strong>是一切社会关系的总和</strong>。（P56）</p>
-</li>
-<li><p>人的属性包括：</p>
-</li>
-</ol>
-<p>&nbsp;</p>
-<ol>
-<li><p><strong>自然属性</strong>：饿了要吃饭，渴了要喝水。（P57）</p>
-</li>
-<li><p><strong>社会属性</strong>：家庭关系、邻里关系、工作关系、经济关系、政治关系、法律关系、道德关系等这些社会关系的总和决定了人的本质。<strong>社会属性是人的本质属性和根本属性。</strong>（P57）</p>
-</li>
-</ol>
-<p><strong>例题2：「单选」</strong></p>
-<p>每个人从出生起，就从属于一定的社会群体，同周围的人发生着各种各样的社会关系，如家庭关系、邻里关系、工作关系、经济关系、政治关系、法律关系、道德关系等。这些关系的总和决定了（ C ）</p>
-<table>
-<thead>
-<tr>
-<th>A.   人的观念</th>
-<th>B.   人的价值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>C.   人的本质</td>
-<td>D.  人的境遇</td>
-</tr>
-</tbody></table>
-<h2 id="三、走出“人性自私论”的误区★"><a href="#三、走出“人性自私论”的误区★" class="headerlink" title="三、走出“人性自私论”的误区★"></a>三、走出“人性自私论”的误区★</h2><h3 id="考点8：走出“人性自私论”的误区★"><a href="#考点8：走出“人性自私论”的误区★" class="headerlink" title="考点8：走出“人性自私论”的误区★"></a>考点8：走出“人性自私论”的误区★</h3><ol>
-<li><strong>把人的自然属性等同于人的根本属性 （自然属性≠根本属性）</strong></li>
-</ol>
-<blockquote>
-<p>误区：社会属性才是人的根本属性，自然属性不是人的根本属性。<em>（P59）</em></p>
-</blockquote>
-<ol start="2">
-<li><strong>把历史的、具体的人的自私等同于永恒的、抽象的人性自私 （某人的自私≠所有人都自私）</strong></li>
-</ol>
-<blockquote>
-<p>误区：不能因为几个坏人就给所有人扣帽子，这是以偏概全。<em>（P59）</em></p>
-</blockquote>
-<ol start="3">
-<li><strong>把个人的正当利益等同于自私自利 （个人的正当利益≠自私自利）</strong></li>
-</ol>
-<blockquote>
-<p>误区：自私自利和正当利益是两码事，不能等同。<em>（P60）</em></p>
-</blockquote>
-<ol start="4">
-<li><strong>以“合理”二字掩盖利己主义的实质 （“合理”≠利己主义的借口）</strong></li>
-</ol>
-<blockquote>
-<p>误区：不要用“合理”给利己主义当挡箭牌。<em>（P60）</em></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-        <category>思想道德修养与法律基础</category>
-      </categories>
-      <tags>
-        <tag>学习笔记</tag>
-        <tag>思想道德修养与法律基础</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>国务院食安办通报对媒体反映的“罐车运输食用植物油乱象问题”调查处置情况（转载测试）</title>
-    <url>/post10/</url>
+    <title>普通也可以自信，杨笠也一样【熙评】</title>
+    <url>/pinglun001/</url>
     <content><![CDATA[<blockquote>
-<p>人民日报客户端 2024-08-25 20:05</p>
+<p>作者：章序熙 I 2024年10月27日 23:40</p>
 </blockquote>
-<p>针对媒体反映的“罐车运输食用植物油乱象问题”，国务院食安办、国家发展改革委、公安部、交通运输部、国家卫生健康委、市场监管总局、国家粮食和储备局组成联合调查组，分赴河北、天津、内蒙古、陕西四地开展联合调查，追查涉事产品流向，核查涉事责任人员及责任单位的违法行为，分析问题原因，理清各方责任。同时，在全国范围内组织开展全链条清理排查，从各地清查情况看，截至目前，未发现其他同类问题。</p>
-<p>联合调查组经调查核实后认定，罐车混运食用植物油事件性质极其恶劣，违反基本常识，践踏道德底线和法律红线，是典型的行为违法犯罪，必须严厉打击。</p>
-<h1 id="一、违法事实"><a href="#一、违法事实" class="headerlink" title="一、违法事实"></a>一、违法事实</h1><h3 id="涉事罐车冀E5476W相关违法违规事实"><a href="#涉事罐车冀E5476W相关违法违规事实" class="headerlink" title="涉事罐车冀E5476W相关违法违规事实"></a>涉事罐车冀E5476W相关违法违规事实</h3><p><strong>5月22日11时</strong>，司机要某某驾驶涉事罐车从宁夏煤业有限责任公司煤制油分公司装载煤制油（煤基费托合成粗液体蜡2#），</p>
-<p><strong>5月23日16时</strong>到达河北石家庄晋州市华力油脂有限公司，卸载全部货品。</p>
-<p><strong>5月23日21时</strong>到达河北省衡水市武强县休息，</p>
-<p><strong>5月24日16时</strong>从中储粮油脂（天津）有限公司装载食用植物油，</p>
-<p><strong>5月24日21时</strong>到达河北省沧州市献县休息，</p>
-<p><strong>5月25日21时</strong>到达山西省临汾市洪洞县休息，</p>
-<p><strong>5月26日17时</strong>到达陕西省汉中市勉县休息，</p>
-<p><strong>5月27日7时</strong>到达陕西勉县新力油脂有限公司，卸载油品35.91吨。</p>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240825233553249.png" alt="image-20240825233553249"></p>
-<p>经查，</p>
-<p>7月3日，涉事车辆（登记在河北邢台金谷仓物流有限公司名下）的实际车主高某群为掩盖问题，指使其三哥高某修伙同河北邢台金谷仓物流有限公司负责人孙某某，找到河北石家庄民通汽车服务有限公司负责人胡某某开具5月23日罐车清洗虚假票据（500元）。</p>
-<h3 id="涉事罐车冀E6365Z相关违法违规事实"><a href="#涉事罐车冀E6365Z相关违法违规事实" class="headerlink" title="涉事罐车冀E6365Z相关违法违规事实"></a>涉事罐车冀E6365Z相关违法违规事实</h3><p>5月16日17时，司机张某某驾驶涉事罐车从宁夏煤业有限责任公司煤制油分公司装载煤制油（煤基费托合成粗液体蜡1#），</p>
-<p>5月18日16时到达河北省秦皇岛衡杉科技有限公司，卸载全部货品。</p>
-<p>5月19日19时到达河北省秦皇岛市海港区等待配货，</p>
-<p>5月20日19时到达河北三河汇福粮油集团精炼植物油有限公司等待装车，</p>
-<p>5月21日11时从河北三河汇福粮油集团精炼植物油有限公司装载食用植物油，</p>
-<p>5月22日12时到达内蒙古鄂尔多斯市东胜区百胜隆粮油有限公司，卸载油品31.86吨。</p>
-<p>司机张某某称5月20日已做清罐处理，经公安机关现场核查，当时涉事罐车轨迹所在地周边没有符合专业要求的洗车店和移动清洗车。</p>
-<h1 id="二、流向追查"><a href="#二、流向追查" class="headerlink" title="二、流向追查"></a>二、流向追查</h1><h3 id="涉事罐车冀E5476W所运35-91吨油品"><a href="#涉事罐车冀E5476W所运35-91吨油品" class="headerlink" title="涉事罐车冀E5476W所运35.91吨油品"></a>涉事罐车冀E5476W所运35.91吨油品</h3><ul>
-<li><p>用于饲料加工11吨，</p>
-</li>
-<li><p>其余24.91吨未售出，已全部封存。</p>
-</li>
-</ul>
-<h3 id="涉事罐车冀E6365Z所运31-86吨油品"><a href="#涉事罐车冀E6365Z所运31-86吨油品" class="headerlink" title="涉事罐车冀E6365Z所运31.86吨油品"></a>涉事罐车冀E6365Z所运31.86吨油品</h3><ul>
-<li><p>已封存2.48吨；</p>
-</li>
-<li><p>剩余29.38吨被分装销售，</p>
-<ul>
-<li>其中5月22日分装8.5升规格580桶4.5吨、17升规格180桶2.79吨，</li>
-<li>5月28日分装8.5升规格280桶2.17吨、17升规格310桶4.81吨，</li>
-<li>6月10日分装8.5升规格490桶3.8吨、17升规格729桶11.31吨，</li>
-<li>总计8.5升规格1350桶10.47吨、17升规格1219桶18.91吨。</li>
-<li>已销售但未被使用的7.78吨已全部追回并封存，已被使用的21.6吨流向内蒙古鄂尔多斯市，未流向其他地区。</li>
-</ul>
-</li>
-</ul>
-<h1 id="三、责任认定"><a href="#三、责任认定" class="headerlink" title="三、责任认定"></a>三、责任认定</h1><blockquote>
-<p>我国《食品安全法》《粮食流通管理条例》等法律法规，以及《食品生产通用卫生规范》《食品经营过程卫生规范》《食用植物油及其制品生产卫生规范》等强制性国家标准有明确规定，要求“贮存、运输和装卸食品的容器、工器具和设备应当安全、无害，保持清洁；不得将食品与有毒、有害、或有异味的物品一同贮存运输”“运输食品应使用专用运输工具；食品运输工具不得运输有毒有害物质，防止食品污染”“运输食用植物油及其制品的车、船等运输工具、容器应符合国家相关法规标准的要求”。但一些企业和个人违反基本常识，践踏道德底线和法律红线，性质极其恶劣，是典型的行为违法犯罪。</p>
-</blockquote>
-<ul>
-<li>联合调查组认定，运输企业负有管理责任，依据《食品安全法》《道路运输条例》给予行政处罚</li>
-<li>车主负有主要责任，涉嫌犯罪的依法移送公安机关</li>
-<li>司机负有直接责任，应以行为犯论处，依据《刑法》有关条款追究刑事责任</li>
-<li>购买企业作为委托运输方负有相应责任，应依据《食品安全法》给予行政处罚</li>
-<li>生产企业通过销售合同约定将运输和交付环节责任全部由买方承担，违反《食品安全法》有关食品生产经营者应当保证食品安全、对社会和公众负责的规定，应给予行政处罚</li>
-</ul>
-<h3 id="涉事地区人民政府责成相关行政部门，对："><a href="#涉事地区人民政府责成相关行政部门，对：" class="headerlink" title="涉事地区人民政府责成相关行政部门，对："></a>涉事地区人民政府责成相关行政部门，对：</h3><ul>
-<li>河北邢台卓然联合运输车队法定代表人倪某某</li>
-<li>河北邢台皓源物流有限公司法定代表人澹台某某</li>
-<li>河北邢台金谷仓物流有限公司法定代表人陈某某</li>
-<li>罐车冀E5476W实际车主高某群</li>
-<li>罐车冀E6365Z实际车主刘某某</li>
-</ul>
-<p>等5人依法查处，对构成犯罪的移送公安机关依法追究刑事责任。</p>
-<h3 id="公安机关对："><a href="#公安机关对：" class="headerlink" title="公安机关对："></a>公安机关对：</h3><ul>
-<li>涉事司机要某某、张某某</li>
-</ul>
-<p>依法刑事立案并采取刑事强制措施。</p>
-<p>对：</p>
-<ul>
-<li>参与开具罐车清洗虚假票据的河北邢台金谷仓物流有限公司负责人孙某某、</li>
-<li>河北石家庄民通汽车服务有限公司负责人胡某某、</li>
-<li>罐车冀E5476W实际车主的三哥高某修</li>
-</ul>
-<p>等3人，依法处以10日拘留的行政处罚。</p>
-<h3 id="依法对涉事7家企业给予行政处罚："><a href="#依法对涉事7家企业给予行政处罚：" class="headerlink" title="依法对涉事7家企业给予行政处罚："></a>依法对涉事7家企业给予行政处罚：</h3><ul>
-<li>对河北邢台卓然联合运输车队，依法收缴道路运输经营许可，处罚没款合计约168万元</li>
-<li>对河北邢台皓源物流有限公司，依法收缴道路运输经营许可，处罚没款合计约151万元</li>
-<li>对河北邢台金谷仓物流有限公司，依法处罚没款合计约192万元</li>
-<li>对陕西勉县新力油脂有限公司，依法给予警告，没收违法所得约30万元</li>
-<li>对内蒙古鄂尔多斯市东胜区百胜隆粮油有限公司，依法给予警告，没收违法所得约26万元</li>
-<li>对中储粮油脂（天津）有限公司依法处罚款约286万元</li>
-<li>对河北三河汇福粮油集团精炼植物油有限公司依法处罚款约251万元</li>
-</ul>
-<p>涉事地区河北邢台是问题罐车所在地，对罐车运输失管失察，市政府分管负责同志负有领导责任，相关监管部门人员负有责任，由地方纪检监察机关依法依规追责问责。</p>
-<p>对调查过程中地方发现的公职人员可能存在的失职渎职不作为问题，由当地纪检监察机关介入调查。</p>
-<p>下一步国务院食安办按照全面清查、举一反三、打建结合、标本兼治的原则，会同国家粮食和储备局、交通运输部、市场监管总局等部门，持续深入开展罐车运输食用植物油问题专项整治，严格落实食用植物油运输专车专用，以“零容忍”的态度，严处重罚各类违法违规行为，加强全链条管理，健全完善监管协调机制，确保食用植物油安全。欢迎来自媒体记者、人民群众等各种方式的社会监督。</p>
+<h2 id="杨笠与“冒犯的艺术”"><a href="#杨笠与“冒犯的艺术”" class="headerlink" title="杨笠与“冒犯的艺术”"></a>杨笠与“冒犯的艺术”</h2><p>有两句话<br>一句是杨笠说：<br>“男生为什么明明看起来这么普通，但是他却可以那么自信。”<br>另一句作者不明，<br>“脱口秀是冒犯的艺术。”</p>
+<p>其实我英语很差，但是我确实喜欢考研英语，如果没有考研英语，我英语会更差。<br>如果在考研英语阅读中，出现这句话</p>
+<center> Stand-up comedy is the art of offense. </center>
+
+<p>请在读原文时，把句子主干划出来，“ <em>Stand-up comedy is art</em> ”。<br>However，选项中往往会出现一个干扰项是“ <em>Stand-up comedy is offense</em> ”。</p>
+<p>我当年因此踩了很多坑。<br>我不知道我表达清楚没有。</p>
+<p><strong>冒犯，可能会是脱口秀创作的一个切入角度，但既不是内核，更不是全部。</strong></p>
+<p>换句话说，不冒犯 ≠ 创作不出优质的脱口秀作品。</p>
+<p>案例大把——</p>
+<p>远有庞博“家乡的机场”，近有付航“做自己人生的主角”，还有因为刘汉臣而喜欢上的阎鹤翔的“人生的处境”。</p>
+<p><img src="https://maxpcimg.cc/i/2024/10/28/671f14eb16fb7.webp"></p>
+<hr>
+<h2 id="冒犯怎么才能称之为艺术"><a href="#冒犯怎么才能称之为艺术" class="headerlink" title="冒犯怎么才能称之为艺术"></a>冒犯怎么才能称之为艺术</h2><p>脱口秀作为一种喜剧形式，目的是引发观众快乐，核心是幽默。<br>冒犯如何与幽默关联起来，在我看来可以有三条路径：</p>
+<p><strong>一是演员通过“冒犯”自己来取悦观众</strong>，这种自我冒犯是一种为了达到表演效果的主动降低姿态，典型案例是十几年前穿着苏格兰风格的衣服、梳着油头、言语有些阴柔的小沈阳。</p>
+<img src="https://maxpcimg.cc/i/2024/10/28/671f14f43c92f.webp" alt="图片" style="zoom: 33%;" />
+
+<p><strong>二是演员通过冒犯第三者来取悦观众</strong>，典型案例是吐槽大会。即便这个节目的创作动机就是吐槽别人娱乐大众，即便参加这个节目的人都知道自己是来吐槽和被吐槽的，但你也会看到比如马苏当年掉脸的那一幕——“确实有被冒犯到”。杨笠“普却信”的作品我认为也可以归于这一类，“冒犯”男性取悦女性。</p>
+<img src="https://maxpcimg.cc/i/2024/10/28/671f1569c730d.webp" alt="图片" style="zoom: 45%;" />
+
+<p><strong>三是演员通过冒犯观众来取悦观众</strong>，但这需要是与观众有充分默契的一种互动行为，并且需要在冒犯后及时地把观众捧起来，“冒犯”是为了“抬高”，至少不能把落点就真放在冒犯上。典型案例是德云社演出，比如岳云鹏经常会在互动环节挤兑后排观众是不是没有钱买前排的票，后面一定紧跟着孙越怼他。</p>
+<p>这大概可以框出一个幽默的边界来，就是别真的“扎”到观众的心，当观众的情感体验复杂起来，就很难开心了。</p>
+<p>比如三喜后期，大锁团队那个小马过河的作品，当代年轻人（尤其是接受了高等教育的）大抵都能映射到自己当下的处境，机遇的稀缺、内卷的无奈。可能笑了，但苦笑。</p>
+<img src="https://maxpcimg.cc/i/2024/10/28/671f14ea249f9.webp" alt="图片" style="zoom:50%;" />
+
+<p>说回杨笠。</p>
+<p><em>“男生为什么明明看起来这么普通，但是他却可以那么自信。”</em></p>
+<p>对这句话尝试换几种形式类似的表达。</p>
+<p><em>“<strong>那个</strong>男生为什么明明看起来这么普通，但是他却可以那么自信。”</em></p>
+<p>二者的区别，在于对一个非普遍现象的泛化。这不一定是有意为之，但确实能更好地触发群体情绪。即便她表达的是个别男性，也会有A女生说对对对，这样的男生我认识好几个，B女生说对对对，我也认识……</p>
+<p>性别对立有时候不需要挑拨，群体中的个体自有共性，每人呼出一口气，就可以汇成风。<br>在我看来，<strong>这是杨笠冒犯的第一类男性，被扫射了，中没中枪不重要了，boys站boys。</strong></p>
+<center>Why can those guys be so confident when they look so ordinary?</center>
+
+<p><em>ordinary  adj. 普通的，平常的</em><br><em>normal  adj. 普通的，平常的</em></p>
+<p>剑桥词典对两个词的英文解释，前者是“ <em>not different or special or unexpected in any way</em>（别具一格）”，后者是“ <em>the same as would be expected</em>（意料之中）”。之所以使用前者，是我对杨笠表达的一种感受。</p>
+<p>世界上的大多数人，穷其一生努力不过也就是追求一个normal的状态，不是吗？<br>在我看来，<strong>这是杨笠冒犯的第二类男性，努力normal但被否定为ordinary。</strong></p>
+<hr>
+<h2 id="普通，也可以自信"><a href="#普通，也可以自信" class="headerlink" title="普通，也可以自信"></a>普通，也可以自信</h2><p>前段时间和两位朋友吃饭，聊起一位与她对象，我说一句话：<em>“男性基因中都有一段DNA叫自卑。”</em> 这种自卑感，会以各种方式表现出来——</p>
+<p>有负面的，敏感、骄傲、自以为是、大男子主义等等，</p>
+<p>有中性的，老实、本分，</p>
+<p>也有正面的，努力、上进、责任感。</p>
+<p>“积极的自卑感”是止于至善的驱动力，是培育自信的土壤，对于大部分人来说，更为普适的自信状态是情绪稳定、砥砺奋进、藏器于身，而非外展式的，同时，对于大部分来说，他们外展式的状态其实并不是真正的自信，而是伪装过的自卑。</p>
+<p>在我看来，这是杨笠冒犯的第三类男性，也是最被戳中的一部分。</p>
+<p>“在内心中觉得自己还不够好的时候，在苦苦等待机遇的时候，努力读书，谦逊做人，相信自己，养得深根。”</p>
+<hr>
+<h2 id="如何看待杨笠"><a href="#如何看待杨笠" class="headerlink" title="如何看待杨笠"></a>如何看待杨笠</h2><p>首先，杨笠代表的那种“女性（权）主义”和我所理解的确实不太一样。我想，优绩主义可能会为理解她“普信男”表达提供一个角度。</p>
+<p>从这个角度来说，<strong>她表达的是“厌男”，但实际可能是厌“弱”，背后是“慕强”</strong>。</p>
+<p>我其实是好奇的，</p>
+<p><strong>在杨笠心中，女性是否都不普通，如果都不普通，何以不普通？如果普通女性也存在的话，那些普通女性，在杨笠看来她们应如何与自己相处？</strong></p>
+<p>十多年前，我在我高中校服的左胸口，<br>抄下一首诗，支撑了我好长时间。<br>今天，我送给你们——</p>
+<center>*白日不到处，青春恰自来。*</center>
+<center>*苔花如米小，也学牡丹开。*</center>
+
+<p><strong>时代不同了，男女都一样。</strong></p>
+<p><img src="https://maxpcimg.cc/i/2024/10/28/671f14e9dd666.webp"></p>
 ]]></content>
       <categories>
-        <category>时事新闻</category>
+        <category>熙评</category>
       </categories>
       <tags>
-        <tag>时政</tag>
         <tag>时事新闻</tag>
       </tags>
   </entry>
@@ -1158,6 +1131,23 @@
       </tags>
   </entry>
   <entry>
+    <title>本站所引用的第三方资源公布</title>
+    <url>/quote/</url>
+    <content><![CDATA[<blockquote>
+<p>本页公布本站所使用的第三方资源的链接&#x2F;出处&#x2F;作者，未获得授权的资源已标注，若作者认为本站的引用行为具有冒犯性，请联系我，本站会删除相关引用内容</p>
+</blockquote>
+<h1 id="本站头部封面图片"><a href="#本站头部封面图片" class="headerlink" title="本站头部封面图片"></a>本站头部封面图片</h1><p><a href="https://www.pixiv.net/artworks/120846213">https://www.pixiv.net/artworks/120846213</a></p>
+<h1 id="本站文章所使用的图片"><a href="#本站文章所使用的图片" class="headerlink" title="本站文章所使用的图片"></a>本站文章所使用的图片</h1><h3 id="Post-2"><a href="#Post-2" class="headerlink" title="Post 2"></a>Post 2</h3><p><a href="https://www.coolapk.com/feed/45869024">https://www.coolapk.com/feed/45869024</a> </p>
+<h3 id="Post-4"><a href="#Post-4" class="headerlink" title="Post 4"></a>Post 4</h3><p><a href="https://www.coolapk.com/feed/56995491">https://www.coolapk.com/feed/56995491</a> </p>
+]]></content>
+      <categories>
+        <category>公布</category>
+      </categories>
+      <tags>
+        <tag>公布</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>缓存转移の自定义适配应用教程</title>
     <url>/post11/</url>
     <content><![CDATA[<h2 id="脚本介绍"><a href="#脚本介绍" class="headerlink" title="脚本介绍"></a>脚本介绍</h2><p>首先，脚本头部写了很多的自定义函数，有：</p>
@@ -1251,74 +1241,6 @@
       </tags>
   </entry>
   <entry>
-    <title>普通也可以自信，杨笠也一样【熙评】</title>
-    <url>/pinglun001/</url>
-    <content><![CDATA[<blockquote>
-<p>作者：章序熙 I 2024年10月27日 23:40</p>
-</blockquote>
-<h2 id="杨笠与“冒犯的艺术”"><a href="#杨笠与“冒犯的艺术”" class="headerlink" title="杨笠与“冒犯的艺术”"></a>杨笠与“冒犯的艺术”</h2><p>有两句话<br>一句是杨笠说：<br>“男生为什么明明看起来这么普通，但是他却可以那么自信。”<br>另一句作者不明，<br>“脱口秀是冒犯的艺术。”</p>
-<p>其实我英语很差，但是我确实喜欢考研英语，如果没有考研英语，我英语会更差。<br>如果在考研英语阅读中，出现这句话</p>
-<center> Stand-up comedy is the art of offense. </center>
-
-<p>请在读原文时，把句子主干划出来，“ <em>Stand-up comedy is art</em> ”。<br>However，选项中往往会出现一个干扰项是“ <em>Stand-up comedy is offense</em> ”。</p>
-<p>我当年因此踩了很多坑。<br>我不知道我表达清楚没有。</p>
-<p><strong>冒犯，可能会是脱口秀创作的一个切入角度，但既不是内核，更不是全部。</strong></p>
-<p>换句话说，不冒犯 ≠ 创作不出优质的脱口秀作品。</p>
-<p>案例大把——</p>
-<p>远有庞博“家乡的机场”，近有付航“做自己人生的主角”，还有因为刘汉臣而喜欢上的阎鹤翔的“人生的处境”。</p>
-<p><img src="https://maxpcimg.cc/i/2024/10/28/671f14eb16fb7.webp"></p>
-<hr>
-<h2 id="冒犯怎么才能称之为艺术"><a href="#冒犯怎么才能称之为艺术" class="headerlink" title="冒犯怎么才能称之为艺术"></a>冒犯怎么才能称之为艺术</h2><p>脱口秀作为一种喜剧形式，目的是引发观众快乐，核心是幽默。<br>冒犯如何与幽默关联起来，在我看来可以有三条路径：</p>
-<p><strong>一是演员通过“冒犯”自己来取悦观众</strong>，这种自我冒犯是一种为了达到表演效果的主动降低姿态，典型案例是十几年前穿着苏格兰风格的衣服、梳着油头、言语有些阴柔的小沈阳。</p>
-<img src="https://maxpcimg.cc/i/2024/10/28/671f14f43c92f.webp" alt="图片" style="zoom: 33%;" />
-
-<p><strong>二是演员通过冒犯第三者来取悦观众</strong>，典型案例是吐槽大会。即便这个节目的创作动机就是吐槽别人娱乐大众，即便参加这个节目的人都知道自己是来吐槽和被吐槽的，但你也会看到比如马苏当年掉脸的那一幕——“确实有被冒犯到”。杨笠“普却信”的作品我认为也可以归于这一类，“冒犯”男性取悦女性。</p>
-<img src="https://maxpcimg.cc/i/2024/10/28/671f1569c730d.webp" alt="图片" style="zoom: 45%;" />
-
-<p><strong>三是演员通过冒犯观众来取悦观众</strong>，但这需要是与观众有充分默契的一种互动行为，并且需要在冒犯后及时地把观众捧起来，“冒犯”是为了“抬高”，至少不能把落点就真放在冒犯上。典型案例是德云社演出，比如岳云鹏经常会在互动环节挤兑后排观众是不是没有钱买前排的票，后面一定紧跟着孙越怼他。</p>
-<p>这大概可以框出一个幽默的边界来，就是别真的“扎”到观众的心，当观众的情感体验复杂起来，就很难开心了。</p>
-<p>比如三喜后期，大锁团队那个小马过河的作品，当代年轻人（尤其是接受了高等教育的）大抵都能映射到自己当下的处境，机遇的稀缺、内卷的无奈。可能笑了，但苦笑。</p>
-<img src="https://maxpcimg.cc/i/2024/10/28/671f14ea249f9.webp" alt="图片" style="zoom:50%;" />
-
-<p>说回杨笠。</p>
-<p><em>“男生为什么明明看起来这么普通，但是他却可以那么自信。”</em></p>
-<p>对这句话尝试换几种形式类似的表达。</p>
-<p><em>“<strong>那个</strong>男生为什么明明看起来这么普通，但是他却可以那么自信。”</em></p>
-<p>二者的区别，在于对一个非普遍现象的泛化。这不一定是有意为之，但确实能更好地触发群体情绪。即便她表达的是个别男性，也会有A女生说对对对，这样的男生我认识好几个，B女生说对对对，我也认识……</p>
-<p>性别对立有时候不需要挑拨，群体中的个体自有共性，每人呼出一口气，就可以汇成风。<br>在我看来，<strong>这是杨笠冒犯的第一类男性，被扫射了，中没中枪不重要了，boys站boys。</strong></p>
-<center>Why can those guys be so confident when they look so ordinary?</center>
-
-<p><em>ordinary  adj. 普通的，平常的</em><br><em>normal  adj. 普通的，平常的</em></p>
-<p>剑桥词典对两个词的英文解释，前者是“ <em>not different or special or unexpected in any way</em>（别具一格）”，后者是“ <em>the same as would be expected</em>（意料之中）”。之所以使用前者，是我对杨笠表达的一种感受。</p>
-<p>世界上的大多数人，穷其一生努力不过也就是追求一个normal的状态，不是吗？<br>在我看来，<strong>这是杨笠冒犯的第二类男性，努力normal但被否定为ordinary。</strong></p>
-<hr>
-<h2 id="普通，也可以自信"><a href="#普通，也可以自信" class="headerlink" title="普通，也可以自信"></a>普通，也可以自信</h2><p>前段时间和两位朋友吃饭，聊起一位与她对象，我说一句话：<em>“男性基因中都有一段DNA叫自卑。”</em> 这种自卑感，会以各种方式表现出来——</p>
-<p>有负面的，敏感、骄傲、自以为是、大男子主义等等，</p>
-<p>有中性的，老实、本分，</p>
-<p>也有正面的，努力、上进、责任感。</p>
-<p>“积极的自卑感”是止于至善的驱动力，是培育自信的土壤，对于大部分人来说，更为普适的自信状态是情绪稳定、砥砺奋进、藏器于身，而非外展式的，同时，对于大部分来说，他们外展式的状态其实并不是真正的自信，而是伪装过的自卑。</p>
-<p>在我看来，这是杨笠冒犯的第三类男性，也是最被戳中的一部分。</p>
-<p>“在内心中觉得自己还不够好的时候，在苦苦等待机遇的时候，努力读书，谦逊做人，相信自己，养得深根。”</p>
-<hr>
-<h2 id="如何看待杨笠"><a href="#如何看待杨笠" class="headerlink" title="如何看待杨笠"></a>如何看待杨笠</h2><p>首先，杨笠代表的那种“女性（权）主义”和我所理解的确实不太一样。我想，优绩主义可能会为理解她“普信男”表达提供一个角度。</p>
-<p>从这个角度来说，<strong>她表达的是“厌男”，但实际可能是厌“弱”，背后是“慕强”</strong>。</p>
-<p>我其实是好奇的，</p>
-<p><strong>在杨笠心中，女性是否都不普通，如果都不普通，何以不普通？如果普通女性也存在的话，那些普通女性，在杨笠看来她们应如何与自己相处？</strong></p>
-<p>十多年前，我在我高中校服的左胸口，<br>抄下一首诗，支撑了我好长时间。<br>今天，我送给你们——</p>
-<center>*白日不到处，青春恰自来。*</center>
-<center>*苔花如米小，也学牡丹开。*</center>
-
-<p><strong>时代不同了，男女都一样。</strong></p>
-<p><img src="https://maxpcimg.cc/i/2024/10/28/671f14e9dd666.webp"></p>
-]]></content>
-      <categories>
-        <category>熙评</category>
-      </categories>
-      <tags>
-        <tag>时事新闻</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>缓存转移开源</title>
     <url>/post12/</url>
     <content><![CDATA[<h2 id="V1-0"><a href="#V1-0" class="headerlink" title="V1.0"></a>V1.0</h2><blockquote>
@@ -1337,20 +1259,98 @@
       </tags>
   </entry>
   <entry>
-    <title>本站所引用的第三方资源公布</title>
-    <url>/quote/</url>
+    <title>国务院食安办通报对媒体反映的“罐车运输食用植物油乱象问题”调查处置情况（转载测试）</title>
+    <url>/post10/</url>
     <content><![CDATA[<blockquote>
-<p>本页公布本站所使用的第三方资源的链接&#x2F;出处&#x2F;作者，未获得授权的资源已标注，若作者认为本站的引用行为具有冒犯性，请联系我，本站会删除相关引用内容</p>
+<p>人民日报客户端 2024-08-25 20:05</p>
 </blockquote>
-<h1 id="本站头部封面图片"><a href="#本站头部封面图片" class="headerlink" title="本站头部封面图片"></a>本站头部封面图片</h1><p><a href="https://www.pixiv.net/artworks/120846213">https://www.pixiv.net/artworks/120846213</a></p>
-<h1 id="本站文章所使用的图片"><a href="#本站文章所使用的图片" class="headerlink" title="本站文章所使用的图片"></a>本站文章所使用的图片</h1><h3 id="Post-2"><a href="#Post-2" class="headerlink" title="Post 2"></a>Post 2</h3><p><a href="https://www.coolapk.com/feed/45869024">https://www.coolapk.com/feed/45869024</a> </p>
-<h3 id="Post-4"><a href="#Post-4" class="headerlink" title="Post 4"></a>Post 4</h3><p><a href="https://www.coolapk.com/feed/56995491">https://www.coolapk.com/feed/56995491</a> </p>
+<p>针对媒体反映的“罐车运输食用植物油乱象问题”，国务院食安办、国家发展改革委、公安部、交通运输部、国家卫生健康委、市场监管总局、国家粮食和储备局组成联合调查组，分赴河北、天津、内蒙古、陕西四地开展联合调查，追查涉事产品流向，核查涉事责任人员及责任单位的违法行为，分析问题原因，理清各方责任。同时，在全国范围内组织开展全链条清理排查，从各地清查情况看，截至目前，未发现其他同类问题。</p>
+<p>联合调查组经调查核实后认定，罐车混运食用植物油事件性质极其恶劣，违反基本常识，践踏道德底线和法律红线，是典型的行为违法犯罪，必须严厉打击。</p>
+<h1 id="一、违法事实"><a href="#一、违法事实" class="headerlink" title="一、违法事实"></a>一、违法事实</h1><h3 id="涉事罐车冀E5476W相关违法违规事实"><a href="#涉事罐车冀E5476W相关违法违规事实" class="headerlink" title="涉事罐车冀E5476W相关违法违规事实"></a>涉事罐车冀E5476W相关违法违规事实</h3><p><strong>5月22日11时</strong>，司机要某某驾驶涉事罐车从宁夏煤业有限责任公司煤制油分公司装载煤制油（煤基费托合成粗液体蜡2#），</p>
+<p><strong>5月23日16时</strong>到达河北石家庄晋州市华力油脂有限公司，卸载全部货品。</p>
+<p><strong>5月23日21时</strong>到达河北省衡水市武强县休息，</p>
+<p><strong>5月24日16时</strong>从中储粮油脂（天津）有限公司装载食用植物油，</p>
+<p><strong>5月24日21时</strong>到达河北省沧州市献县休息，</p>
+<p><strong>5月25日21时</strong>到达山西省临汾市洪洞县休息，</p>
+<p><strong>5月26日17时</strong>到达陕西省汉中市勉县休息，</p>
+<p><strong>5月27日7时</strong>到达陕西勉县新力油脂有限公司，卸载油品35.91吨。</p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240825233553249.png" alt="image-20240825233553249"></p>
+<p>经查，</p>
+<p>7月3日，涉事车辆（登记在河北邢台金谷仓物流有限公司名下）的实际车主高某群为掩盖问题，指使其三哥高某修伙同河北邢台金谷仓物流有限公司负责人孙某某，找到河北石家庄民通汽车服务有限公司负责人胡某某开具5月23日罐车清洗虚假票据（500元）。</p>
+<h3 id="涉事罐车冀E6365Z相关违法违规事实"><a href="#涉事罐车冀E6365Z相关违法违规事实" class="headerlink" title="涉事罐车冀E6365Z相关违法违规事实"></a>涉事罐车冀E6365Z相关违法违规事实</h3><p>5月16日17时，司机张某某驾驶涉事罐车从宁夏煤业有限责任公司煤制油分公司装载煤制油（煤基费托合成粗液体蜡1#），</p>
+<p>5月18日16时到达河北省秦皇岛衡杉科技有限公司，卸载全部货品。</p>
+<p>5月19日19时到达河北省秦皇岛市海港区等待配货，</p>
+<p>5月20日19时到达河北三河汇福粮油集团精炼植物油有限公司等待装车，</p>
+<p>5月21日11时从河北三河汇福粮油集团精炼植物油有限公司装载食用植物油，</p>
+<p>5月22日12时到达内蒙古鄂尔多斯市东胜区百胜隆粮油有限公司，卸载油品31.86吨。</p>
+<p>司机张某某称5月20日已做清罐处理，经公安机关现场核查，当时涉事罐车轨迹所在地周边没有符合专业要求的洗车店和移动清洗车。</p>
+<h1 id="二、流向追查"><a href="#二、流向追查" class="headerlink" title="二、流向追查"></a>二、流向追查</h1><h3 id="涉事罐车冀E5476W所运35-91吨油品"><a href="#涉事罐车冀E5476W所运35-91吨油品" class="headerlink" title="涉事罐车冀E5476W所运35.91吨油品"></a>涉事罐车冀E5476W所运35.91吨油品</h3><ul>
+<li><p>用于饲料加工11吨，</p>
+</li>
+<li><p>其余24.91吨未售出，已全部封存。</p>
+</li>
+</ul>
+<h3 id="涉事罐车冀E6365Z所运31-86吨油品"><a href="#涉事罐车冀E6365Z所运31-86吨油品" class="headerlink" title="涉事罐车冀E6365Z所运31.86吨油品"></a>涉事罐车冀E6365Z所运31.86吨油品</h3><ul>
+<li><p>已封存2.48吨；</p>
+</li>
+<li><p>剩余29.38吨被分装销售，</p>
+<ul>
+<li>其中5月22日分装8.5升规格580桶4.5吨、17升规格180桶2.79吨，</li>
+<li>5月28日分装8.5升规格280桶2.17吨、17升规格310桶4.81吨，</li>
+<li>6月10日分装8.5升规格490桶3.8吨、17升规格729桶11.31吨，</li>
+<li>总计8.5升规格1350桶10.47吨、17升规格1219桶18.91吨。</li>
+<li>已销售但未被使用的7.78吨已全部追回并封存，已被使用的21.6吨流向内蒙古鄂尔多斯市，未流向其他地区。</li>
+</ul>
+</li>
+</ul>
+<h1 id="三、责任认定"><a href="#三、责任认定" class="headerlink" title="三、责任认定"></a>三、责任认定</h1><blockquote>
+<p>我国《食品安全法》《粮食流通管理条例》等法律法规，以及《食品生产通用卫生规范》《食品经营过程卫生规范》《食用植物油及其制品生产卫生规范》等强制性国家标准有明确规定，要求“贮存、运输和装卸食品的容器、工器具和设备应当安全、无害，保持清洁；不得将食品与有毒、有害、或有异味的物品一同贮存运输”“运输食品应使用专用运输工具；食品运输工具不得运输有毒有害物质，防止食品污染”“运输食用植物油及其制品的车、船等运输工具、容器应符合国家相关法规标准的要求”。但一些企业和个人违反基本常识，践踏道德底线和法律红线，性质极其恶劣，是典型的行为违法犯罪。</p>
+</blockquote>
+<ul>
+<li>联合调查组认定，运输企业负有管理责任，依据《食品安全法》《道路运输条例》给予行政处罚</li>
+<li>车主负有主要责任，涉嫌犯罪的依法移送公安机关</li>
+<li>司机负有直接责任，应以行为犯论处，依据《刑法》有关条款追究刑事责任</li>
+<li>购买企业作为委托运输方负有相应责任，应依据《食品安全法》给予行政处罚</li>
+<li>生产企业通过销售合同约定将运输和交付环节责任全部由买方承担，违反《食品安全法》有关食品生产经营者应当保证食品安全、对社会和公众负责的规定，应给予行政处罚</li>
+</ul>
+<h3 id="涉事地区人民政府责成相关行政部门，对："><a href="#涉事地区人民政府责成相关行政部门，对：" class="headerlink" title="涉事地区人民政府责成相关行政部门，对："></a>涉事地区人民政府责成相关行政部门，对：</h3><ul>
+<li>河北邢台卓然联合运输车队法定代表人倪某某</li>
+<li>河北邢台皓源物流有限公司法定代表人澹台某某</li>
+<li>河北邢台金谷仓物流有限公司法定代表人陈某某</li>
+<li>罐车冀E5476W实际车主高某群</li>
+<li>罐车冀E6365Z实际车主刘某某</li>
+</ul>
+<p>等5人依法查处，对构成犯罪的移送公安机关依法追究刑事责任。</p>
+<h3 id="公安机关对："><a href="#公安机关对：" class="headerlink" title="公安机关对："></a>公安机关对：</h3><ul>
+<li>涉事司机要某某、张某某</li>
+</ul>
+<p>依法刑事立案并采取刑事强制措施。</p>
+<p>对：</p>
+<ul>
+<li>参与开具罐车清洗虚假票据的河北邢台金谷仓物流有限公司负责人孙某某、</li>
+<li>河北石家庄民通汽车服务有限公司负责人胡某某、</li>
+<li>罐车冀E5476W实际车主的三哥高某修</li>
+</ul>
+<p>等3人，依法处以10日拘留的行政处罚。</p>
+<h3 id="依法对涉事7家企业给予行政处罚："><a href="#依法对涉事7家企业给予行政处罚：" class="headerlink" title="依法对涉事7家企业给予行政处罚："></a>依法对涉事7家企业给予行政处罚：</h3><ul>
+<li>对河北邢台卓然联合运输车队，依法收缴道路运输经营许可，处罚没款合计约168万元</li>
+<li>对河北邢台皓源物流有限公司，依法收缴道路运输经营许可，处罚没款合计约151万元</li>
+<li>对河北邢台金谷仓物流有限公司，依法处罚没款合计约192万元</li>
+<li>对陕西勉县新力油脂有限公司，依法给予警告，没收违法所得约30万元</li>
+<li>对内蒙古鄂尔多斯市东胜区百胜隆粮油有限公司，依法给予警告，没收违法所得约26万元</li>
+<li>对中储粮油脂（天津）有限公司依法处罚款约286万元</li>
+<li>对河北三河汇福粮油集团精炼植物油有限公司依法处罚款约251万元</li>
+</ul>
+<p>涉事地区河北邢台是问题罐车所在地，对罐车运输失管失察，市政府分管负责同志负有领导责任，相关监管部门人员负有责任，由地方纪检监察机关依法依规追责问责。</p>
+<p>对调查过程中地方发现的公职人员可能存在的失职渎职不作为问题，由当地纪检监察机关介入调查。</p>
+<p>下一步国务院食安办按照全面清查、举一反三、打建结合、标本兼治的原则，会同国家粮食和储备局、交通运输部、市场监管总局等部门，持续深入开展罐车运输食用植物油问题专项整治，严格落实食用植物油运输专车专用，以“零容忍”的态度，严处重罚各类违法违规行为，加强全链条管理，健全完善监管协调机制，确保食用植物油安全。欢迎来自媒体记者、人民群众等各种方式的社会监督。</p>
 ]]></content>
       <categories>
-        <category>公布</category>
+        <category>时事新闻</category>
       </categories>
       <tags>
-        <tag>公布</tag>
+        <tag>时事新闻</tag>
+        <tag>时政</tag>
       </tags>
   </entry>
   <entry>
@@ -1473,38 +1473,6 @@
       </tags>
   </entry>
   <entry>
-    <title>首篇文章！一个简单的介绍</title>
-    <url>/post1/</url>
-    <content><![CDATA[<hr>
-<h1 id="啊？这是啥？"><a href="#啊？这是啥？" class="headerlink" title="啊？这是啥？"></a>啊？这是啥？</h1><p>没错，这是<strong>于乐Yule</strong>的个人博客哦！</p>
-<h1 id="哦-这样啊-诶？于乐又是谁呀？"><a href="#哦-这样啊-诶？于乐又是谁呀？" class="headerlink" title="哦~ 这样啊~ 诶？于乐又是谁呀？"></a>哦~ 这样啊~ 诶？于乐又是谁呀？</h1><img src="https://img.picgo.net/2024/07/27/touxiangf714cb57449eb4a6.jpg" alt="touxiang" style="zoom:20%;" />
-
-<p>于乐就是本人啦，本人是一名<strong>六花厨</strong>兼业余数码爱好者喵<del>，一个无名小卒罢了</del>，如果你喜欢我的内容，可以通过下面的方式Follow我哦~</p>
-<blockquote>
-<p>2024&#x2F;9&#x2F;29的我：想要了解更多？<a href="https://yulebest.github.io/about/">请戳我~</a></p>
-</blockquote>
-<h2 id="关注我"><a href="#关注我" class="headerlink" title="关注我"></a>关注我</h2><ul>
-<li>酷安：<a href="http://www.coolapk.com/u/18214705">http://www.coolapk.com/u/18214705</a></li>
-<li>Telegram：<a href="https://t.me/YuleBest">https://t.me/YuleBest</a></li>
-</ul>
-<h2 id="催更"><a href="#催更" class="headerlink" title="催更"></a>催更</h2><ul>
-<li>E-Mail：<a href="mailto:&#x79;&#x75;&#108;&#101;&#x2d;&#98;&#101;&#115;&#116;&#64;&#111;&#117;&#x74;&#x6c;&#111;&#111;&#107;&#46;&#99;&#x6f;&#x6d;">&#x79;&#x75;&#108;&#101;&#x2d;&#98;&#101;&#115;&#116;&#64;&#111;&#117;&#x74;&#x6c;&#111;&#111;&#107;&#46;&#99;&#x6f;&#x6d;</a></li>
-<li>QQ：<a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=60YAsZK3jwXC4mMykJIXGRPRrTsK5i8K&authKey=L+XziaWnvt+ZVWDPIEq1dbe5rLxtL70SgQEzGWzxo5A88xHDy0AsD8amoiIBZcJo&noverify=0&group_code=570243407">Yule 的数码交流群</a></li>
-</ul>
-<h1 id="那这个网站会记录什么呢（追问）"><a href="#那这个网站会记录什么呢（追问）" class="headerlink" title="那这个网站会记录什么呢（追问）"></a>那这个网站会记录什么呢（追问）</h1><blockquote>
-<p>那作用可就多了！（兴奋）</p>
-</blockquote>
-<p>比如开心或不开心时的<strong>日记</strong>呀，平时当乐子人的<strong>杂谈</strong>呀，还有<del>很多很多的</del><strong>技术帖</strong>呀，都可以往这里发！<br>持续关注哦~</p>
-]]></content>
-      <categories>
-        <category>特别企划</category>
-      </categories>
-      <tags>
-        <tag>首篇</tag>
-        <tag>杂谈</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>随笔（始于2024年7月30日）</title>
     <url>/post4/</url>
     <content><![CDATA[<h2 id="2024年7月"><a href="#2024年7月" class="headerlink" title="2024年7月"></a>2024年7月</h2><h3 id="2024年7月30日-13-30，在高铁工地旁"><a href="#2024年7月30日-13-30，在高铁工地旁" class="headerlink" title="2024年7月30日 13:30，在高铁工地旁"></a>2024年7月30日 13:30，在高铁工地旁</h3><p>红色是发展的颜色，它碰上了绿色，便成了黄色。</p>
@@ -1530,6 +1498,38 @@
       </categories>
       <tags>
         <tag>尘世·第一辑</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>首篇文章！一个简单的介绍</title>
+    <url>/post1/</url>
+    <content><![CDATA[<hr>
+<h1 id="啊？这是啥？"><a href="#啊？这是啥？" class="headerlink" title="啊？这是啥？"></a>啊？这是啥？</h1><p>没错，这是<strong>于乐Yule</strong>的个人博客哦！</p>
+<h1 id="哦-这样啊-诶？于乐又是谁呀？"><a href="#哦-这样啊-诶？于乐又是谁呀？" class="headerlink" title="哦~ 这样啊~ 诶？于乐又是谁呀？"></a>哦~ 这样啊~ 诶？于乐又是谁呀？</h1><img src="https://img.picgo.net/2024/07/27/touxiangf714cb57449eb4a6.jpg" alt="touxiang" style="zoom:20%;" />
+
+<p>于乐就是本人啦，本人是一名<strong>六花厨</strong>兼业余数码爱好者喵<del>，一个无名小卒罢了</del>，如果你喜欢我的内容，可以通过下面的方式Follow我哦~</p>
+<blockquote>
+<p>2024&#x2F;9&#x2F;29的我：想要了解更多？<a href="https://yulebest.github.io/about/">请戳我~</a></p>
+</blockquote>
+<h2 id="关注我"><a href="#关注我" class="headerlink" title="关注我"></a>关注我</h2><ul>
+<li>酷安：<a href="http://www.coolapk.com/u/18214705">http://www.coolapk.com/u/18214705</a></li>
+<li>Telegram：<a href="https://t.me/YuleBest">https://t.me/YuleBest</a></li>
+</ul>
+<h2 id="催更"><a href="#催更" class="headerlink" title="催更"></a>催更</h2><ul>
+<li>E-Mail：<a href="mailto:&#x79;&#117;&#108;&#x65;&#45;&#x62;&#101;&#115;&#116;&#64;&#111;&#117;&#116;&#108;&#111;&#111;&#x6b;&#46;&#99;&#x6f;&#x6d;">&#x79;&#117;&#108;&#x65;&#45;&#x62;&#101;&#115;&#116;&#64;&#111;&#117;&#116;&#108;&#111;&#111;&#x6b;&#46;&#99;&#x6f;&#x6d;</a></li>
+<li>QQ：<a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=60YAsZK3jwXC4mMykJIXGRPRrTsK5i8K&authKey=L+XziaWnvt+ZVWDPIEq1dbe5rLxtL70SgQEzGWzxo5A88xHDy0AsD8amoiIBZcJo&noverify=0&group_code=570243407">Yule 的数码交流群</a></li>
+</ul>
+<h1 id="那这个网站会记录什么呢（追问）"><a href="#那这个网站会记录什么呢（追问）" class="headerlink" title="那这个网站会记录什么呢（追问）"></a>那这个网站会记录什么呢（追问）</h1><blockquote>
+<p>那作用可就多了！（兴奋）</p>
+</blockquote>
+<p>比如开心或不开心时的<strong>日记</strong>呀，平时当乐子人的<strong>杂谈</strong>呀，还有<del>很多很多的</del><strong>技术帖</strong>呀，都可以往这里发！<br>持续关注哦~</p>
+]]></content>
+      <categories>
+        <category>特别企划</category>
+      </categories>
+      <tags>
+        <tag>首篇</tag>
+        <tag>杂谈</tag>
       </tags>
   </entry>
 </search>

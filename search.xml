@@ -328,30 +328,6 @@
       </tags>
   </entry>
   <entry>
-    <title>下载APP</title>
-    <url>/app/</url>
-    <content><![CDATA[<h1>v1.0</h1>
-<p>本版本仅使用简单的网页转APP制作，不建议使用！</p>
-<blockquote>
-<p>带我学成归来一定让各位用点好的</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>Android</th>
-<th><a href="https://yulebest.github.io/down/YuleFreev1.apk">下载</a></th>
-</tr>
-</thead>
-</table>
-]]></content>
-      <categories>
-        <category>公布</category>
-      </categories>
-      <tags>
-        <tag>发布</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Shell工具箱介绍</title>
     <url>/post15/</url>
     <content><![CDATA[<div align="center">
@@ -494,6 +470,30 @@
       </tags>
   </entry>
   <entry>
+    <title>下载APP</title>
+    <url>/app/</url>
+    <content><![CDATA[<h1>v1.0</h1>
+<p>本版本仅使用简单的网页转APP制作，不建议使用！</p>
+<blockquote>
+<p>带我学成归来一定让各位用点好的</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Android</th>
+<th><a href="https://yulebest.github.io/down/YuleFreev1.apk">下载</a></th>
+</tr>
+</thead>
+</table>
+]]></content>
+      <categories>
+        <category>公布</category>
+      </categories>
+      <tags>
+        <tag>发布</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>下载重定向模块开源</title>
     <url>/post9/</url>
     <content><![CDATA[<h2 id="文件结构：">文件结构：</h2>
@@ -560,21 +560,6 @@
         <tag>刷机</tag>
         <tag>技术帖</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>公式测试</title>
-    <url>/test/</url>
-    <content><![CDATA[<p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>E</mi><mo>=</mo><mi>m</mi><msup><mi>c</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">E=mc^2
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8641em;"></span><span class="mord mathnormal">m</span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>充电</title>
-    <url>/fadian/</url>
-    <content><![CDATA[<center>感谢老板，您的支持是我最大的动力！</center>
-<center>充电¥50以上，可添加本人QQ，获得30天的免费速回解答问题服务，
-    只要我知道的都可以问哦~</center>
-<img src="https://img.picgo.net/2024/07/27/cc66b9e499afbeca503f88d0fcc43f265af2b6287f2fd0d8.jpg" alt="收款码" style="zoom:20%;" />]]></content>
   </entry>
   <entry>
     <title>专题：LSPosed 的 Telegram 群聊消息数量统计</title>
@@ -1076,6 +1061,21 @@
       <tags>
         <tag>专题</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>充电</title>
+    <url>/fadian/</url>
+    <content><![CDATA[<center>感谢老板，您的支持是我最大的动力！</center>
+<center>充电¥50以上，可添加本人QQ，获得30天的免费速回解答问题服务，
+    只要我知道的都可以问哦~</center>
+<img src="https://img.picgo.net/2024/07/27/cc66b9e499afbeca503f88d0fcc43f265af2b6287f2fd0d8.jpg" alt="收款码" style="zoom:20%;" />]]></content>
+  </entry>
+  <entry>
+    <title>公式测试</title>
+    <url>/test/</url>
+    <content><![CDATA[<p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>E</mi><mo>=</mo><mi>m</mi><msup><mi>c</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">E=mc^2
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8641em;"></span><span class="mord mathnormal">m</span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span></p>
+]]></content>
   </entry>
   <entry>
     <title>国务院食安办通报对媒体反映的“罐车运输食用植物油乱象问题”调查处置情况（转载测试）</title>
@@ -1781,85 +1781,6 @@
       </tags>
   </entry>
   <entry>
-    <title>普通也可以自信，杨笠也一样【熙评】</title>
-    <url>/pinglun001/</url>
-    <content><![CDATA[<blockquote>
-<p>作者：章序熙 I 2024年10月27日 23:40</p>
-</blockquote>
-<h2 id="杨笠与“冒犯的艺术”">杨笠与“冒犯的艺术”</h2>
-<p>有两句话<br>
-一句是杨笠说：<br>
-“男生为什么明明看起来这么普通，但是他却可以那么自信。”<br>
-另一句作者不明，<br>
-“脱口秀是冒犯的艺术。”</p>
-<p>其实我英语很差，但是我确实喜欢考研英语，如果没有考研英语，我英语会更差。<br>
-如果在考研英语阅读中，出现这句话</p>
-<center> Stand-up comedy is the art of offense. </center>
-<p>请在读原文时，把句子主干划出来，“ <em>Stand-up comedy is art</em> ”。<br>
-However，选项中往往会出现一个干扰项是“ <em>Stand-up comedy is offense</em> ”。</p>
-<p>我当年因此踩了很多坑。<br>
-我不知道我表达清楚没有。</p>
-<p><strong>冒犯，可能会是脱口秀创作的一个切入角度，但既不是内核，更不是全部。</strong></p>
-<p>换句话说，不冒犯 ≠ 创作不出优质的脱口秀作品。</p>
-<p>案例大把——</p>
-<p>远有庞博“家乡的机场”，近有付航“做自己人生的主角”，还有因为刘汉臣而喜欢上的阎鹤翔的“人生的处境”。</p>
-<p><img src="https://maxpcimg.cc/i/2024/10/28/671f14eb16fb7.webp" alt=""></p>
-<hr>
-<h2 id="冒犯怎么才能称之为艺术">冒犯怎么才能称之为艺术</h2>
-<p>脱口秀作为一种喜剧形式，目的是引发观众快乐，核心是幽默。<br>
-冒犯如何与幽默关联起来，在我看来可以有三条路径：</p>
-<p><strong>一是演员通过“冒犯”自己来取悦观众</strong>，这种自我冒犯是一种为了达到表演效果的主动降低姿态，典型案例是十几年前穿着苏格兰风格的衣服、梳着油头、言语有些阴柔的小沈阳。</p>
-<img src="https://maxpcimg.cc/i/2024/10/28/671f14f43c92f.webp" alt="图片" style="zoom: 33%;" />
-<p><strong>二是演员通过冒犯第三者来取悦观众</strong>，典型案例是吐槽大会。即便这个节目的创作动机就是吐槽别人娱乐大众，即便参加这个节目的人都知道自己是来吐槽和被吐槽的，但你也会看到比如马苏当年掉脸的那一幕——“确实有被冒犯到”。杨笠“普却信”的作品我认为也可以归于这一类，“冒犯”男性取悦女性。</p>
-<img src="https://maxpcimg.cc/i/2024/10/28/671f1569c730d.webp" alt="图片" style="zoom: 45%;" />
-<p><strong>三是演员通过冒犯观众来取悦观众</strong>，但这需要是与观众有充分默契的一种互动行为，并且需要在冒犯后及时地把观众捧起来，“冒犯”是为了“抬高”，至少不能把落点就真放在冒犯上。典型案例是德云社演出，比如岳云鹏经常会在互动环节挤兑后排观众是不是没有钱买前排的票，后面一定紧跟着孙越怼他。</p>
-<p>这大概可以框出一个幽默的边界来，就是别真的“扎”到观众的心，当观众的情感体验复杂起来，就很难开心了。</p>
-<p>比如三喜后期，大锁团队那个小马过河的作品，当代年轻人（尤其是接受了高等教育的）大抵都能映射到自己当下的处境，机遇的稀缺、内卷的无奈。可能笑了，但苦笑。</p>
-<img src="https://maxpcimg.cc/i/2024/10/28/671f14ea249f9.webp" alt="图片" style="zoom:50%;" />
-<p>说回杨笠。</p>
-<p><em>“男生为什么明明看起来这么普通，但是他却可以那么自信。”</em></p>
-<p>对这句话尝试换几种形式类似的表达。</p>
-<p><em>“<strong>那个</strong>男生为什么明明看起来这么普通，但是他却可以那么自信。”</em></p>
-<p>二者的区别，在于对一个非普遍现象的泛化。这不一定是有意为之，但确实能更好地触发群体情绪。即便她表达的是个别男性，也会有A女生说对对对，这样的男生我认识好几个，B女生说对对对，我也认识……</p>
-<p>性别对立有时候不需要挑拨，群体中的个体自有共性，每人呼出一口气，就可以汇成风。<br>
-在我看来，<strong>这是杨笠冒犯的第一类男性，被扫射了，中没中枪不重要了，boys站boys。</strong></p>
-<center>Why can those guys be so confident when they look so ordinary?</center>
-<p><em>ordinary  adj. 普通的，平常的</em><br>
-<em>normal  adj. 普通的，平常的</em></p>
-<p>剑桥词典对两个词的英文解释，前者是“ <em>not different or special or unexpected in any way</em>（别具一格）”，后者是“ <em>the same as would be expected</em>（意料之中）”。之所以使用前者，是我对杨笠表达的一种感受。</p>
-<p>世界上的大多数人，穷其一生努力不过也就是追求一个normal的状态，不是吗？<br>
-在我看来，<strong>这是杨笠冒犯的第二类男性，努力normal但被否定为ordinary。</strong></p>
-<hr>
-<h2 id="普通，也可以自信">普通，也可以自信</h2>
-<p>前段时间和两位朋友吃饭，聊起一位与她对象，我说一句话：<em>“男性基因中都有一段DNA叫自卑。”</em> 这种自卑感，会以各种方式表现出来——</p>
-<p>有负面的，敏感、骄傲、自以为是、大男子主义等等，</p>
-<p>有中性的，老实、本分，</p>
-<p>也有正面的，努力、上进、责任感。</p>
-<p>“积极的自卑感”是止于至善的驱动力，是培育自信的土壤，对于大部分人来说，更为普适的自信状态是情绪稳定、砥砺奋进、藏器于身，而非外展式的，同时，对于大部分来说，他们外展式的状态其实并不是真正的自信，而是伪装过的自卑。</p>
-<p>在我看来，这是杨笠冒犯的第三类男性，也是最被戳中的一部分。</p>
-<p>“在内心中觉得自己还不够好的时候，在苦苦等待机遇的时候，努力读书，谦逊做人，相信自己，养得深根。”</p>
-<hr>
-<h2 id="如何看待杨笠">如何看待杨笠</h2>
-<p>首先，杨笠代表的那种“女性（权）主义”和我所理解的确实不太一样。我想，优绩主义可能会为理解她“普信男”表达提供一个角度。</p>
-<p>从这个角度来说，<strong>她表达的是“厌男”，但实际可能是厌“弱”，背后是“慕强”</strong>。</p>
-<p>我其实是好奇的，</p>
-<p><strong>在杨笠心中，女性是否都不普通，如果都不普通，何以不普通？如果普通女性也存在的话，那些普通女性，在杨笠看来她们应如何与自己相处？</strong></p>
-<p>十多年前，我在我高中校服的左胸口，<br>
-抄下一首诗，支撑了我好长时间。<br>
-今天，我送给你们——</p>
-<center>*白日不到处，青春恰自来。*</center>
-<center>*苔花如米小，也学牡丹开。*</center>
-<p><strong>时代不同了，男女都一样。</strong></p>
-<p><img src="https://maxpcimg.cc/i/2024/10/28/671f14e9dd666.webp" alt=""></p>
-]]></content>
-      <categories>
-        <category>熙评</category>
-      </categories>
-      <tags>
-        <tag>时事新闻</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>指点</title>
     <url>/post6/</url>
     <content><![CDATA[<p>​	很久很久以前，在一个谁也不知道的地方，有一个小小的象棋王国。国王自己喜欢下棋，但下得不好，于是就四处收集高手的棋谱。欣赏棋谱对他来说是一种极大的享受。大臣们劝他不要沉迷下棋了，他不理不问，劝多了，还把大臣们都贬成凡人。每一个王国的子民都痛恨着国王。</p>
@@ -1961,6 +1882,106 @@ However，选项中往往会出现一个干扰项是“ <em>Stand-up comedy is o
       <tags>
         <tag>尘世·第一辑</tag>
         <tag>朝花夕拾</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>普通也可以自信，杨笠也一样【熙评】</title>
+    <url>/pinglun001/</url>
+    <content><![CDATA[<blockquote>
+<p>作者：章序熙 I 2024年10月27日 23:40</p>
+</blockquote>
+<h2 id="杨笠与“冒犯的艺术”">杨笠与“冒犯的艺术”</h2>
+<p>有两句话<br>
+一句是杨笠说：<br>
+“男生为什么明明看起来这么普通，但是他却可以那么自信。”<br>
+另一句作者不明，<br>
+“脱口秀是冒犯的艺术。”</p>
+<p>其实我英语很差，但是我确实喜欢考研英语，如果没有考研英语，我英语会更差。<br>
+如果在考研英语阅读中，出现这句话</p>
+<center> Stand-up comedy is the art of offense. </center>
+<p>请在读原文时，把句子主干划出来，“ <em>Stand-up comedy is art</em> ”。<br>
+However，选项中往往会出现一个干扰项是“ <em>Stand-up comedy is offense</em> ”。</p>
+<p>我当年因此踩了很多坑。<br>
+我不知道我表达清楚没有。</p>
+<p><strong>冒犯，可能会是脱口秀创作的一个切入角度，但既不是内核，更不是全部。</strong></p>
+<p>换句话说，不冒犯 ≠ 创作不出优质的脱口秀作品。</p>
+<p>案例大把——</p>
+<p>远有庞博“家乡的机场”，近有付航“做自己人生的主角”，还有因为刘汉臣而喜欢上的阎鹤翔的“人生的处境”。</p>
+<p><img src="https://maxpcimg.cc/i/2024/10/28/671f14eb16fb7.webp" alt=""></p>
+<hr>
+<h2 id="冒犯怎么才能称之为艺术">冒犯怎么才能称之为艺术</h2>
+<p>脱口秀作为一种喜剧形式，目的是引发观众快乐，核心是幽默。<br>
+冒犯如何与幽默关联起来，在我看来可以有三条路径：</p>
+<p><strong>一是演员通过“冒犯”自己来取悦观众</strong>，这种自我冒犯是一种为了达到表演效果的主动降低姿态，典型案例是十几年前穿着苏格兰风格的衣服、梳着油头、言语有些阴柔的小沈阳。</p>
+<img src="https://maxpcimg.cc/i/2024/10/28/671f14f43c92f.webp" alt="图片" style="zoom: 33%;" />
+<p><strong>二是演员通过冒犯第三者来取悦观众</strong>，典型案例是吐槽大会。即便这个节目的创作动机就是吐槽别人娱乐大众，即便参加这个节目的人都知道自己是来吐槽和被吐槽的，但你也会看到比如马苏当年掉脸的那一幕——“确实有被冒犯到”。杨笠“普却信”的作品我认为也可以归于这一类，“冒犯”男性取悦女性。</p>
+<img src="https://maxpcimg.cc/i/2024/10/28/671f1569c730d.webp" alt="图片" style="zoom: 45%;" />
+<p><strong>三是演员通过冒犯观众来取悦观众</strong>，但这需要是与观众有充分默契的一种互动行为，并且需要在冒犯后及时地把观众捧起来，“冒犯”是为了“抬高”，至少不能把落点就真放在冒犯上。典型案例是德云社演出，比如岳云鹏经常会在互动环节挤兑后排观众是不是没有钱买前排的票，后面一定紧跟着孙越怼他。</p>
+<p>这大概可以框出一个幽默的边界来，就是别真的“扎”到观众的心，当观众的情感体验复杂起来，就很难开心了。</p>
+<p>比如三喜后期，大锁团队那个小马过河的作品，当代年轻人（尤其是接受了高等教育的）大抵都能映射到自己当下的处境，机遇的稀缺、内卷的无奈。可能笑了，但苦笑。</p>
+<img src="https://maxpcimg.cc/i/2024/10/28/671f14ea249f9.webp" alt="图片" style="zoom:50%;" />
+<p>说回杨笠。</p>
+<p><em>“男生为什么明明看起来这么普通，但是他却可以那么自信。”</em></p>
+<p>对这句话尝试换几种形式类似的表达。</p>
+<p><em>“<strong>那个</strong>男生为什么明明看起来这么普通，但是他却可以那么自信。”</em></p>
+<p>二者的区别，在于对一个非普遍现象的泛化。这不一定是有意为之，但确实能更好地触发群体情绪。即便她表达的是个别男性，也会有A女生说对对对，这样的男生我认识好几个，B女生说对对对，我也认识……</p>
+<p>性别对立有时候不需要挑拨，群体中的个体自有共性，每人呼出一口气，就可以汇成风。<br>
+在我看来，<strong>这是杨笠冒犯的第一类男性，被扫射了，中没中枪不重要了，boys站boys。</strong></p>
+<center>Why can those guys be so confident when they look so ordinary?</center>
+<p><em>ordinary  adj. 普通的，平常的</em><br>
+<em>normal  adj. 普通的，平常的</em></p>
+<p>剑桥词典对两个词的英文解释，前者是“ <em>not different or special or unexpected in any way</em>（别具一格）”，后者是“ <em>the same as would be expected</em>（意料之中）”。之所以使用前者，是我对杨笠表达的一种感受。</p>
+<p>世界上的大多数人，穷其一生努力不过也就是追求一个normal的状态，不是吗？<br>
+在我看来，<strong>这是杨笠冒犯的第二类男性，努力normal但被否定为ordinary。</strong></p>
+<hr>
+<h2 id="普通，也可以自信">普通，也可以自信</h2>
+<p>前段时间和两位朋友吃饭，聊起一位与她对象，我说一句话：<em>“男性基因中都有一段DNA叫自卑。”</em> 这种自卑感，会以各种方式表现出来——</p>
+<p>有负面的，敏感、骄傲、自以为是、大男子主义等等，</p>
+<p>有中性的，老实、本分，</p>
+<p>也有正面的，努力、上进、责任感。</p>
+<p>“积极的自卑感”是止于至善的驱动力，是培育自信的土壤，对于大部分人来说，更为普适的自信状态是情绪稳定、砥砺奋进、藏器于身，而非外展式的，同时，对于大部分来说，他们外展式的状态其实并不是真正的自信，而是伪装过的自卑。</p>
+<p>在我看来，这是杨笠冒犯的第三类男性，也是最被戳中的一部分。</p>
+<p>“在内心中觉得自己还不够好的时候，在苦苦等待机遇的时候，努力读书，谦逊做人，相信自己，养得深根。”</p>
+<hr>
+<h2 id="如何看待杨笠">如何看待杨笠</h2>
+<p>首先，杨笠代表的那种“女性（权）主义”和我所理解的确实不太一样。我想，优绩主义可能会为理解她“普信男”表达提供一个角度。</p>
+<p>从这个角度来说，<strong>她表达的是“厌男”，但实际可能是厌“弱”，背后是“慕强”</strong>。</p>
+<p>我其实是好奇的，</p>
+<p><strong>在杨笠心中，女性是否都不普通，如果都不普通，何以不普通？如果普通女性也存在的话，那些普通女性，在杨笠看来她们应如何与自己相处？</strong></p>
+<p>十多年前，我在我高中校服的左胸口，<br>
+抄下一首诗，支撑了我好长时间。<br>
+今天，我送给你们——</p>
+<center>*白日不到处，青春恰自来。*</center>
+<center>*苔花如米小，也学牡丹开。*</center>
+<p><strong>时代不同了，男女都一样。</strong></p>
+<p><img src="https://maxpcimg.cc/i/2024/10/28/671f14e9dd666.webp" alt=""></p>
+]]></content>
+      <categories>
+        <category>熙评</category>
+      </categories>
+      <tags>
+        <tag>时事新闻</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>本站所引用的第三方资源公布</title>
+    <url>/quote/</url>
+    <content><![CDATA[<blockquote>
+<p>本页公布本站所使用的第三方资源的链接/出处/作者，未获得授权的资源已标注，若作者认为本站的引用行为具有冒犯性，请联系我，本站会删除相关引用内容</p>
+</blockquote>
+<h1>本站头部封面图片</h1>
+<p><a href="https://www.pixiv.net/artworks/120846213">https://www.pixiv.net/artworks/120846213</a></p>
+<h1>本站文章所使用的图片</h1>
+<h3 id="Post-2">Post 2</h3>
+<p><a href="https://www.coolapk.com/feed/45869024">https://www.coolapk.com/feed/45869024</a></p>
+<h3 id="Post-4">Post 4</h3>
+<p><a href="https://www.coolapk.com/feed/56995491">https://www.coolapk.com/feed/56995491</a></p>
+]]></content>
+      <categories>
+        <category>公布</category>
+      </categories>
+      <tags>
+        <tag>公布</tag>
       </tags>
   </entry>
   <entry>
@@ -2072,27 +2093,6 @@ However，选项中往往会出现一个干扰项是“ <em>Stand-up comedy is o
       </tags>
   </entry>
   <entry>
-    <title>本站所引用的第三方资源公布</title>
-    <url>/quote/</url>
-    <content><![CDATA[<blockquote>
-<p>本页公布本站所使用的第三方资源的链接/出处/作者，未获得授权的资源已标注，若作者认为本站的引用行为具有冒犯性，请联系我，本站会删除相关引用内容</p>
-</blockquote>
-<h1>本站头部封面图片</h1>
-<p><a href="https://www.pixiv.net/artworks/120846213">https://www.pixiv.net/artworks/120846213</a></p>
-<h1>本站文章所使用的图片</h1>
-<h3 id="Post-2">Post 2</h3>
-<p><a href="https://www.coolapk.com/feed/45869024">https://www.coolapk.com/feed/45869024</a></p>
-<h3 id="Post-4">Post 4</h3>
-<p><a href="https://www.coolapk.com/feed/56995491">https://www.coolapk.com/feed/56995491</a></p>
-]]></content>
-      <categories>
-        <category>公布</category>
-      </categories>
-      <tags>
-        <tag>公布</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>缓存转移开源</title>
     <url>/post12/</url>
     <content><![CDATA[<h2 id="V1-0">V1.0</h2>
@@ -2108,6 +2108,39 @@ However，选项中往往会出现一个干扰项是“ <em>Stand-up comedy is o
         <tag>Android搞机</tag>
         <tag>Shell</tag>
         <tag>脚本</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>赠友人、赠故乡、赠雨</title>
+    <url>/post2/</url>
+    <content><![CDATA[<p>夜雨纷纷，打湿大地，同时更打湿了一颗又一颗多愁善感的心。我听见，寂静的天地之中，只有那润物无声的细雨依旧在无止无休地淅淅沥沥。不知远方的故园，是否也正下着这样一场恬静的细雨？</p>
+<p>我仿佛置身于幽深的海底，四周涌动着幽寂的海水与浓郁的黑暗。思绪不禁浮想联翩，延伸向遥远的过往，还有那不知通向何方的曲折未来。猜想，你我人生的故事，究竟将会踏入怎样的篇章。</p>
+<p>也许，一切的答案都在这幽寂的雨夜之中蕴藏。</p>
+<hr>
+<p>我感受到，窗外的一切，都在雨中无声无息地生长，种子萌生出娇嫩的新芽、花朵趁着夜幕的遮蔽悄悄地显露出自己美丽的容颜。</p>
+<p>我甚至可以听见，生命破土而出的声音，那是一种怎样动人心弦的交响！因为，万物依旧在生长。所以，世界终会被渲染上苍翠欲滴的绿意。直到，生命的颜色将这片曾经灰暗苍凉的大地再度充满。</p>
+<p>因此，这雨声又是生命的歌唱，更是自然的恩惠。每一滴雨水之中都蕴藏生命的欢歌，即便夜幕仍然将大地上的一切笼罩再一片寂静无声的沉寂之中。但是，黎明终会升起在东方的地平线上，揭开那神秘的面纱，将雨姑娘那姣好的容颜展现在你我的面前。</p>
+<p>那时，晨曦将会为这片为雨水润泽的大地，渲染上无比美丽的光彩，同时更会将你我内心深处的希望一一点亮。然而，现在还是让我们沉醉在这个悠长复悠长的雨夜，感受夜的寂静、还有那雨的清凉。在昏黄的灯盏下，将满怀的思念与爱意铺满纸张，将它寄向远方的故园。</p>
+<hr>
+<p>正所谓</p>
+<blockquote>
+<p>“在夜雨中思念友人，会思念到立即寻笔写信；在夜雨中挑灯作文，文字也会变得滋润蕴藉。”</p>
+</blockquote>
+<p>而只有这份温柔的情感，才能够将你我内心深处的思念传达。</p>
+<p>不必在意那洒落信纸的泪花，那是雨水自你我的心房悄然降下。也许，只有到了这时，你我才会恍然觉悟：原来，我们是多么思念自己的故园。 就让这纷纷的雨点奏出一曲哀伤的歌，将你我内心深处那份难以言说的沉重一一抒发。</p>
+<p>也许，善良的夜之精灵会将这动人的消息送往你我的故乡，同样，也是在一个朦胧悠美的夜晚。啊，这澄澈的雨、这温柔的夜，我是多么想要张开自己的双臂将这个深沉的雨夜拥抱。因为，雨夜之中这数不胜数的瞬间，是那样难能可贵。一旦错过，便再也没有机遇相遇。撑起，一把小小的雨伞，向着那雨夜的深邃处不断迈步向前，去将那夜的精灵同雨的梦乡一一寻找。</p>
+<p>也许，只要你的内心深处依旧潜藏着一份对于美好的信仰，这雨夜之中的珍贵宝藏，便不会距离我们太过遥远。 但愿，你也能在自己生命的旅途之中，幸运地相遇这样一场纷纷的阵雨，在一个无比迷人的浪漫夜晚。</p>
+<hr>
+<p>我想，你一定会最终找到，自己内心深处那点滴的美好，还有这个世界之中所潜藏着的宝藏。</p>
+<hr>
+<p align="right">于2023年6月24日写于家乡</p>
+]]></content>
+      <categories>
+        <category>尘世·第一辑</category>
+      </categories>
+      <tags>
+        <tag>尘世·第一辑</tag>
+        <tag>朝花夕拾</tag>
       </tags>
   </entry>
   <entry>
@@ -2230,39 +2263,6 @@ keybox.xml</p>
         <tag>Android搞机</tag>
         <tag>刷机</tag>
         <tag>技术帖</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>赠友人、赠故乡、赠雨</title>
-    <url>/post2/</url>
-    <content><![CDATA[<p>夜雨纷纷，打湿大地，同时更打湿了一颗又一颗多愁善感的心。我听见，寂静的天地之中，只有那润物无声的细雨依旧在无止无休地淅淅沥沥。不知远方的故园，是否也正下着这样一场恬静的细雨？</p>
-<p>我仿佛置身于幽深的海底，四周涌动着幽寂的海水与浓郁的黑暗。思绪不禁浮想联翩，延伸向遥远的过往，还有那不知通向何方的曲折未来。猜想，你我人生的故事，究竟将会踏入怎样的篇章。</p>
-<p>也许，一切的答案都在这幽寂的雨夜之中蕴藏。</p>
-<hr>
-<p>我感受到，窗外的一切，都在雨中无声无息地生长，种子萌生出娇嫩的新芽、花朵趁着夜幕的遮蔽悄悄地显露出自己美丽的容颜。</p>
-<p>我甚至可以听见，生命破土而出的声音，那是一种怎样动人心弦的交响！因为，万物依旧在生长。所以，世界终会被渲染上苍翠欲滴的绿意。直到，生命的颜色将这片曾经灰暗苍凉的大地再度充满。</p>
-<p>因此，这雨声又是生命的歌唱，更是自然的恩惠。每一滴雨水之中都蕴藏生命的欢歌，即便夜幕仍然将大地上的一切笼罩再一片寂静无声的沉寂之中。但是，黎明终会升起在东方的地平线上，揭开那神秘的面纱，将雨姑娘那姣好的容颜展现在你我的面前。</p>
-<p>那时，晨曦将会为这片为雨水润泽的大地，渲染上无比美丽的光彩，同时更会将你我内心深处的希望一一点亮。然而，现在还是让我们沉醉在这个悠长复悠长的雨夜，感受夜的寂静、还有那雨的清凉。在昏黄的灯盏下，将满怀的思念与爱意铺满纸张，将它寄向远方的故园。</p>
-<hr>
-<p>正所谓</p>
-<blockquote>
-<p>“在夜雨中思念友人，会思念到立即寻笔写信；在夜雨中挑灯作文，文字也会变得滋润蕴藉。”</p>
-</blockquote>
-<p>而只有这份温柔的情感，才能够将你我内心深处的思念传达。</p>
-<p>不必在意那洒落信纸的泪花，那是雨水自你我的心房悄然降下。也许，只有到了这时，你我才会恍然觉悟：原来，我们是多么思念自己的故园。 就让这纷纷的雨点奏出一曲哀伤的歌，将你我内心深处那份难以言说的沉重一一抒发。</p>
-<p>也许，善良的夜之精灵会将这动人的消息送往你我的故乡，同样，也是在一个朦胧悠美的夜晚。啊，这澄澈的雨、这温柔的夜，我是多么想要张开自己的双臂将这个深沉的雨夜拥抱。因为，雨夜之中这数不胜数的瞬间，是那样难能可贵。一旦错过，便再也没有机遇相遇。撑起，一把小小的雨伞，向着那雨夜的深邃处不断迈步向前，去将那夜的精灵同雨的梦乡一一寻找。</p>
-<p>也许，只要你的内心深处依旧潜藏着一份对于美好的信仰，这雨夜之中的珍贵宝藏，便不会距离我们太过遥远。 但愿，你也能在自己生命的旅途之中，幸运地相遇这样一场纷纷的阵雨，在一个无比迷人的浪漫夜晚。</p>
-<hr>
-<p>我想，你一定会最终找到，自己内心深处那点滴的美好，还有这个世界之中所潜藏着的宝藏。</p>
-<hr>
-<p align="right">于2023年6月24日写于家乡</p>
-]]></content>
-      <categories>
-        <category>尘世·第一辑</category>
-      </categories>
-      <tags>
-        <tag>尘世·第一辑</tag>
-        <tag>朝花夕拾</tag>
       </tags>
   </entry>
   <entry>

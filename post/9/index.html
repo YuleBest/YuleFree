@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下载重定向模块开源 - 我的博客</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../src/style/index.css">
+    <link rel="stylesheet" href="../../src/style/post.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+            <link rel="stylesheet" href="/src/style/code.css">
+            <link rel="stylesheet" href="/src/style/highlight.css">
+        </head>
+<body>
+    <header class="site-header">
+        <nav class="top-nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>YuleFree</h1>
+                </div>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="nav-links">
+                    <a href="/">首页</a>
+                    <a href="/categorie/">分类</a>
+                    <a href="/tag/">标签</a>
+                    <a href="/time/">时间线</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <article class="post-content">
+            <div class="breadcrumb">
+                <ol>
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/post/">文章</a></li>
+                    <li>下载重定向模块开源</li>
+                </ol>
+            </div>
+
+            <div class="banner"><img src="https://maxpcimg.cc/i/2024/09/29/66f8cb553b08b.jpg" alt="下载重定向模块开源"></div>
+
+            <div class="post-header">
+                <h1 class="post-title">下载重定向模块开源</h1>
+                <div class="post-meta">
+                    <span class="post-date">2024-08-25 19:09:12</span>
+                    <div class="post-categories">
+                        <a href="/categorie/Android刷机/">Android刷机</a>
+                    </div>
+                    <div class="post-tags">
+                        <a href="/tag/Android搞机/">Android搞机</a><a href="/tag/刷机/">刷机</a><a href="/tag/技术帖/">技术帖</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post-body">
+                <div class="toc"><h2>目录</h2><ul>
+<ul>
+<li><a href="#_1"> 文件结构：</a></li>
+<ul>
+<ul>
+<ul>
+<li><a href="#v10zip"> 下载重定向v1.0.zip</a></li>
+</ul>
+</ul>
+</ul>
+<li><a href="#_2"> 文件内容：</a></li>
+</ul>
+</ul></div>
+
+<h2 id="_1"><i class="fas fa-hashtag"></i> 文件结构：</h2>
+<h5 id="v10zip"><i class="fas fa-hashtag"></i> 下载重定向v1.0.zip</h5>
+<p>|-- <strong>common</strong>
+|   |-- config.conf 
+|   |-- post-fs-data.sh
+|   |-- system.prop
+|   |-- log.txt
+|   |-- service.sh
+|-- <strong>META-INF</strong>
+|   |-- <strong>com</strong>
+|       |-- <strong>google</strong>
+|           |-- <strong>android</strong>
+|               |-- update-binary
+|               |-- update-script
+|-- <strong>system</strong>
+|-- module.prop
+|-- customize.sh
+|-- uninstall.sh</p>
+<hr />
+<h2 id="_2"><i class="fas fa-hashtag"></i> 文件内容：</h2>
+<p>|-- <strong>common</strong>
+|   |-- config.conf </p>
+<pre class="codehilite"><code>#配置说明：
+#SDIR是原路径，
+#TDIR是目标路径，
+#TS是刷新延迟(默认5s)。
+#RM表示是否删除原目录，填1在每次移动完成后都会删除原来的目录，填0不会（慎用）
+
+#路径以/结尾
+
+#例如
+#SDIR=/sdcard/a/
+#TDIR=/sdcard/b/
+#RM=1
+
+#TS=5
+
+#模块就会每隔5s扫描/sdcard/a/下的文件，如果没有下载中的文件，就会把文件移动到/sdcard/b/，并且删除/sdcard/a
+
+
+#-----  配置区域  -----
+
+TS=5
+
+SDIR1=
+TDIR1=
+RM1=0
+
+SDIR2=
+TDIR2=
+RM2=0
+
+SDIR3=
+TDIR3=
+RM3=0
+
+SDIR3=
+TDIR3=
+RM3=0
+
+SDIR4=
+TDIR4=
+RM4=0
+
+SDIR5=
+TDIR5=
+RM5=0
+
+SDIR6=
+TDIR6=
+RM6=0
+
+SDIR7=
+TDIR7=
+RM7=0
+
+SDIR8=
+TDIR8=
+RM8=0
+
+SDIR9=
+TDIR9=
+RM9=0
+
+SDIR10=
+TDIR10=
+RM10=0
+</code></pre>
+
+<p>|-- <strong>common</strong>
+|   |-- post-fs-data.sh</p>
+<pre class="codehilite"><code class="language-shell">#!/system/bin/sh
+# 请不要硬编码/magisk/modname/...;相反，请使用$MODDIR/...
+# 这将使您的脚本兼容，即使Magisk以后改变挂载点
+MODDIR=${0%/*}
+
+# 此脚本将在post-fs-data模式下执行
+</code></pre>
+
+<p>|-- <strong>common</strong>
+|   |-- system.prop</p>
+<pre class="codehilite"><code># This file will be read by resetprop
+# 示例: 更改 dpi
+# ro.sf.lcd_density=360
+# vendor.display.lcd_density=360
+# 此文件映射 /system/build.prop
+</code></pre>
+
+<p>|-- <strong>common</strong>
+|   |-- service.sh</p>
+<pre class="codehilite"><code class="language-shell">#!/system/bin/sh
+#请不要硬编码/magisk/modname/...;相反，请使用$MODDIR/...
+#这将使您的脚本兼容，即使Magisk以后改变挂载点
+
+
+MODDIR=${0%/*}
+LOG=$MODDIR/log.txt
+counter=0
+config_file=$MODDIR/config.txt
+
+#该脚本将在设备开机后作为延迟服务启动
+while true; do
+    while [ &quot;$(getprop sys.boot_completed)&quot; != &quot;1&quot; ]; do
+        sleep 20
+    done
+    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+    echo &quot;👌[$time] 开机完成，已进入循环&quot; &gt;&gt; $LOG    
+
+    #获取变量
+    configs=&quot;$(cat &quot;$MODDIR/config.conf&quot; | egrep -v '^#')&quot;
+
+    #分割变量提纯
+    SDIR1=$(echo &quot;$configs&quot; | awk -F '=' '/^SDIR1=/{print $2}')
+    SDIR2=$(echo &quot;$configs&quot; | awk -F '=' '/^SDIR2=/{print $2}')
+    SDIR3=$(echo &quot;$configs&quot; | awk -F '=' '/^SDIR3=/{print $2}')
+    SDIR4=$(echo &quot;$configs&quot; | awk -F '=' '/^SDIR4=/{print $2}')
+    SDIR5=$(echo &quot;$configs&quot; | awk -F '=' '/^SDIR5=/{print $2}')
+    SDIR6=$(echo &quot;$configs&quot; | awk -F '=' '/^SDIR6=/{print $2}')
+    SDIR7=$(echo &quot;$configs&quot; | awk -F '=' '/^SDIR7=/{print $2}')
+    SDIR8=$(echo &quot;$configs&quot; | awk -F '=' '/^SDIR8=/{print $2}')
+    SDIR9=$(echo &quot;$configs&quot; | awk -F '=' '/^SDIR9=/{print $2}')
+    SDIR10=$(echo &quot;$configs&quot; | awk -F '=' '/^SDIR10=/{print $2}')
+
+    TDIR1=$(echo &quot;$configs&quot; | awk -F '=' '/^TDIR1=/{print $2}')
+    TDIR2=$(echo &quot;$configs&quot; | awk -F '=' '/^TDIR2=/{print $2}')
+    TDIR3=$(echo &quot;$configs&quot; | awk -F '=' '/^TDIR3=/{print $2}')
+    TDIR4=$(echo &quot;$configs&quot; | awk -F '=' '/^TDIR4=/{print $2}')
+    TDIR5=$(echo &quot;$configs&quot; | awk -F '=' '/^TDIR5=/{print $2}')
+    TDIR6=$(echo &quot;$configs&quot; | awk -F '=' '/^TDIR6=/{print $2}')
+    TDIR7=$(echo &quot;$configs&quot; | awk -F '=' '/^TDIR7=/{print $2}')
+    TDIR8=$(echo &quot;$configs&quot; | awk -F '=' '/^TDIR8=/{print $2}')
+    TDIR9=$(echo &quot;$configs&quot; | awk -F '=' '/^TDIR9=/{print $2}')
+    TDIR10=$(echo &quot;$configs&quot; | awk -F '=' '/^TDIR10=/{print $2}')
+
+    RM1=$(echo &quot;$configs&quot; | awk -F '=' '/^RM1=/{print $2}')
+    RM2=$(echo &quot;$configs&quot; | awk -F '=' '/^RM2=/{print $2}')
+    RM3=$(echo &quot;$configs&quot; | awk -F '=' '/^RM3=/{print $2}')
+    RM4=$(echo &quot;$configs&quot; | awk -F '=' '/^RM4=/{print $2}')
+    RM5=$(echo &quot;$configs&quot; | awk -F '=' '/^RM5=/{print $2}')
+    RM6=$(echo &quot;$configs&quot; | awk -F '=' '/^RM6=/{print $2}')
+    RM7=$(echo &quot;$configs&quot; | awk -F '=' '/^RM7=/{print $2}')
+    RM8=$(echo &quot;$configs&quot; | awk -F '=' '/^RM8=/{print $2}')
+    RM9=$(echo &quot;$configs&quot; | awk -F '=' '/^RM9=/{print $2}')
+    RM10=$(echo &quot;$configs&quot; | awk -F '=' '/^RM10=/{print $2}')
+
+    TS=$(echo &quot;$configs&quot; | awk -F '=' '/^TS=/{print $2}')
+
+#----------------SDIR1 -&gt; TDIR1---------------------
+
+    #检查TDIR路径是否为空
+    if [[ &quot;$TDIR1&quot; != &quot;&quot; ]]; then
+        #若TIDR路径不为空
+        #检查TIR是否存在
+        if [ ! -d &quot;$TDIR1&quot; ]; then
+        #若不存在，则创建路径并生成日志
+            mkdir -p $TDIR1
+            time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+            echo &quot;👌[$time] [目录1] 检测到$TDIR1(目标目录)目录不存在，已创建目录&quot; &gt;&gt; $LOG        
+        else    #若存在，则进入下一层判断
+            #生成日志
+            time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+            echo &quot;👌[$time] [目录1] 检测到$TDIR1(目标目录)目录已存在&quot; &gt;&gt; $LOG
+            #检查SDIR路径是否为空
+            if [[ &quot;$SDIR1&quot; != &quot;&quot; ]];then
+            #若不为空
+                #生成日志，后进行下载状态判断
+                time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                echo &quot;👌[$time] [目录1] 检测到$SDIR1(原目录)目录已存在&quot; &gt;&gt; $LOG
+                #检查SDIR目录下是否有.tmp文件
+                tmp1=$(find $SDIR1 -type f -name '*.tmp')
+                if [ -n &quot;$tmp1&quot; ]; then
+                    #如果有，生成日志，进入下一次循环
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;❗️[$time] [目录1] 已发现下载中的文件，不进行移动，进入下一次循环
+        ----------------------------------------&quot; &gt;&gt; $LOG
+                else    #如果没有，则进行文件移动
+                    #生成日志
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;👌[$time] [目录1] 未发现下载中的文件，开始移动文件&quot; &gt;&gt; $LOG
+                    #获取要移动的文件数量
+                    files_to_move=$(ls $SDIR1 | wc -l)       
+                    #移动文件
+                    mv $SDIR1* $TDIR1
+
+                    #判断是否删除目录
+                    #检查 $RM 是否等于 1
+                    if [ &quot;$RM1&quot; -eq 1 ]; then
+                        #如果 $RM 等于 1，则删除目录 $SDIR
+                        rm -rf &quot;$SDIR1&quot;
+                        echo &quot;✅[$time] [目录1] 已为您删除$SDIR1(原目录)&quot;
+                    #如果 $RM 不等于 1，则不执行任何操作
+                    fi
+
+                    #更新计数器
+                    counter=$((counter + files_to_move))
+                    title=&quot;最新移动位于[目录1]$SDIR1
+                    ✅本模块共为您移动了 $counter 个文件！&quot;
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;✅[$time] [目录1] 第$counter个文件移动已完成，计数器更新完毕，进入下一次循环
+        ----------------------------------------&quot; &gt;&gt; $LOG
+                fi    #下载状态判断结束
+            else    #如果SDIR路径为空
+                #生成日志
+                time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                echo &quot;🚫[$time] [目录1] 检测到$SDIR1(原目录)路径未填写，跳过移动&quot; &gt;&gt; $LOG
+
+            fi    #SDIR路径是否为空判断结束                
+        fi    #TDIR是否存在判断结束
+    else    #若TDIR路径为空
+        time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+        echo &quot;🚫[$time] [目录1] 检测到$TDIR1(目标目录)路径未填写，跳过移动&quot; &gt;&gt; $LOG       
+    fi    #TDIR路径是否为空判断完毕
+
+#----------------SDIR2 -&gt; TDIR2---------------------
+
+    #检查TDIR路径是否为空
+    if [[ &quot;$TDIR2&quot; != &quot;&quot; ]]; then
+        #若TIDR路径不为空
+        #检查TIR是否存在
+        if [ ! -d &quot;$TDIR2&quot; ]; then
+        #若不存在，则创建路径并生成日志
+            mkdir -p $TDIR2
+            time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+            echo &quot;👌[$time] [目录2] 检测到$TDIR2目录不存在，已创建目录&quot; &gt;&gt; $LOG        
+        else    #若存在，则进入下一层判断
+            #生成日志
+            time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+            echo &quot;👌[$time] [目录2] 检测到$TDIR2(目标目录)目录已存在&quot; &gt;&gt; $LOG
+            #检查SDIR路径是否为空
+            if [[ &quot;$SDIR2&quot; != &quot;&quot; ]];then
+            #若不为空
+                #生成日志，后进行下载状态判断
+                time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                echo &quot;👌[$time] [目录2] 检测到$SDIR2(原目录)目录已存在&quot; &gt;&gt; $LOG
+                #检查SDIR目录下是否有.tmp文件
+                tmp2=$(find $SDIR2 -type f -name '*.tmp')
+                if [ -n &quot;$tmp2&quot; ]; then
+                    #如果有，生成日志，进入下一次循环
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;❗️[$time] [目录2] 已发现下载中的文件，不进行移动，进入下一次循环
+        ----------------------------------------&quot; &gt;&gt; $LOG
+                else    #如果没有，则进行文件移动
+                    #生成日志
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;👌[$time] [目录2] 未发现下载中的文件，开始移动文件&quot; &gt;&gt; $LOG
+                    #获取要移动的文件数量
+                    files_to_move=$(ls $SDIR2 | wc -l)       
+                    #移动文件
+                    mv $SDIR2* $TDIR2
+
+                    #判断是否删除目录
+                    #检查 $RM 是否等于 1
+                    if [ &quot;$RM2&quot; -eq 1 ]; then
+                        #如果 $RM 等于 1，则删除目录 $SDIR
+                        rm -rf &quot;$SDIR2&quot;
+                        echo &quot;✅[$time] [目录2] 已为您删除$SDIR2(原目录)&quot;
+                    #如果 $RM 不等于 1，则不执行任何操作
+                    fi
+
+                    #更新计数器
+                    counter=$((counter + files_to_move))
+                    title=&quot;最新移动位于[目录2]$SDIR2
+                    ✅本模块共为您移动了 $counter 个文件！&quot;
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;✅[$time] [目录2] 第$counter个文件移动已完成，计数器更新完毕，进入下一次循环
+        ----------------------------------------&quot; &gt;&gt; $LOG
+                fi    #下载状态判断结束
+            else    #如果SDIR路径为空
+                #生成日志
+                time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                echo &quot;🚫[$time] [目录2] 检测到$SDIR2(原目录)路径未填写，跳过移动&quot; &gt;&gt; $LOG
+
+            fi    #SDIR路径是否为空判断结束                
+        fi    #TDIR是否存在判断结束
+    else    #若TDIR路径为空
+        time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+        echo &quot;🚫[$time] [目录2] 检测到$TDIR2(目标目录)路径未填写，跳过移动&quot; &gt;&gt; $LOG       
+    fi    #TDIR路径是否为空判断完毕
+
+#----------------SDIR3 -&gt; TDIR3---------------------
+
+    #检查TDIR路径是否为空
+    if [[ &quot;$TDIR3&quot; != &quot;&quot; ]]; then
+        #若TIDR路径不为空
+        #检查TIR是否存在
+        if [ ! -d &quot;$TDIR3&quot; ]; then
+        #若不存在，则创建路径并生成日志
+            mkdir -p $TDIR3
+            time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+            echo &quot;👌[$time] [目录3] 检测到$TDIR3(目标目录)目录不存在，已创建目录&quot; &gt;&gt; $LOG        
+        else    #若存在，则进入下一层判断
+            #生成日志
+            time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+            echo &quot;👌[$time] [目录3] 检测到$TDIR3(目标目录)目录已存在&quot; &gt;&gt; $LOG
+            #检查SDIR路径是否为空
+            if [[ &quot;$SDIR3&quot; != &quot;&quot; ]];then
+            #若不为空
+                #生成日志，后进行下载状态判断
+                time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                echo &quot;👌[$time] [目录3] 检测到$SDIR3(原目录)目录已存在&quot; &gt;&gt; $LOG
+                #检查SDIR目录下是否有.tmp文件
+                tmp3=$(find $SDIR3 -type f -name '*.tmp')
+                if [ -n &quot;$tmp3&quot; ]; then
+                    #如果有，生成日志，进入下一次循环
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;❗️[$time] [目录3] 已发现下载中的文件，不进行移动，进入下一次循环
+        ----------------------------------------&quot; &gt;&gt; $LOG
+                else    #如果没有，则进行文件移动
+                    #生成日志
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;👌[$time] [目录3] 未发现下载中的文件，开始移动文件&quot; &gt;&gt; $LOG
+                    #获取要移动的文件数量
+                    files_to_move=$(ls $SDIR3 | wc -l)       
+                    #移动文件
+                    mv $SDIR3* $TDIR3
+
+                    #判断是否删除目录
+                    #检查 $RM 是否等于 1
+                    if [ &quot;$RM3&quot; -eq 1 ]; then
+                        #如果 $RM 等于 1，则删除目录 $SDIR
+                        rm -rf &quot;$SDIR3&quot;
+                        echo &quot;✅[$time] [目录3] 已为您删除$SDIR3(原目录)&quot;
+                    #如果 $RM 不等于 1，则不执行任何操作
+                    fi
+
+                    #更新计数器
+                    counter=$((counter + files_to_move))
+                    title=&quot;最新移动位于[目录3]$SDIR3
+                    ✅本模块共为您移动了 $counter 个文件！&quot;
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;✅[$time] [目录3] 第$counter个文件移动已完成，计数器更新完毕，进入下一次循环
+        ----------------------------------------&quot; &gt;&gt; $LOG
+                fi    #下载状态判断结束
+            else    #如果SDIR路径为空
+                #生成日志
+                time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                echo &quot;🚫[$time] [目录3] 检测到$SDIR3(原目录)路径未填写，跳过移动&quot; &gt;&gt; $LOG
+
+            fi    #SDIR路径是否为空判断结束                
+        fi    #TDIR是否存在判断结束
+    else    #若TDIR路径为空
+        time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+        echo &quot;🚫[$time] [目录3] 检测到$TDIR3(目标目录)路径未填写，跳过移动&quot; &gt;&gt; $LOG       
+    fi    #TDIR路径是否为空判断完毕   
+
+#----------------SDIR4 -&gt; TDIR4---------------------
+
+    #检查TDIR路径是否为空
+    if [[ &quot;$TDIR4&quot; != &quot;&quot; ]]; then
+        #若TIDR路径不为空
+        #检查TIR是否存在
+        if [ ! -d &quot;$TDIR4&quot; ]; then
+        #若不存在，则创建路径并生成日志
+            mkdir -p $TDIR4
+            time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+            echo &quot;👌[$time] [目录4] 检测到$TDIR4(目标目录)目录不存在，已创建目录&quot; &gt;&gt; $LOG        
+        else    #若存在，则进入下一层判断
+            #生成日志
+            time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+            echo &quot;👌[$time] [目录4] 检测到$TDIR4(目标目录)目录已存在&quot; &gt;&gt; $LOG
+            #检查SDIR路径是否为空
+            if [[ &quot;$SDIR4&quot; != &quot;&quot; ]];then
+            #若不为空
+                #生成日志，后进行下载状态判断
+                time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                echo &quot;👌[$time] [目录4] 检测到$SDIR4(原目录)目录已存在&quot; &gt;&gt; $LOG
+                #检查SDIR目录下是否有.tmp文件
+                tmp4=$(find $SDIR4 -type f -name '*.tmp')
+                if [ -n &quot;$tmp4&quot; ]; then
+                    #如果有，生成日志，进入下一次循环
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;❗️[$time] [目录4] 已发现下载中的文件，不进行移动，进入下一次循环
+        ----------------------------------------&quot; &gt;&gt; $LOG
+                else    #如果没有，则进行文件移动
+                    #生成日志
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;👌[$time] [目录4] 未发现下载中的文件，开始移动文件&quot; &gt;&gt; $LOG
+                    #获取要移动的文件数量
+                    files_to_move=$(ls $SDIR4 | wc -l)       
+                    #移动文件
+                    mv $SDIR4* $TDIR4
+
+                    #判断是否删除目录
+                    #检查 $RM 是否等于 1
+                    if [ &quot;$RM4&quot; -eq 1 ]; then
+                        #如果 $RM 等于 1，则删除目录 $SDIR
+                        rm -rf &quot;$SDIR4&quot;
+                        echo &quot;✅[$time] [目录4] 已为您删除$SDIR4(原目录)&quot;
+                    #如果 $RM 不等于 1，则不执行任何操作
+                    fi
+
+                    #更新计数器
+                    counter=$((counter + files_to_move))
+                    title=&quot;最新移动位于[目录4]$SDIR4
+                    ✅本模块共为您移动了 $counter 个文件！&quot;
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;✅[$time] [目录4] 第$counter个文件移动已完成，计数器更新完毕，进入下一次循环
+        ----------------------------------------&quot; &gt;&gt; $LOG
+                fi    #下载状态判断结束
+            else    #如果SDIR路径为空
+                #生成日志
+                time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                echo &quot;🚫[$time] [目录4] 检测到$SDIR4(原目录)路径未填写，跳过移动&quot; &gt;&gt; $LOG
+
+            fi    #SDIR路径是否为空判断结束                
+        fi    #TDIR是否存在判断结束
+    else    #若TDIR路径为空
+        time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+        echo &quot;🚫[$time] [目录4] 检测到$TDIR4(目标目录)路径未填写，跳过移动&quot; &gt;&gt; $LOG       
+    fi    #TDIR路径是否为空判断完毕
+
+#----------------SDIR5 -&gt; TDIR5---------------------
+
+    #检查TDIR路径是否为空
+    if [[ &quot;$TDIR5&quot; != &quot;&quot; ]]; then
+        #若TIDR路径不为空
+        #检查TIR是否存在
+        if [ ! -d &quot;$TDIR5&quot; ]; then
+        #若不存在，则创建路径并生成日志
+            mkdir -p $TDIR5
+            time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+            echo &quot;👌[$time] [目录5] 检测到$TDIR5(目标目录)目录不存在，已创建目录&quot; &gt;&gt; $LOG        
+        else    #若存在，则进入下一层判断
+            #生成日志
+            time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+            echo &quot;👌[$time] [目录5] 检测到$TDIR5(目标目录)目录已存在&quot; &gt;&gt; $LOG
+            #检查SDIR路径是否为空
+            if [[ &quot;$SDIR5&quot; != &quot;&quot; ]];then
+            #若不为空
+                #生成日志，后进行下载状态判断
+                time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                echo &quot;👌[$time] [目录5] 检测到$SDIR5(原目录)目录已存在&quot; &gt;&gt; $LOG
+                #检查SDIR目录下是否有.tmp文件
+                tmp5=$(find $SDIR5 -type f -name '*.tmp')
+                if [ -n &quot;$tmp5&quot; ]; then
+                    #如果有，生成日志，进入下一次循环
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;❗️[$time] [目录5] 已发现下载中的文件，不进行移动，进入下一次循环
+        ----------------------------------------&quot; &gt;&gt; $LOG
+                else    #如果没有，则进行文件移动
+                    #生成日志
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;👌[$time] [目录5] 未发现下载中的文件，开始移动文件&quot; &gt;&gt; $LOG
+                    #获取要移动的文件数量
+                    files_to_move=$(ls $SDIR5 | wc -l)       
+                    #移动文件
+                    mv $SDIR5* $TDIR5
+
+                    #判断是否删除目录
+                    #检查 $RM 是否等于 1
+                    if [ &quot;$RM5&quot; -eq 1 ]; then
+                        #如果 $RM 等于 1，则删除目录 $SDIR
+                        rm -rf &quot;$SDIR5&quot;
+                        echo &quot;✅[$time] [目录5] 已为您删除$SDIR5(原目录)&quot;
+                    #如果 $RM 不等于 1，则不执行任何操作
+                    fi
+
+                    #更新计数器
+                    counter=$((counter + files_to_move))
+                    title=&quot;最新移动位于[目录5]$SDIR5
+                    ✅本模块共为您移动了 $counter 个文件！&quot;
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;✅[$time] [目录5] 第$counter个文件移动已完成，计数器更新完毕，进入下一次循环
+        ----------------------------------------&quot; &gt;&gt; $LOG
+                fi    #下载状态判断结束
+            else    #如果SDIR路径为空
+                #生成日志
+                time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                echo &quot;🚫[$time] [目录5] 检测到$SDIR5(原目录)路径未填写，跳过移动&quot; &gt;&gt; $LOG
+
+            fi    #SDIR路径是否为空判断结束                
+        fi    #TDIR是否存在判断结束
+    else    #若TDIR路径为空
+        time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+        echo &quot;🚫[$time] [目录5] 检测到$TDIR5(目标目录)路径未填写，跳过移动&quot; &gt;&gt; $LOG       
+    fi    #TDIR路径是否为空判断完毕
+
+#----------------SDIR6 -&gt; TDIR6---------------------
+
+    #检查TDIR路径是否为空
+    if [[ &quot;$TDIR6&quot; != &quot;&quot; ]]; then
+        #若TIDR路径不为空
+        #检查TIR是否存在
+        if [ ! -d &quot;$TDIR6&quot; ]; then
+        #若不存在，则创建路径并生成日志
+            mkdir -p $TDIR6
+            time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+            echo &quot;👌[$time] [目录6] 检测到$TDIR6(目标目录)目录不存在，已创建目录&quot; &gt;&gt; $LOG        
+        else    #若存在，则进入下一层判断
+            #生成日志
+            time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+            echo &quot;👌[$time] [目录6] 检测到$TDIR6(目标目录)目录已存在&quot; &gt;&gt; $LOG
+            #检查SDIR路径是否为空
+            if [[ &quot;$SDIR6&quot; != &quot;&quot; ]];then
+            #若不为空
+                #生成日志，后进行下载状态判断
+                time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                echo &quot;👌[$time] [目录6] 检测到$SDIR6(原目录)目录已存在&quot; &gt;&gt; $LOG
+                #检查SDIR目录下是否有.tmp文件
+                tmp6=$(find $SDIR6 -type f -name '*.tmp')
+                if [ -n &quot;$tmp6&quot; ]; then
+                    #如果有，生成日志，进入下一次循环
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;❗️[$time] [目录6] 已发现下载中的文件，不进行移动，进入下一次循环
+        ----------------------------------------&quot; &gt;&gt; $LOG
+                else    #如果没有，则进行文件移动
+                    #生成日志
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;👌[$time] [目录6] 未发现下载中的文件，开始移动文件&quot; &gt;&gt; $LOG
+                    #获取要移动的文件数量
+                    files_to_move=$(ls $SDIR6 | wc -l)       
+                    #移动文件
+                    mv $SDIR6* $TDIR6
+
+                    #判断是否删除目录
+                    #检查 $RM 是否等于 1
+                    if [ &quot;$RM6&quot; -eq 1 ]; then
+                        #如果 $RM 等于 1，则删除目录 $SDIR
+                        rm -rf &quot;$SDIR6&quot;
+                        echo &quot;✅[$time] [目录6] 已为您删除$SDIR6(原目录)&quot;
+                    #如果 $RM 不等于 1，则不执行任何操作
+                    fi
+
+                    #更新计数器
+                    counter=$((counter + files_to_move))
+                    title=&quot;最新移动位于[目录6]$SDIR6
+                    ✅本模块共为您移动了 $counter 个文件！&quot;
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;✅[$time] [目录6] 第$counter个文件移动已完成，计数器更新完毕，进入下一次循环
+        ----------------------------------------&quot; &gt;&gt; $LOG
+                fi    #下载状态判断结束
+            else    #如果SDIR路径为空
+                #生成日志
+                time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                echo &quot;🚫[$time] [目录6] 检测到$SDIR6(原目录)路径未填写，跳过移动&quot; &gt;&gt; $LOG
+
+            fi    #SDIR路径是否为空判断结束                
+        fi    #TDIR是否存在判断结束
+    else    #若TDIR路径为空
+        time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+        echo &quot;🚫[$time] [目录6] 检测到$TDIR6(目标目录)路径未填写，跳过移动&quot; &gt;&gt; $LOG       
+    fi    #TDIR路径是否为空判断完毕
+
+#----------------SDIR7 -&gt; TDIR7---------------------
+
+    #检查TDIR路径是否为空
+    if [[ &quot;$TDIR7&quot; != &quot;&quot; ]]; then
+        #若TIDR路径不为空
+        #检查TIR是否存在
+        if [ ! -d &quot;$TDIR7&quot; ]; then
+        #若不存在，则创建路径并生成日志
+            mkdir -p $TDIR7
+            time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+            echo &quot;👌[$time] [目录7] 检测到$TDIR7(目标目录)目录不存在，已创建目录&quot; &gt;&gt; $LOG        
+        else    #若存在，则进入下一层判断
+            #生成日志
+            time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+            echo &quot;👌[$time] [目录7] 检测到$TDIR7(目标目录)目录已存在&quot; &gt;&gt; $LOG
+            #检查SDIR路径是否为空
+            if [[ &quot;$SDIR7&quot; != &quot;&quot; ]];then
+            #若不为空
+                #生成日志，后进行下载状态判断
+                time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                echo &quot;👌[$time] [目录7] 检测到$SDIR7(原目录)目录已存在&quot; &gt;&gt; $LOG
+                #检查SDIR目录下是否有.tmp文件
+                tmp7=$(find $SDIR7 -type f -name '*.tmp')
+                if [ -n &quot;$tmp7&quot; ]; then
+                    #如果有，生成日志，进入下一次循环
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;❗️[$time] [目录7] 已发现下载中的文件，不进行移动，进入下一次循环
+        ----------------------------------------&quot; &gt;&gt; $LOG
+                else    #如果没有，则进行文件移动
+                    #生成日志
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;👌[$time] [目录7] 未发现下载中的文件，开始移动文件&quot; &gt;&gt; $LOG
+                    #获取要移动的文件数量
+                    files_to_move=$(ls $SDIR7 | wc -l)       
+                    #移动文件
+                    mv $SDIR7* $TDIR7
+
+                    #判断是否删除目录
+                    #检查 $RM 是否等于 1
+                    if [ &quot;$RM7&quot; -eq 1 ]; then
+                        #如果 $RM 等于 1，则删除目录 $SDIR
+                        rm -rf &quot;$SDIR7&quot;
+                        echo &quot;✅[$time] [目录7] 已为您删除$SDIR7(原目录)&quot;
+                    #如果 $RM 不等于 1，则不执行任何操作
+                    fi
+
+                    #更新计数器
+                    counter=$((counter + files_to_move))
+                    title=&quot;最新移动位于[目录7]$SDIR7
+                    ✅本模块共为您移动了 $counter 个文件！&quot;
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;✅[$time] [目录7] 第$counter个文件移动已完成，计数器更新完毕，进入下一次循环
+        ----------------------------------------&quot; &gt;&gt; $LOG
+                fi    #下载状态判断结束
+            else    #如果SDIR路径为空
+                #生成日志
+                time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                echo &quot;🚫[$time] [目录7] 检测到$SDIR7(原目录)路径未填写，跳过移动&quot; &gt;&gt; $LOG
+
+            fi    #SDIR路径是否为空判断结束                
+        fi    #TDIR是否存在判断结束
+    else    #若TDIR路径为空
+        time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+        echo &quot;🚫[$time] [目录7] 检测到$TDIR7(目标目录)路径未填写，跳过移动&quot; &gt;&gt; $LOG       
+    fi    #TDIR路径是否为空判断完毕
+
+#----------------SDIR6 -&gt; TDIR6---------------------
+
+    #检查TDIR路径是否为空
+    if [[ &quot;$TDIR6&quot; != &quot;&quot; ]]; then
+        #若TIDR路径不为空
+        #检查TIR是否存在
+        if [ ! -d &quot;$TDIR6&quot; ]; then
+        #若不存在，则创建路径并生成日志
+            mkdir -p $TDIR6
+            time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+            echo &quot;👌[$time] [目录6] 检测到$TDIR6(目标目录)目录不存在，已创建目录&quot; &gt;&gt; $LOG        
+        else    #若存在，则进入下一层判断
+            #生成日志
+            time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+            echo &quot;👌[$time] [目录6] 检测到$TDIR6(目标目录)目录已存在&quot; &gt;&gt; $LOG
+            #检查SDIR路径是否为空
+            if [[ &quot;$SDIR6&quot; != &quot;&quot; ]];then
+            #若不为空
+                #生成日志，后进行下载状态判断
+                time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                echo &quot;👌[$time] [目录6] 检测到$SDIR6(原目录)目录已存在&quot; &gt;&gt; $LOG
+                #检查SDIR目录下是否有.tmp文件
+                tmp6=$(find $SDIR6 -type f -name '*.tmp')
+                if [ -n &quot;$tmp6&quot; ]; then
+                    #如果有，生成日志，进入下一次循环
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;❗️[$time] [目录6] 已发现下载中的文件，不进行移动，进入下一次循环
+        ----------------------------------------&quot; &gt;&gt; $LOG
+                else    #如果没有，则进行文件移动
+                    #生成日志
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;👌[$time] [目录6] 未发现下载中的文件，开始移动文件&quot; &gt;&gt; $LOG
+                    #获取要移动的文件数量
+                    files_to_move=$(ls $SDIR6 | wc -l)       
+                    #移动文件
+                    mv $SDIR6* $TDIR6
+
+                    #判断是否删除目录
+                    #检查 $RM 是否等于 1
+                    if [ &quot;$RM6&quot; -eq 1 ]; then
+                        #如果 $RM 等于 1，则删除目录 $SDIR
+                        rm -rf &quot;$SDIR6&quot;
+                        echo &quot;✅[$time] [目录6] 已为您删除$SDIR6(原目录)&quot;
+                    #如果 $RM 不等于 1，则不执行任何操作
+                    fi
+
+                    #更新计数器
+                    counter=$((counter + files_to_move))
+                    title=&quot;最新移动位于[目录6]$SDIR6
+                    ✅本模块共为您移动了 $counter 个文件！&quot;
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;✅[$time] [目录6] 第$counter个文件移动已完成，计数器更新完毕，进入下一次循环
+        ----------------------------------------&quot; &gt;&gt; $LOG
+                fi    #下载状态判断结束
+            else    #如果SDIR路径为空
+                #生成日志
+                time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                echo &quot;🚫[$time] [目录6] 检测到$SDIR6(原目录)路径未填写，跳过移动&quot; &gt;&gt; $LOG
+
+            fi    #SDIR路径是否为空判断结束                
+        fi    #TDIR是否存在判断结束
+    else    #若TDIR路径为空
+        time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+        echo &quot;🚫[$time] [目录6] 检测到$TDIR6(目标目录)路径未填写，跳过移动&quot; &gt;&gt; $LOG       
+    fi    #TDIR路径是否为空判断完毕
+
+#----------------SDIR9 -&gt; TDIR9---------------------
+
+    #检查TDIR路径是否为空
+    if [[ &quot;$TDIR9&quot; != &quot;&quot; ]]; then
+        #若TIDR路径不为空
+        #检查TIR是否存在
+        if [ ! -d &quot;$TDIR9&quot; ]; then
+        #若不存在，则创建路径并生成日志
+            mkdir -p $TDIR9
+            time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+            echo &quot;👌[$time] [目录9] 检测到$TDIR9(目标目录)目录不存在，已创建目录&quot; &gt;&gt; $LOG        
+        else    #若存在，则进入下一层判断
+            #生成日志
+            time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+            echo &quot;👌[$time] [目录9] 检测到$TDIR9(目标目录)目录已存在&quot; &gt;&gt; $LOG
+            #检查SDIR路径是否为空
+            if [[ &quot;$SDIR9&quot; != &quot;&quot; ]];then
+            #若不为空
+                #生成日志，后进行下载状态判断
+                time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                echo &quot;👌[$time] [目录9] 检测到$SDIR9(原目录)目录已存在&quot; &gt;&gt; $LOG
+                #检查SDIR目录下是否有.tmp文件
+                tmp9=$(find $SDIR9 -type f -name '*.tmp')
+                if [ -n &quot;$tmp9&quot; ]; then
+                    #如果有，生成日志，进入下一次循环
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;❗️[$time] [目录9] 已发现下载中的文件，不进行移动，进入下一次循环
+        ----------------------------------------&quot; &gt;&gt; $LOG
+                else    #如果没有，则进行文件移动
+                    #生成日志
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;👌[$time] [目录9] 未发现下载中的文件，开始移动文件&quot; &gt;&gt; $LOG
+                    #获取要移动的文件数量
+                    files_to_move=$(ls $SDIR9 | wc -l)       
+                    #移动文件
+                    mv $SDIR9* $TDIR9
+
+                    #判断是否删除目录
+                    #检查 $RM 是否等于 1
+                    if [ &quot;$RM9&quot; -eq 1 ]; then
+                        #如果 $RM 等于 1，则删除目录 $SDIR
+                        rm -rf &quot;$SDIR9&quot;
+                        echo &quot;✅[$time] [目录9] 已为您删除$SDIR9(原目录)&quot;
+                    #如果 $RM 不等于 1，则不执行任何操作
+                    fi
+
+                    #更新计数器
+                    counter=$((counter + files_to_move))
+                    title=&quot;最新移动位于[目录9]$SDIR9
+                    ✅本模块共为您移动了 $counter 个文件！&quot;
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;✅[$time] [目录9] 第$counter个文件移动已完成，计数器更新完毕，进入下一次循环
+        ----------------------------------------&quot; &gt;&gt; $LOG
+                fi    #下载状态判断结束
+            else    #如果SDIR路径为空
+                #生成日志
+                time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                echo &quot;🚫[$time] [目录9] 检测到$SDIR9(原目录)路径未填写，跳过移动&quot; &gt;&gt; $LOG
+
+            fi    #SDIR路径是否为空判断结束                
+        fi    #TDIR是否存在判断结束
+    else    #若TDIR路径为空
+        time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+        echo &quot;🚫[$time] [目录9] 检测到$TDIR9(目标目录)路径未填写，跳过移动&quot; &gt;&gt; $LOG       
+    fi    #TDIR路径是否为空判断完毕
+
+#----------------SDIR10 -&gt; TDIR10---------------------
+    #检查TDIR路径是否为空
+    if [[ &quot;$TDIR10&quot; != &quot;&quot; ]]; then
+        #若TIDR路径不为空
+        #检查TIR是否存在
+        if [ ! -d &quot;$TDIR10&quot; ]; then
+        #若不存在，则创建路径并生成日志
+            mkdir -p $TDIR10
+            time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+            echo &quot;👌[$time] [目录10] 检测到$TDIR10(目标目录)目录不存在，已创建目录&quot; &gt;&gt; $LOG        
+        else    #若存在，则进入下一层判断
+            #生成日志
+            time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+            echo &quot;👌[$time] [目录10] 检测到$TDIR10(目标目录)目录已存在&quot; &gt;&gt; $LOG
+            #检查SDIR路径是否为空
+            if [[ &quot;$SDIR10&quot; != &quot;&quot; ]];then
+            #若不为空
+                #生成日志，后进行下载状态判断
+                time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                echo &quot;👌[$time] [目录10] 检测到$SDIR10(原目录)目录已存在&quot; &gt;&gt; $LOG
+                #检查SDIR目录下是否有.tmp文件
+                tmp10=$(find $SDIR10 -type f -name '*.tmp')
+                if [ -n &quot;$tmp10&quot; ]; then
+                    #如果有，生成日志，进入下一次循环
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;❗️[$time] [目录10] 已发现下载中的文件，不进行移动，进入下一次循环
+        ----------------------------------------&quot; &gt;&gt; $LOG
+                else    #如果没有，则进行文件移动
+                    #生成日志
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;👌[$time] [目录10] 未发现下载中的文件，开始移动文件&quot; &gt;&gt; $LOG
+                    #获取要移动的文件数量
+                    files_to_move=$(ls $SDIR10 | wc -l)       
+                    #移动文件
+                    mv $SDIR10* $TDIR10
+
+                    #判断是否删除目录
+                    #检查 $RM 是否等于 1
+                    if [ &quot;$RM10&quot; -eq 1 ]; then
+                        #如果 $RM 等于 1，则删除目录 $SDIR
+                        rm -rf &quot;$SDIR10&quot;
+                        echo &quot;✅[$time] [目录10] 已为您删除$SDIR10(原目录)&quot;
+                    #如果 $RM 不等于 1，则不执行任何操作
+                    fi
+
+                    #更新计数器
+                    counter=$((counter + files_to_move))
+                    title=&quot;最新移动位于[目录10]$SDIR10
+                    ✅本模块共为您移动了 $counter 个文件！&quot;
+                    time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                    echo &quot;✅[$time] [目录10] 第$counter个文件移动已完成，计数器更新完毕，进入下一次循环
+        ----------------------------------------&quot; &gt;&gt; $LOG
+                fi    #下载状态判断结束
+            else    #如果SDIR路径为空
+                #生成日志
+                time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+                echo &quot;🚫[$time] [目录10] 检测到$SDIR10(原目录)路径未填写，跳过移动&quot; &gt;&gt; $LOG
+
+            fi    #SDIR路径是否为空判断结束                
+        fi    #TDIR是否存在判断结束
+    else    #若TDIR路径为空
+        time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+        echo &quot;🚫[$time] [目录10] 检测到$TDIR10(目标目录)路径未填写，跳过移动&quot; &gt;&gt; $LOG       
+    fi    #TDIR路径是否为空判断完毕
+
+#----------------一轮文件移动完成---------------------      
+
+    #更新计数器
+    sed -i '/^description=/d' $MODDIR/module.prop
+    echo &quot;description=${title}&quot; &gt;&gt;$MODDIR/module.prop
+
+    #删日志
+    #获取日志的行数
+    line_count=$(wc -l &lt; $LOG)
+    #检查行数是否超过1024
+    if [ $line_count -gt 10000 ]; then
+        #删除前128行
+        awk 'NR&gt;1000' $LOG &gt; $MODDIR/temp.txt &amp;&amp; mv $MODDIR/temp.txt $LOG
+        time=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+        echo &quot;🔪[$time] 日志已满10000行，自动删除前1000行&quot; &gt;&gt; $LOG
+    fi
+
+
+    #睡眠5秒
+    sleep $TS
+done
+</code></pre>
+
+<p>|-- <strong>common</strong>
+|   |-- log.txt</p>
+<pre class="codehilite"><code>
+</code></pre>
+
+<p>|-- <strong>META-INF</strong>
+|   |-- <strong>com</strong>
+|       |-- <strong>google</strong>
+|           |-- <strong>android</strong>
+|               |-- update-binary</p>
+<pre class="codehilite"><code class="language-shell">#!/sbin/sh
+
+#################
+# Initialization
+#################
+
+umask 022
+
+# echo before loading util_functions
+ui_print() { echo &quot;$1&quot;; }
+
+ui_print &quot;*******************************&quot;
+
+require_new_magisk() {
+  ui_print &quot;*******************************&quot;
+  ui_print &quot; Please install Magisk v20.4+! &quot;
+  ui_print &quot;*******************************&quot;
+  exit 1
+}
+
+#########################
+# Load util_functions.sh
+#########################
+
+OUTFD=$2
+ZIPFILE=$3
+
+mount /data 2&gt;/dev/null
+
+[ -f /data/adb/magisk/util_functions.sh ] || require_new_magisk
+. /data/adb/magisk/util_functions.sh
+[ $MAGISK_VER_CODE -lt 20400 ] &amp;&amp; require_new_magisk
+
+install_module
+exit 0
+</code></pre>
+
+<p>|-- <strong>META-INF</strong>
+|   |-- <strong>com</strong>
+|       |-- <strong>google</strong>
+|           |-- <strong>android</strong>
+|               |-- update-script</p>
+<pre class="codehilite"><code class="language-shell">#MAGISK
+</code></pre>
+
+<p>|-- module.prop</p>
+<pre class="codehilite"><code class="language-properties">id=DownloadHelper
+name=下载重定向
+version=3.0
+versionCode=28
+author=于乐Yule
+description=模块刷入成功，请重启手机～
+</code></pre>
+
+<p>|-- customize.sh</p>
+<pre class="codehilite"><code class="language-shell">##########################################################################################
+#
+# Magisk Module Template Config Script
+# by 小白杨
+#
+##########################################################################################
+##########################################################################################
+#
+# Instructions:
+#
+# 1. Place your files into system folder (delete the placeholder file)
+# 2. Fill in your module's info into module.prop
+# 3. Configure the settings in this file (config.sh)
+# 4. If you need boot scripts, add them into common/post-fs-data.sh or common/service.sh
+# 5. Add your additional or modified system properties into common/system.prop
+#
+##########################################################################################
+
+##########################################################################################
+# Configs
+##########################################################################################
+
+# Set to true if you need to enable Magic Mount
+# Most mods would like it to be enabled
+
+##########################################################################################
+# Installation Message
+##########################################################################################
+
+# Set what you want to show when installing your mod
+
+print_modname() {
+  ui_print &quot;*******************************&quot;
+  ui_print &quot;         By 于乐Yule&quot;
+  ui_print &quot;*******************************&quot;
+}
+
+##########################################################################################
+# Replace list
+##########################################################################################
+
+# List all directories you want to directly replace in the system
+# Check the documentations for more info about how Magic Mount works, and why you need this
+
+# This is an example
+REPLACE=&quot;
+/system/app/Youtube
+/system/priv-app/SystemUI
+/system/priv-app/Settings
+/system/framework
+&quot;
+
+# Construct your own list here, it will override the example above
+# !DO NOT! remove this if you don't need to replace anything, leave it empty as it is now
+REPLACE=&quot;
+
+&quot;
+#添加您要精简的APP/文件夹目录
+#例如：精简状态栏，找到状态栏目录为  /system/priv-app/SystemUI/SystemUI.apk     
+#转化加入:/system/priv-app/SystemUI
+#（可以搭配高级设置获取APP目录）
+
+##########################################################################################
+# Permissions
+##########################################################################################
+#释放文件，普通shell命令
+on_install() {
+  ui_print &quot;- 正在为主人刷入中喵～&quot;
+  unzip -o &quot;$ZIPFILE&quot; 'system/*' -d $MODPATH &gt;&amp;2
+}
+
+set_permissions() {
+  # Only some special files require specific permissions
+  # The default permissions should be good enough for most cases
+
+  # Here are some examples for the set_perm functions:
+
+  # set_perm_recursive  &lt;dirname&gt;                &lt;owner&gt; &lt;group&gt; &lt;dirpermission&gt; &lt;filepermission&gt; &lt;contexts&gt; (default: u:object_r:system_file:s0)
+  # set_perm_recursive  $MODPATH/system/lib       0       0       0755            0644
+
+  # set_perm  &lt;filename&gt;                         &lt;owner&gt; &lt;group&gt; &lt;permission&gt; &lt;contexts&gt; (default: u:object_r:system_file:s0)
+  # set_perm  $MODPATH/system/bin/app_process32   0       2000    0755         u:object_r:zygote_exec:s0
+  # set_perm  $MODPATH/system/bin/dex2oat         0       2000    0755         u:object_r:dex2oat_exec:s0
+  # set_perm  $MODPATH/system/lib/libart.so       0       0       0644
+
+  # The following is default permissions, DO NOT remove
+  set_perm_recursive  $MODPATH  0  0  0755  0644
+
+  #设置权限，基本不要去动
+}
+
+##########################################################################################
+# Custom Functions
+##########################################################################################
+
+# This file (config.sh) will be sourced by the main flash script after util_functions.sh
+# If you need custom logic, please add them here as functions, and call these functions in
+# update-binary. Refrain from adding code directly into update-binary, as it will make it
+# difficult for you to migrate your modules to newer template versions.
+# Make update-binary as clean as possible, try to only do function calls in it.
+
+
+CommonPath=$MODPATH/common
+if [ ! -d ${CommonPath} ];then
+  ui_print &quot;模块高级设置不需要修复!&quot;
+
+elif [ &quot;`ls -A ${CommonPath}`&quot; = &quot;&quot; ];then
+    ui_print &quot;模块高级设置为空!&quot;
+    rm  -rf  ${CommonPath}
+else
+
+  ui_print &quot;- 正在努力为主人刷入中喵～&quot;
+  mv  ${CommonPath}/*  $MODPATH
+  rm  -rf ${CommonPath}
+  ui_print &quot;*******************************&quot;
+  ui_print &quot;刷入成功～&quot;
+  ui_print &quot;请重启后前往
+  /data/adb/modules/DownloadHelper/config.conf
+  配置哦～～&quot;
+  ui_print &quot;日志位于/data/adb/modules/DownloadHelper/log.txt&quot;
+fi
+</code></pre>
+
+<p>|-- uninstall.sh</p>
+<pre class="codehilite"><code class="language-shell">#卸载模块时候执行的脚本
+</code></pre>
+
+<hr />
+<p>by 于乐Yule</p>
+            </div>
+
+            <div class="post-footer">
+                <div class="copyright-notice">
+                    <h3><i class="fas fa-copyright"></i> 版权声明</h3>
+                    <p>本文作者：YuleFree</p>
+                    <p>本文链接：<a href="/post/post9/">/post/post9/</a></p>
+                    <p>版权声明：本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</p>
+                </div>
+                <div class="download-section">
+                    <a href="/markdown/" class="download-button">
+                        <i class="fas fa-download"></i> 下载文章 Markdown
+                    </a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/YuleBest/" target="_blank" class="footer-link">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <span class="footer-divider">|</span>
+                <a href="/friends/" class="footer-link">友情链接</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/src/js/index.js"></script>
+    <script src="/src/js/post.js"></script>
+</body>
+</html> 

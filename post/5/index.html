@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过检测v3.0教程（Apatch） - 我的博客</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../src/style/index.css">
+    <link rel="stylesheet" href="../../src/style/post.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+            <link rel="stylesheet" href="/src/style/code.css">
+            <link rel="stylesheet" href="/src/style/highlight.css">
+        </head>
+<body>
+    <header class="site-header">
+        <nav class="top-nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>YuleFree</h1>
+                </div>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="nav-links">
+                    <a href="/">首页</a>
+                    <a href="/categorie/">分类</a>
+                    <a href="/tag/">标签</a>
+                    <a href="/time/">时间线</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <article class="post-content">
+            <div class="breadcrumb">
+                <ol>
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/post/">文章</a></li>
+                    <li>过检测v3.0教程（Apatch）</li>
+                </ol>
+            </div>
+
+            <div class="banner"><img src="https://maxpcimg.cc/i/2024/09/29/66f8cb593bbd6.jpg" alt="过检测v3.0教程（Apatch）"></div>
+
+            <div class="post-header">
+                <h1 class="post-title">过检测v3.0教程（Apatch）</h1>
+                <div class="post-meta">
+                    <span class="post-date">2024-08-02 23:34:45</span>
+                    <div class="post-categories">
+                        <a href="/categorie/Android刷机/">Android刷机</a>
+                    </div>
+                    <div class="post-tags">
+                        <a href="/tag/Android搞机/">Android搞机</a><a href="/tag/刷机/">刷机</a><a href="/tag/技术帖/">技术帖</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post-body">
+                <div class="toc"><h2>目录</h2><ul>
+<ul>
+<li><a href="#bataapatch"> 安装、配置Bata版Apatch</a></li>
+<ul>
+<li><a href="#_1"> 安装</a></li>
+<li><a href="#_2"> 配置</a></li>
+</ul>
+<li><a href="#_3"> 安装、配置模块</a></li>
+<ul>
+<li><a href="#_4"> 安装</a></li>
+<li><a href="#_5"> 配置</a></li>
+</ul>
+<li><a href="#_6"> 检查效果</a></li>
+</ul>
+</ul></div>
+
+<p>本期教程是过检测教程，可以过 Native Test 25 和密钥认证 1.6 联网版的测试，效果如图：</p>
+<div class="image-container"><img src="https://img.picgo.net/2024/08/03/8e721a0b226cd2d1fa45f7f137315fa8e8511c021c5025a.jpg" alt="8e721a0b226cd2d1fa45f7f137315fa" title="8e721a0b226cd2d1fa45f7f137315fa"></div>
+
+<p>要求如下：</p>
+<ul>
+<li>解锁 Bootloader</li>
+<li>已刷入 Apatch 任意版本</li>
+</ul>
+<p>本期的所有资源都会打包放在云盘里：https://cloud.189.cn/t/zyAbEzyU7NBn  （访问码<u>tdn6</u>）</p>
+<p>下面教程开始。</p>
+<hr />
+<h2 id="bataapatch"><i class="fas fa-hashtag"></i> 安装、配置Bata版Apatch</h2>
+<h3 id="_1"><i class="fas fa-hashtag"></i> 安装</h3>
+<ol>
+<li>
+<p>打开云盘链接，下载压缩包并解压，文件目录如下</p>
+<blockquote>
+<ul>
+<li>
+<p>Apatch 最新测试版和内核模块:
+   APatch10884 美化版.apk（来自<a href="http://www.coolapk.com/u/24024215">@酒次不会搞机</a>）
+   cherish_peekaboo_1.4.2.kpm</p>
+</li>
+<li>
+<p>LSPosed模块:
+       隐藏应用列表_3.2.apk</p>
+</li>
+<li>
+<p>检测应用:
+   Applist Detector_2.4.apk'
+   Holmes_1.0.apk
+   Hunter_5.5.0.apk
+   Momo_4.4.1.apk
+   Native Test_Sad Minotaur_25.apk'
+   Ruru_1.1.1.apk
+   密钥认证_1.6.0（联网版）.apk
+   强度排行榜.txt</p>
+</li>
+<li>
+<p>系统模块:
+   LSPosed-1.9.3 去日志.zip
+   Tricky-Store-3.7.zip
+   Zygisk-Next-1.1.0-330-a1b0e69-release.zip
+   keybox.xml</p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>在文件管理器点击其中的 <em>APatch10884 美化版.apk</em> 进行安装</p>
+</li>
+</ol>
+<h3 id="_2"><i class="fas fa-hashtag"></i> 配置</h3>
+<ol>
+<li>进入 Apatch，点击更新，设置好密钥后，点击<strong>嵌入模块</strong>，选择 <em>cherish_peekaboo_1.4.2.kpm</em> ，点击开始修补</li>
+</ol>
+<p><img src="https://img.picgo.net/2024/08/02/APca3bd436b4c98c95.gif" alt="AP" style="zoom: 50%;" /></p>
+<ol>
+<li>重启手机</li>
+</ol>
+<hr />
+<h2 id="_3"><i class="fas fa-hashtag"></i> 安装、配置模块</h2>
+<h3 id="_4"><i class="fas fa-hashtag"></i> 安装</h3>
+<ol>
+<li>按顺序在 Apatch - 底栏 - 系统模块中安装以下模块：</li>
+<li><em>Zygisk-Next-1.1.0-330-a1b0e69-release.zip</em></li>
+<li><em>LSPosed-1.9.3 去日志.zip</em></li>
+<li>
+<p><em>Tricky-Store-3.7.zip</em></p>
+</li>
+<li>
+<p>重启手机</p>
+</li>
+<li>
+<p>打开通知，点击 LSPosed 的通知进入管理器，点击底栏的设置，关闭状态通知，点击创建快捷方式，关闭 Xposed API 调用保护</p>
+</li>
+</ol>
+<p><img src="https://img.picgo.net/2024/08/03/077d9ee925b2ebdfb77946f888bbc3798d3660fa63d0347.jpg" alt="077d9ee925b2ebdfb77946f888bbc37" style="zoom:33%;" /></p>
+<ol>
+<li>
+<p>打开文件管理，安装 <em>隐藏应用列表_3.2.apk</em> ，打开隐藏应用列表</p>
+</li>
+<li>
+<p>重启手机</p>
+</li>
+</ol>
+<h3 id="_5"><i class="fas fa-hashtag"></i> 配置</h3>
+<ol>
+<li>打开 MT 管理器，将把 <em>keybox.xml</em> 复制到 /data/adb/tricky_store/ （替换掉原来的）</li>
+<li>打开隐藏应用列表，点击<u>模板管理</u>，点击<u>创建白名单模板</u>，点击第一个<u>编辑列表</u>，随便选择一个无风险的应用，返回，点击第二个<u>编辑列表</u>，选择 <em>Applist Detector、Holmes、Native Test、Ruru</em> 和你需要过检测的应用</li>
+<li>打开一遍 Apatch</li>
+</ol>
+<hr />
+<h2 id="_6"><i class="fas fa-hashtag"></i> 检查效果</h2>
+<ol>
+<li>安装</li>
+<li><em>Applist Detector_2.4.apk'</em></li>
+<li><em>Holmes_1.0.apk</em></li>
+<li><em>Hunter_5.5.0.apk</em></li>
+<li><em>Momo_4.4.1.apk</em></li>
+<li><em>Native Test_Sad Minotaur_25.apk'</em></li>
+<li><em>Ruru_1.1.1.apk</em></li>
+<li><em>密钥认证_1.6.0（联网版）.apk</em> （需要挂梯子）</li>
+<li>打开各检测软件，根据没过的提示判断进行操作</li>
+</ol>
+            </div>
+
+            <div class="post-footer">
+                <div class="copyright-notice">
+                    <h3><i class="fas fa-copyright"></i> 版权声明</h3>
+                    <p>本文作者：YuleFree</p>
+                    <p>本文链接：<a href="/post/post5/">/post/post5/</a></p>
+                    <p>版权声明：本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</p>
+                </div>
+                <div class="download-section">
+                    <a href="/markdown/" class="download-button">
+                        <i class="fas fa-download"></i> 下载文章 Markdown
+                    </a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/YuleBest/" target="_blank" class="footer-link">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <span class="footer-divider">|</span>
+                <a href="/friends/" class="footer-link">友情链接</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/src/js/index.js"></script>
+    <script src="/src/js/post.js"></script>
+</body>
+</html> 

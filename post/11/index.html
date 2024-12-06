@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>缓存转移の自定义适配应用教程 - 我的博客</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../src/style/index.css">
+    <link rel="stylesheet" href="../../src/style/post.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+            <link rel="stylesheet" href="/src/style/code.css">
+            <link rel="stylesheet" href="/src/style/highlight.css">
+        </head>
+<body>
+    <header class="site-header">
+        <nav class="top-nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>YuleFree</h1>
+                </div>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="nav-links">
+                    <a href="/">首页</a>
+                    <a href="/categorie/">分类</a>
+                    <a href="/tag/">标签</a>
+                    <a href="/time/">时间线</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <article class="post-content">
+            <div class="breadcrumb">
+                <ol>
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/post/">文章</a></li>
+                    <li>缓存转移の自定义适配应用教程</li>
+                </ol>
+            </div>
+
+            <div class="banner"><img src="https://maxpcimg.cc/i/2024/09/29/66f8cf4c94285.jpg" alt="缓存转移の自定义适配应用教程"></div>
+
+            <div class="post-header">
+                <h1 class="post-title">缓存转移の自定义适配应用教程</h1>
+                <div class="post-meta">
+                    <span class="post-date">2024-09-28 07:08:09</span>
+                    <div class="post-categories">
+                        <a href="/categorie/Shell学习ing/">Shell学习ing</a>
+                    </div>
+                    <div class="post-tags">
+                        <a href="/tag/Android搞机/">Android搞机</a><a href="/tag/Shell/">Shell</a><a href="/tag/脚本/">脚本</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post-body">
+                <div class="toc"><h2>目录</h2><ul>
+<ul>
+<li><a href="#_1"> 脚本介绍</a></li>
+<li><a href="#main"> 修改main</a></li>
+<li><a href="#main3"> 修改main3</a></li>
+<li><a href="#_2"> 修改介绍和选择开始菜单</a></li>
+<ul>
+<ul>
+<li><a href="#_3"> 介绍</a></li>
+<li><a href="#_4"> 选择开始菜单</a></li>
+</ul>
+</ul>
+<li><a href="#_5"> 相关内容</a></li>
+</ul>
+</ul></div>
+
+<h2 id="_1"><i class="fas fa-hashtag"></i> 脚本介绍</h2>
+<p>首先，脚本头部写了很多的自定义函数，有：</p>
+<ul>
+<li>
+<p><code>yule "text"</code>：=<code>echo -e " text"</code>。在输出的文本前面加了个空格，方便阅读。</p>
+</li>
+<li>
+<p><code>yulen "text"</code>：=<code>echo -en " text"</code>。</p>
+</li>
+<li>
+<p><code>sepa</code>：=<code>echo "-------------------------------"</code></p>
+</li>
+<li>
+<p><code>blank n</code>：=<code>n</code>个<code>echo ""</code>。输出<code>n</code>个空白行，缺省值为<code>1</code>。</p>
+</li>
+<li>
+<p><code>jsonread [路径/文件名.json] [关键词]</code>：简单的.json读取器</p>
+</li>
+<li>
+<p>示例 1</p>
+<ul>
+<li><code>/data/1.json</code></li>
+</ul>
+<p><code>json
+  {"name":"Nekogram","type":"1","suf":"all","dir":"/storage/emulated/0/Android/data/tw.nekomimi.nekogram/files/Telegram/","del":"no","data":"2024-09-28 06:29:11"}</code></p>
+<ul>
+<li>输入</li>
+</ul>
+<p><code>bash
+  jsonread /data/1.json del</code></p>
+<ul>
+<li>输出</li>
+</ul>
+<p><code>text
+  no</code></p>
+</li>
+<li>
+<p><code>dlog text</code>：输出普通日志。格式为[日期时间] 操作: [text]</p>
+</li>
+<li>
+<p><code>errlog text</code>：输出错误日志。格式为[日期时间] 错误: [text]</p>
+</li>
+<li>
+<p><code>finlog text</code>：输出完成日志。格式为[日期时间] 完成: [text]</p>
+</li>
+<li>
+<p><code>main</code>：定义各个应用的</p>
+</li>
+<li><code>name</code>（应用名）</li>
+<li><code>dir</code>（路径）</li>
+<li><code>type</code>（1 表示目录用文件夹进行了分类，此时下面的suf不生效；0 表示文件夹内就是要移动的文件）</li>
+<li><code>suf</code>（要搜寻的文件后缀名，type 为 1 时不生效，使用 | 分割，all 表示所有文件）</li>
+<li><code>main3</code>：面向某个类型或者应用要进行的操作</li>
+</ul>
+<p>以方便你修改。自己适配应用需要修改的有：<code>main</code> <code>main3</code> <code>menu</code> 和底部的<code>脚本介绍</code></p>
+<hr />
+<h2 id="main"><i class="fas fa-hashtag"></i> 修改<code>main</code></h2>
+<p>现有的<code>main</code>内容如下：</p>
+<pre class="codehilite"><code class="language-bash">main() {
+    # 定义哔哩哔哩的信息
+    if [[ $menu == &quot;1&quot; ]]; then
+        name=&quot;哔哩哔哩&quot;
+        dir=&quot;/storage/emulated/0/Android/data/tv.danmaku.bili/download/&quot;
+        type=&quot;1&quot; # 哔哩哔哩对视频做了文件夹区分
+        suf=&quot;.m4s|.json&quot;
+    # 定义微信的信息
+    elif [[ $menu == &quot;2&quot; ]]; then
+        name=&quot;微信&quot;
+        dir=&quot;/data/data/com.tencent.mm/MicroMsg/&quot;
+        type=&quot;1&quot; # 微信对账号做了文件夹区分
+        suf=&quot;wechat file&quot;
+    # 定义QQ的信息
+    elif [[ $menu == &quot;3&quot; ]]; then
+        name=&quot;QQ&quot;
+        dir=&quot;/storage/emulated/0/Android/data/com.tencent.mobileqq/Tencent/QQfile_recv/&quot;
+        type=&quot;0&quot; # 排除子文件夹
+        suf=&quot;all&quot;
+    # 定义Nekogram的信息
+    elif [[ $menu == &quot;4&quot; ]]; then
+        name=&quot;Nekogram&quot;
+        dir=&quot;/storage/emulated/0/Android/data/tw.nekomimi.nekogram/files/Telegram/&quot;
+        type=&quot;1&quot;
+        suf=&quot;all&quot;
+    # 此处插入自定义应用代码
+    fi
+    main2
+}
+</code></pre>
+
+<p>你应该在<code>fi</code>的上一行开始，按格式定义应用的：</p>
+<ul>
+<li><code>name</code>（应用名）</li>
+<li><code>dir</code>（路径）</li>
+<li><code>type</code>（1 表示目录用文件夹进行了分类，此时下面的suf不生效；0 表示文件夹内就是要移动的文件）</li>
+<li><code>suf</code>（要搜寻的文件后缀名，type 为 1 时不生效，使用 | 分割，all 表示所有文件）</li>
+</ul>
+<hr />
+<h2 id="main3"><i class="fas fa-hashtag"></i> 修改<code>main3</code></h2>
+<p>现有的<code>main3</code>内容如下：</p>
+<pre class="codehilite"><code class="language-bash">main3() {
+    ......
+    ......
+    # 此处插入自定义应用代码
+    # 生成本次配置的 json
+    touch ${output}/last.json
+    echo &quot;{\&quot;name\&quot;:\&quot;$name\&quot;,\&quot;type\&quot;:\&quot;$type\&quot;,\&quot;suf\&quot;:\&quot;$suf\&quot;,\&quot;dir\&quot;:\&quot;$dir\&quot;,\&quot;del\&quot;:\&quot;$delete\&quot;,\&quot;data\&quot;:\&quot;$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)\&quot;}&quot; &gt; ${output}/last.json
+    rm -f ${output}/error
+    exit 0
+}
+</code></pre>
+
+<p>一般情况下，你应在<code>touch ${output}/last.json</code>前添加你要执行的操作，比如：</p>
+<pre class="codehilite"><code class="language-bash">    # 面向 type 1 | suf all 进行的操作
+    elif [[ $type == &quot;1&quot; &amp;&amp; $suf == &quot;all&quot; ]]; then
+        sepa
+        yule &quot;${CY}- 复制文件...${RES}&quot;
+        yulen &quot;· 创建./$name/&quot;
+        mkdir &quot;${output}/$name&quot; 2&gt;/dev/null
+        yule &quot;${GR} [完成]${RES}&quot;
+        yulen &quot;· 移动文件到./$name/&quot;
+        cp -r ${dir}* ${output}/${name} 2&gt;/${output}/error
+        err=$?
+        yule &quot;${GR} [完成]${RES}&quot;
+        # 复制成功
+        if [[ $err == &quot;0&quot; ]]; then
+            yule &quot;${GR}· 复制完成${RES}&quot;
+            sepa
+            if [[ $delete == &quot;yes&quot; ]]; then
+                rm -rf $dir/*
+                yule &quot;${GR}删除源文件成功${RES}&quot;
+            fi
+            finlog &quot;[$name]转移成功&quot;
+            yule &quot;${GR}已完成转移${RES}&quot;
+            yule &quot;路径${output}/$name&quot;
+        # 复制失败，输出日志
+        else
+            blank
+            sepa
+            blank 2                        
+            errtext=$(cat ${output}/error)           
+            yule &quot;ERR: $errtext&quot;
+            errlog &quot;[$name]复制文件失败: $errtext&quot;
+            blank 2
+            yule &quot;${RE}· 复制出错，请检查：${RES}&quot;
+            yule &quot;  1.存储空间是否足够&quot;
+            yule &quot;  2.是否未下载文件&quot;
+            yule &quot;  3.软件是否为旧版&quot;
+            yule &quot;  4.是否未授权Root&quot;
+            exit 1
+        fi
+</code></pre>
+
+<hr />
+<h2 id="_2"><i class="fas fa-hashtag"></i> 修改<code>介绍</code>和<code>选择开始菜单</code></h2>
+<h4 id="_3"><i class="fas fa-hashtag"></i> <code>介绍</code></h4>
+<p>现有的<code>介绍</code>位于脚本的<code>525</code>行（<u>v1.0</u>），内容如下：</p>
+<pre class="codehilite"><code class="language-bash"># 介绍
+clear
+blank 2
+yule &quot;${YE}本脚本可以将应用所下载的文件转移到你设定的目录${RES}&quot;
+blank
+yule &quot;${BL}已支持应用：${RES}&quot;
+yule &quot;- 哔哩哔哩&quot;
+yule &quot;- 微信&quot;
+yule &quot;- QQ&quot;
+yule &quot;- Nekogram&quot;
+# 这里添加新的应用
+blank
+sepa
+yulen &quot;${GR}开始[1]${RES}&quot;
+yulen &quot;${RE}  退出[2]${RES}&quot;
+yule &quot;${CY}  配置路径[3]${RES}&quot;
+yule &quot;${BL}    我要学习自己适配应用[4]${RES}&quot;
+# 这里添加新的序号
+</code></pre>
+
+<p>一般情况下，你只要在上面代码加上新的应用名和序号即可，详见上方注释。</p>
+<h4 id="_4"><i class="fas fa-hashtag"></i> <code>选择开始菜单</code></h4>
+<p>现有的<code>选择开始菜单</code>位于脚本的<code>542</code>行（<u>v1.0</u>），内容如下：</p>
+<pre class="codehilite"><code class="language-bash"># 选择开始菜单
+for err_num in {10..0}; do
+    sepa
+    yulen &quot;请输入[1]/[2]/[3]/[4]：&quot;
+    read menu_1 
+    case $menu_1 in
+        1)
+            # 开始
+            clear
+            blank 2
+            menu
+            exit 0
+            ;;
+        2)
+            # 退出
+            blank
+            yule &quot;${GR}脚本已退出，欢迎下次使用${RES}&quot;          
+            exit 0
+            ;;
+        3)
+            # 配置路径
+            clear
+            blank 2
+            yulen &quot;功能研发中，请编辑脚本顶部的 output= 进行配置&quot;
+            exit 0
+            ;;
+        4)
+            # 使用浏览器打开教程
+            am start -a android.intent.action.VIEW -d &quot;https://baidu.com/&quot;
+            exit 0
+            ;;
+        n)
+            ......
+            ;;
+        *|\n)
+            # 输入错误
+            jam $err_num $menu_1
+            ;;
+
+
+    esac
+done
+
+blank
+yule &quot;${RE}你已连续输入错误10次，被系统判定为卡死，已退出脚本&quot;
+</code></pre>
+
+<p>这里被<code>介绍</code>的</p>
+<pre class="codehilite"><code class="language-bash">yulen &quot;${GR}开始[1]${RES}&quot;
+yulen &quot;${RE}  退出[2]${RES}&quot;
+yule &quot;${CY}  配置路径[3]${RES}&quot;
+yule &quot;${BL}    我要学习自己适配应用[4]${RES}&quot;
+</code></pre>
+
+<p>所选择，只要在<code>*|\n)</code>的上一行添加</p>
+<pre class="codehilite"><code class="language-bash">    [序号])
+        [操作]
+        ;;
+</code></pre>
+
+<p>就可以了。</p>
+<hr />
+<h2 id="_5"><i class="fas fa-hashtag"></i> 相关内容</h2>
+<p><a href="https://yulebest.github.io/post12/"> 缓存转移开源 | YuleのBlog - Post 12</a></p>
+<p><a href="https://www.123865.com/s/iBeVVv-QKhV"> 缓存转移下载 | 123云盘</a></p>
+            </div>
+
+            <div class="post-footer">
+                <div class="copyright-notice">
+                    <h3><i class="fas fa-copyright"></i> 版权声明</h3>
+                    <p>本文作者：YuleFree</p>
+                    <p>本文链接：<a href="/post/post11/">/post/post11/</a></p>
+                    <p>版权声明：本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</p>
+                </div>
+                <div class="download-section">
+                    <a href="/markdown/" class="download-button">
+                        <i class="fas fa-download"></i> 下载文章 Markdown
+                    </a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/YuleBest/" target="_blank" class="footer-link">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <span class="footer-divider">|</span>
+                <a href="/friends/" class="footer-link">友情链接</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/src/js/index.js"></script>
+    <script src="/src/js/post.js"></script>
+</body>
+</html> 

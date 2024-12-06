@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Root教程，但无需刷机包和第三方REC（DSU侧载） - 我的博客</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../src/style/index.css">
+    <link rel="stylesheet" href="../../src/style/post.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+            <link rel="stylesheet" href="/src/style/code.css">
+            <link rel="stylesheet" href="/src/style/highlight.css">
+        </head>
+<body>
+    <header class="site-header">
+        <nav class="top-nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>YuleFree</h1>
+                </div>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="nav-links">
+                    <a href="/">首页</a>
+                    <a href="/categorie/">分类</a>
+                    <a href="/tag/">标签</a>
+                    <a href="/time/">时间线</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <article class="post-content">
+            <div class="breadcrumb">
+                <ol>
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/post/">文章</a></li>
+                    <li>Root教程，但无需刷机包和第三方REC（DSU侧载）</li>
+                </ol>
+            </div>
+
+            <div class="banner"><img src="https://maxpcimg.cc/i/2024/09/29/66f8cb5c3f890.jpg" alt="Root教程，但无需刷机包和第三方REC（DSU侧载）"></div>
+
+            <div class="post-header">
+                <h1 class="post-title">Root教程，但无需刷机包和第三方REC（DSU侧载）</h1>
+                <div class="post-meta">
+                    <span class="post-date">2024-07-27 23:12:19</span>
+                    <div class="post-categories">
+                        <a href="/categorie/Android刷机/">Android刷机</a>
+                    </div>
+                    <div class="post-tags">
+                        <a href="/tag/Android搞机/">Android搞机</a><a href="/tag/刷机/">刷机</a><a href="/tag/技术帖/">技术帖</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post-body">
+                <div class="toc"><h2>目录</h2><ul>
+<li><a href="#_1">备份与检查支持情况</a></li>
+<ul>
+<ul>
+<li><a href="#_2"> 备份</a></li>
+<li><a href="#_3"> 下载</a></li>
+</ul>
+</ul>
+<li><a href="#_4">安装并进入系统</a></li>
+<ul>
+<ul>
+<li><a href="#_5"> 安装</a></li>
+<li><a href="#_6"> 进入系统</a></li>
+</ul>
+</ul>
+</ul></div>
+
+<p>这是一篇适用于 <strong>无法获取刷机包</strong> 且 <strong>没有第三方REC适配</strong> 的机型的ROOT教程，前提有二：</p>
+<ul>
+<li>
+<p>解锁了Bootloader</p>
+</li>
+<li>
+<p>Android版本＞9</p>
+</li>
+</ul>
+<p>下面教程开始~</p>
+<hr />
+<h1 id="_1">备份与检查支持情况</h1>
+<h3 id="_2"><i class="fas fa-hashtag"></i> 备份</h3>
+<ol>
+<li>虽然本教程的操作不需要清除数据，但还是请备份好你的所有重要资料，避免意外情况发生。</li>
+</ol>
+<h3 id="_3"><i class="fas fa-hashtag"></i> 下载</h3>
+<ol>
+<li>
+<p>打开https://www.123pan.com/s/iBeVVv-WZ3V.html 下载安装DSU Sideload和Treble Check；</p>
+</li>
+<li>
+<p>打开Treble Check，检查你的CPU体系架构与Project Treble支持情况。</p>
+</li>
+</ol>
+<p><img src="https://img.picgo.net/2024/07/27/dc70a92ab1db72ab8a1313cf52744511f14510d93ac98d5.jpg" alt="dc70a92ab1db72ab8a1313cf5274451" style="zoom: 33%;" /></p>
+<p><img src="https://img.picgo.net/2024/07/27/a4965c67c3f79af31b0b4c887726878a046ce43d6a17016.jpg" alt="a4965c67c3f79af31b0b4c887726878" style="zoom: 50%;" /></p>
+<ol>
+<li>下载<strong>适合你的</strong><a href="https://developer.android.google.cn/topic/generic-system-image?hl=zh-cn">GSI</a>，比较推荐https://sourceforge.net/projects/andyyan-gsi/files ，怎么选择适合你的呢？我们看看文件的命名：</li>
+<li><em>a64</em> or <em>arm64</em>：指的就是你的CPU架构；</li>
+<li><em>v</em> or <em>g</em>：即 <em>Vanilla</em> 或 <em>Google</em>，<em>v</em> 表示没有自带谷歌框架，<em>g</em> 表示预置了谷歌框架，这个怎么选取决于你的个人爱好；</li>
+<li><em>S</em> or <em>N</em>：即 <em>SuperSU</em> 或 <em>No SuperSU</em>，<strong>我们需要超级用户权限，所以选 <em>S</em> 的</strong>；</li>
+<li><em>vndklite</em> or <em>-</em>：<em>vndklite</em> 适用于VNDKLite设备或非VNDKLite设备上的可读写系统。<strong>如果设备支持Project Treble，选择带 <em>vndklite</em> 的，如果不支持Project Treble，应选择不带的</strong>。</li>
+</ol>
+<p><img src="https://img.picgo.net/2024/07/28/cee3b5cfa2752b07a61125b57fcc17fb8ff0309142aa984.jpg" alt="cee3b5cfa2752b07a61125b57fcc17f" style="zoom: 50%;" /></p>
+<hr />
+<p>确认您的设备支持DSU侧载，并下载对应镜像文件后后，您可进行下一步。</p>
+<h1 id="_4">安装并进入系统</h1>
+<h3 id="_5"><i class="fas fa-hashtag"></i> 安装</h3>
+<ol>
+<li>打开DSU Sideload，点击<em>设定 - 新建文件夹 - 随便命名 - 允许 - 继续</em> ；</li>
+</ol>
+<div class="image-container"><img src="https://img.picgo.net/2024/07/28/070758e77e2664f3b0b5d8d3f3c0ad2ee054a610aa13972.jpg" alt="070758e77e2664f3b0b5d8d3f3c0ad2" title="070758e77e2664f3b0b5d8d3f3c0ad2"></div>
+
+<ol>
+<li>在软件中设定好镜像路径、空间大小（最低5GB）后点击安装，等待进度条跑完，如下图：</li>
+</ol>
+<div class="image-container"><img src="https://img.picgo.net/2024/07/27/a29978e6f0228ba5c33a5244471395ecb10bfa955063c9b.jpg" alt="a29978e6f0228ba5c33a5244471395e" title="a29978e6f0228ba5c33a5244471395e"></div>
+
+<ol>
+<li>将手机打开USB调试，连接电脑；</li>
+<li>在电脑上打开<a href="https://mrzzoxo.lanzoue.com/b02plghuh">adb终端</a>，手机上授权调试；</li>
+<li>
+<p>终端中执行下面的命令：</p>
+<p><code>shell
+adb shell sh "/storage/emulated/0/Android/data/vegabobo.dsusideloader/files/install"</code>
+等待终端中返回信息 <code>DSU installation activity has been started!</code> 就安装成功了：</p>
+<p><div class="image-container"><img src="https://img.picgo.net/2024/07/28/38a1d04d33579d06185507487e97413bf0af4f7ec389e91.jpg" alt="38a1d04d33579d06185507487e97413" title="38a1d04d33579d06185507487e97413"></div></p>
+<p>没有电脑的话，你也可以使用Termex、Shizuku等进行安装，可进入DSU Sideload点 <em>查看指令</em> 获取指令。</p>
+</li>
+</ol>
+<h3 id="_6"><i class="fas fa-hashtag"></i> 进入系统</h3>
+<ol>
+<li>等待几秒钟，点击通知中的 <em>重启</em> 进入到侧载的系统；</li>
+</ol>
+<blockquote>
+<p>如果卡Fastboot，说明你配置有误或者你的手机不支持DSU，直接长按电源键重启后舍弃即可。</p>
+</blockquote>
+<p><img src="https://img.picgo.net/2024/07/28/1e6d8938c1e5a59456f1974a42f1570e717b5b3c3a14109.jpg" alt="1e6d8938c1e5a59456f1974a42f1570" style="zoom:25%;" /></p>
+<ol>
+<li>重启完成后，如果进入原系统，就重试；</li>
+</ol>
+<p>如果成功进入侧载系统，就使用数据线连接电脑，电脑打开adb终端；</p>
+<ol>
+<li>在adb终端<strong>有序地</strong>执行：</li>
+</ol>
+<p><code>shell
+   adb shell
+   su
+   cd /dev/block/bootdevice/by-name
+   ls -l</code>
+   此时，我们应注意列表中 <em>boot</em> 或 <em>init_boot</em> 镜像的地址，下以 <u>原地址</u> 代称（请忽视图中标号）；</p>
+<blockquote>
+<p>如何选择boot.img或init_boot.img？</p>
+<p>内核版本为...androidx-...（x≥13）的机器，修补/刷入/备份的镜像分区应为init_boot，其他的为boot，另外，若您使用APatch，则应该使用boot.</p>
+</blockquote>
+<p><img src="https://img.picgo.net/2024/07/28/e752a652645251a82a6805a0025317317f897f3a023eb9c.jpg" alt="e752a652645251a82a6805a00253173" style="zoom: 67%;" /></p>
+<ol>
+<li>在电脑上任意位置新建一个文件夹，在adb终端有序执行下面的指令，将镜像拷贝到电脑上：</li>
+</ol>
+<p><code>shell
+   dd if=原地址 of=/sdcard/镜像名称.img
+   adb pull /sdcard/镜像名称.img D:\aaaa</code></p>
+<p><img src="https://img.picgo.net/2024/07/28/7ce508bf9cc6b0cc604370a5b6db4c8f73e14cfe22c5266.jpg" alt="7ce508bf9cc6b0cc604370a5b6db4c8" style="zoom: 80%;" /></p>
+<ol>
+<li>重启返回原系统。</li>
+</ol>
+<hr />
+<p>目前，我们已经成功获取到了手机的 boot/init_boot 镜像，可以使用<a href="https://www.coolapk.com/feed/57221213?shareKey=ODgyYzI3Y2VmZWExNjY4YTg3ZmM~&amp;shareUid=18214705&amp;shareFrom=com.coolapk.market_14.2.3">我的教程</a>中的第二步开始进行修补，获取Root权限啦~本篇教程到此结束！</p>
+<p align=right>写于2024年7月8日·酷安</p>
+            </div>
+
+            <div class="post-footer">
+                <div class="copyright-notice">
+                    <h3><i class="fas fa-copyright"></i> 版权声明</h3>
+                    <p>本文作者：YuleFree</p>
+                    <p>本文链接：<a href="/post/post3/">/post/post3/</a></p>
+                    <p>版权声明：本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</p>
+                </div>
+                <div class="download-section">
+                    <a href="/markdown/" class="download-button">
+                        <i class="fas fa-download"></i> 下载文章 Markdown
+                    </a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/YuleBest/" target="_blank" class="footer-link">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <span class="footer-divider">|</span>
+                <a href="/friends/" class="footer-link">友情链接</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/src/js/index.js"></script>
+    <script src="/src/js/post.js"></script>
+</body>
+</html> 

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android部分机型修改开机第一屏logo - 我的博客</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../src/style/index.css">
+    <link rel="stylesheet" href="../../src/style/post.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+            <link rel="stylesheet" href="/src/style/code.css">
+            <link rel="stylesheet" href="/src/style/highlight.css">
+        </head>
+<body>
+    <header class="site-header">
+        <nav class="top-nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>YuleFree</h1>
+                </div>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="nav-links">
+                    <a href="/">首页</a>
+                    <a href="/categorie/">分类</a>
+                    <a href="/tag/">标签</a>
+                    <a href="/time/">时间线</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <article class="post-content">
+            <div class="breadcrumb">
+                <ol>
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/post/">文章</a></li>
+                    <li>Android部分机型修改开机第一屏logo</li>
+                </ol>
+            </div>
+
+            <div class="banner"><img src="https://maxpcimg.cc/i/2024/10/22/6716bada8b5a5.png" alt="Android部分机型修改开机第一屏logo"></div>
+
+            <div class="post-header">
+                <h1 class="post-title">Android部分机型修改开机第一屏logo</h1>
+                <div class="post-meta">
+                    <span class="post-date">2024-10-22 01:09:47</span>
+                    <div class="post-categories">
+                        <a href="/categorie/Android刷机/">Android刷机</a>
+                    </div>
+                    <div class="post-tags">
+                        <a href="/tag/Android搞机/">Android搞机</a><a href="/tag/刷机/">刷机</a><a href="/tag/技术帖/">技术帖</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post-body">
+                <div class="toc"><h2>目录</h2><ul>
+<li><a href="#android">Android 部分机型修改开机第一屏</a></li>
+<ul>
+<li><a href="#0"> 0 确认手机系统版本</a></li>
+<li><a href="#1"> 1 解锁</a></li>
+<li><a href="#2-logo-splash"> 2 备份 logo 或 splash 分区镜像文件</a></li>
+<ul>
+<li><a href="#21-1root"> 2.1  方法 1：Root 提取法</a></li>
+<li><a href="#22-2"> 2.2  方法 2：系统包提取法</a></li>
+</ul>
+<li><a href="#3-logo"> 3 logo 分区教程</a></li>
+<ul>
+<li><a href="#31"> 3.1  提取分区</a></li>
+<li><a href="#32"> 3.2  镜像文件的操作</a></li>
+<ul>
+<ul>
+<li><a href="#320"> 3.2.0  一些理论知识（可以不看）</a></li>
+<li><a href="#321"> 3.2.1  下载配置文件以及工具</a></li>
+</ul>
+</ul>
+</ul>
+<li><a href="#4-splash"> 4 splash 分区教程</a></li>
+</ul>
+</ul></div>
+
+<h1 id="android">Android 部分机型修改开机第一屏</h1>
+<div class="toc">
+<ul>
+<li><a href="#android">Android 部分机型修改开机第一屏</a><ul>
+<li><a href="#0">0 确认手机系统版本</a></li>
+<li><a href="#1">1 解锁</a></li>
+<li><a href="#2-logo-splash">2 备份 logo 或 splash 分区镜像文件</a><ul>
+<li><a href="#21-1root">2.1 方法 1：Root 提取法</a></li>
+<li><a href="#22-2">2.2 方法 2：系统包提取法</a></li>
+</ul>
+</li>
+<li><a href="#3-logo">3 logo 分区教程</a><ul>
+<li><a href="#31">3.1 提取分区</a></li>
+<li><a href="#32">3.2 镜像文件的操作</a><ul>
+<li><a href="#320">3.2.0 一些理论知识（可以不看）</a></li>
+<li><a href="#321">3.2.1 下载配置文件以及工具</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#4-splash">4 splash 分区教程</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<hr />
+<h2 id="0"><i class="fas fa-hashtag"></i> 0 确认手机系统版本</h2>
+<p><strong>有以下情况之一的不可以修改</strong></p>
+<ul>
+<li>手机系统 OS 为 MIUI 13 以及 MIUI 13 以上版本的（包括澎湃）</li>
+</ul>
+<p>手机为小米 10s 或红米 K40 之后发布的机型</p>
+<ul>
+<li>
+<p>小米在上述版本系统/机型中为 logo / splash 分区添加了签名验证</p>
+</li>
+<li>
+<p>不能解锁 Bootloader 锁（BL 锁）的</p>
+</li>
+<li>
+<p>修改系统分区需要解锁 BL</p>
+</li>
+<li>
+<p>其余未列出情况请自测</p>
+</li>
+</ul>
+<hr />
+<h2 id="1"><i class="fas fa-hashtag"></i> 1 解锁</h2>
+<p>首先你需要将手机的 BL 锁进行解锁，最好可以获取 Root 权限</p>
+<hr />
+<h2 id="2-logo-splash"><i class="fas fa-hashtag"></i> 2 备份 logo 或 splash 分区镜像文件</h2>
+<h3 id="21-1root"><i class="fas fa-hashtag"></i> 2.1  方法 1：Root 提取法</h3>
+<ol>
+<li>
+<p>将手机 Root</p>
+</li>
+<li>
+<p>在手机上下载安装 <a href="https://mt2.cn/">MT 管理器</a></p>
+</li>
+<li>
+<p>下载 <a href="https://www.123684.com/s/iBeVVv-KqhV">我制作的脚本</a></p>
+</li>
+<li>
+<p>打开 MT 管理器，使用 Root 权限执行脚本</p>
+</li>
+</ol>
+<p><img src="https://maxpcimg.cc/i/2024/10/22/67168e5e03cd2.jpg" style="zoom:33%;" /></p>
+<ol>
+<li>
+<p>观察下图界面，是否有 logo 或 splash 分区</p>
+<p><img src="https://maxpcimg.cc/i/2024/10/22/67168e72d853e.jpg" style="zoom: 25%;" /></p>
+<ul>
+<li>
+<p>如果只有 logo 分区，请按照下文 logo 分区教程操作</p>
+</li>
+<li>
+<p>如果只有 splash 分区，请按照下文 splash 分区教程操作</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="22-2"><i class="fas fa-hashtag"></i> 2.2  方法 2：系统包提取法</h3>
+<p>如果你有你的机器正在运行的系统的系统包，那么你可以使用该方法</p>
+<ol>
+<li>
+<p>解压系统包</p>
+</li>
+<li>
+<p>观察系统包内是否有 logo 或 splash 分区</p>
+<ul>
+<li>
+<p>如果只有 logo 分区，请按照下文 logo 分区教程操作</p>
+</li>
+<li>
+<p>如果只有 splash 分区，请按照下文 splash 分区教程操作</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="3-logo"><i class="fas fa-hashtag"></i> 3 logo 分区教程</h2>
+<h3 id="31"><i class="fas fa-hashtag"></i> 3.1  提取分区</h3>
+<ol>
+<li>在脚本中输入</li>
+</ol>
+<p><code>logo
+   n</code></p>
+<pre class="codehilite"><code>脚本会把 logo 分区的镜像文件（`logo.img`）保存到 `/sdcard/` 下
+</code></pre>
+
+<ol>
+<li>将 <code>logo.img</code> 复制一份到电脑上</li>
+</ol>
+<h3 id="32"><i class="fas fa-hashtag"></i> 3.2  镜像文件的操作</h3>
+<h5 id="320"><i class="fas fa-hashtag"></i> 3.2.0  一些理论知识（可以不看）</h5>
+<ol>
+<li>修改的原理</li>
+</ol>
+<p><code>logo.img</code> 里面包含了几个 <code>.bmp</code> 文件，这些就是手机开机的时候要显示的图片，其中就包含我们需要的 logo。那要怎么修改呢？你或许会说直接解包，但是大部分时候解包工具是无法解包 Android 7 的 <code>logo.img</code> 的，我们需要一种通用的解决方式——<strong>直接修改文件的 16 进制值</strong>。</p>
+<ol>
+<li>实践</li>
+</ol>
+<p>首先，IMG 文件的 16 进制值里面会包含 bmp 图片的偏移地址，我们只需要找到这个偏移地址，然后把图片部分截取出来，就可以实现提取了。</p>
+<p>我们知道，BMP 图片开头两个字节是固定的 <code>42 4D</code>（也就是 <code>BM</code>），紧接着四个字节就是整个图片的大小（Little-Endian），在 UE 编辑器用 <code>dd</code> 命令可以很容易地把图片截出来。</p>
+<blockquote>
+<p>参见：<a href="https://www.cnblogs.com/wainiwann/p/7086844.html">BMP 格式详解</a></p>
+</blockquote>
+<p>但是每次都这样找会很麻烦，所以我准备了配置文件，这样就可以方便的进行替换了，详见下文。</p>
+<h5 id="321"><i class="fas fa-hashtag"></i> 3.2.1  下载配置文件以及工具</h5>
+<ol>
+<li>
+<p>下载链接：https://www.123684.com/s/iBeVVv-lqhV</p>
+</li>
+<li>
+<p>解压你下载的工具包，你应该可以看到 <code>dist</code> 和 <code>配置文件</code> 两个文件夹</p>
+</li>
+</ol>
+<div class="image-container"><img src="https://maxpcimg.cc/i/2024/10/22/6716af78e3a64.png" alt="" title=""></div>
+
+<ol>
+<li>打开 <code>dist/</code> ，里面有 5 个 <code>bmp</code> 文件还有 1 个 <code>exe</code> 文件，那些 <code>bmp</code> 文件就是你以后要使用的开机画面</li>
+</ol>
+<div class="image-container"><img src="https://maxpcimg.cc/i/2024/10/22/6716af79a7efe.png" alt="" title=""></div>
+
+<ol>
+<li>其中：</li>
+<li><code>1.bmp</code>：手机开机时显示的 logo，只会显示 1 秒不到的时间，接下来会显示 <code>4.bmp</code></li>
+<li><code>2.bmp</code>：手机进入 FASTBOOT 模式时显示的 logo</li>
+<li><code>3.bmp</code>：手机进入缺电状态时显示的 logo</li>
+<li><strong><code>4.bmp</code>：手机开机时第一屏显示的图片，我们主要需要修改这个图片</strong></li>
+<li>
+<p><code>5.bmp</code>：手机系统损坏时显示的图片</p>
+</li>
+<li>
+<p>编辑图片</p>
+<blockquote>
+<p>这里只展示 <code>4.bmp</code> 的修改</p>
+</blockquote>
+<ul>
+<li>
+<p>首先你需要找一张你喜欢的图片，然后看看他的分辨率是多少，如果与你手机的分辨率不一致，就按照下面进行修改，如果一致就直接进行下一步</p>
+</li>
+<li>
+<p>使用画图打开图片，点击重新调整大小，设置为你手机的分辨率</p>
+</li>
+</ul>
+<p><div class="image-container"><img src="https://maxpcimg.cc/i/2024/10/22/6716b7cf33f51.png" alt="" title=""></div></p>
+<p><div class="image-container"><img src="https://maxpcimg.cc/i/2024/10/22/6716b7ce8205b.png" alt="" title=""></div></p>
+<ul>
+<li>使用选择工具调整中间的 logo 的位置，大小和比例</li>
+</ul>
+<p><img src="https://maxpcimg.cc/i/2024/10/22/6716b7ce53ccb.png" style="zoom: 80%;" /></p>
+<ul>
+<li>使用填充工具填充黑色到图片中空白的部分</li>
+</ul>
+<p><img src="https://maxpcimg.cc/i/2024/10/22/6716b7cddc2f4.png" style="zoom:80%;" /></p>
+<ul>
+<li>另存为图片为 <code>4.bmp</code></li>
+</ul>
+<p><div class="image-container"><img src="https://maxpcimg.cc/i/2024/10/22/6716b94a5dd7f.png" alt="" title=""></div></p>
+<ul>
+<li>使用新的 <code>4.bmp</code> 替换工具里的 <code>4.bmp</code></li>
+</ul>
+<p><div class="image-container"><img src="https://maxpcimg.cc/i/2024/10/22/6716b9b0f3a4f.png" alt="" title=""></div></p>
+</li>
+<li>
+<p>生成新的镜像文件</p>
+<ul>
+<li>
+<p>在 配置文件 文件夹里找到你的机型（如果没有，见下文生成教程）</p>
+</li>
+<li>
+<p>将配置文件拖动到 <code>genlogo.exe</code></p>
+</li>
+</ul>
+<p><div class="image-container"><img src="https://maxpcimg.cc/i/2024/10/22/6716bada8b5a5.png" alt="" title=""></div></p>
+<ul>
+<li>等待片刻，脚本会在 <code>配置文件/</code> 文件夹里生成一个 <code>new_logo.img</code></li>
+</ul>
+<p><div class="image-container"><img src="https://maxpcimg.cc/i/2024/10/22/6716bb6d4ac2f.png" alt="" title=""></div></p>
+</li>
+<li>
+<p>刷入镜像</p>
+<ul>
+<li>
+<p>将 <code>new_logo.img</code> 移动到手机上</p>
+</li>
+<li>
+<p>在手机上下载安装工具箱，授权 ROOT https://npm.elemecdn.com/staticdn@latest/lasystools/latools.apk</p>
+</li>
+<li>
+<p>点击工具箱左侧的分区管理</p>
+</li>
+</ul>
+<p><img src="https://maxpcimg.cc/i/2024/10/22/6716bc7d3504f.png" style="zoom: 25%;" /></p>
+<ul>
+<li>找到 logo 分区，点击它，然后点击刷入镜像</li>
+</ul>
+<p><img src="https://maxpcimg.cc/i/2024/10/22/6716bc991d606.png" style="zoom:33%;" /></p>
+<ul>
+<li>选择 <code>new_logo.img</code> ，刷入重启即可</li>
+</ul>
+</li>
+</ol>
+<p>至此，修改完毕！</p>
+<hr />
+<h2 id="4-splash"><i class="fas fa-hashtag"></i> 4 splash 分区教程</h2>
+<p>由于老板的手机是 logo 分区的，所以这部分内容以后更新。。</p>
+            </div>
+
+            <div class="post-footer">
+                <div class="copyright-notice">
+                    <h3><i class="fas fa-copyright"></i> 版权声明</h3>
+                    <p>本文作者：YuleFree</p>
+                    <p>本文链接：<a href="/post/post14/">/post/post14/</a></p>
+                    <p>版权声明：本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</p>
+                </div>
+                <div class="download-section">
+                    <a href="/markdown/" class="download-button">
+                        <i class="fas fa-download"></i> 下载文章 Markdown
+                    </a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/YuleBest/" target="_blank" class="footer-link">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <span class="footer-divider">|</span>
+                <a href="/friends/" class="footer-link">友情链接</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/src/js/index.js"></script>
+    <script src="/src/js/post.js"></script>
+</body>
+</html> 

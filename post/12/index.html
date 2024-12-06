@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>缓存转移开源 - 我的博客</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../src/style/index.css">
+    <link rel="stylesheet" href="../../src/style/post.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+            <link rel="stylesheet" href="/src/style/code.css">
+            <link rel="stylesheet" href="/src/style/highlight.css">
+        </head>
+<body>
+    <header class="site-header">
+        <nav class="top-nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>YuleFree</h1>
+                </div>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="nav-links">
+                    <a href="/">首页</a>
+                    <a href="/categorie/">分类</a>
+                    <a href="/tag/">标签</a>
+                    <a href="/time/">时间线</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <article class="post-content">
+            <div class="breadcrumb">
+                <ol>
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/post/">文章</a></li>
+                    <li>缓存转移开源</li>
+                </ol>
+            </div>
+
+            <div class="banner"><img src="https://maxpcimg.cc/i/2024/09/29/66f8cf4c94285.jpg" alt="缓存转移开源"></div>
+
+            <div class="post-header">
+                <h1 class="post-title">缓存转移开源</h1>
+                <div class="post-meta">
+                    <span class="post-date">2024-09-28 08:08:09</span>
+                    <div class="post-categories">
+                        <a href="/categorie/Shell学习ing/">Shell学习ing</a>
+                    </div>
+                    <div class="post-tags">
+                        <a href="/tag/Android搞机/">Android搞机</a><a href="/tag/Shell/">Shell</a><a href="/tag/脚本/">脚本</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post-body">
+                <div class="toc"><h2>目录</h2><ul>
+<ul>
+<li><a href="#v10"> V1.0</a></li>
+</ul>
+</ul></div>
+
+<h2 id="v10"><i class="fas fa-hashtag"></i> V1.0</h2>
+<blockquote>
+<p>首次上传</p>
+</blockquote>
+<pre class="codehilite"><code class="language-bash"># by 酷安@于乐Yule
+# 二改二传标明出处
+
+# 输出目录
+output=&quot;/storage/emulated/0/Download/缓存转移&quot;
+
+# 日志目录
+log=&quot;$output/log.log&quot;
+
+# R · G · B
+GR=&quot;\033[1;32m&quot;     # 绿
+YE=&quot;\033[1;33m&quot;     # 黄
+CY=&quot;\033[1;34m&quot;     # 紫
+BL=&quot;\033[1;36m&quot;     # 蓝
+RE=&quot;\033[1;31m&quot;     # 红
+WH=&quot;\033[1;37m&quot;     # 白
+BO=&quot;\033[1m&quot;        # 粗体
+RES=&quot;\033[0m&quot;       # 结束
+
+# 更符合中国宝宝阅读习惯的echo
+yule() { 
+    echo -e &quot; $1&quot;
+}
+yulen() { 
+    echo -en &quot; $1&quot;
+}
+sepa() {
+    echo &quot;-------------------------------&quot;
+}
+blank() {
+    local n=${1:-1}
+    if ! [[ &quot;$n&quot; =~ ^[0-9]+$ ]]; then
+        echo &quot;注意: 'blank'函数的参数不能为0或负数&quot; &gt;&amp;2
+        return 1
+    fi
+    for ((i=1; i&lt;=n; i++)); do
+        echo
+    done
+}
+
+# json 阅读函数
+jsonread() {
+    local file_path=&quot;$1&quot;
+    local json_key=&quot;$2&quot;
+    if [ ! -f &quot;$file_path&quot; ]; then
+        echo -n &quot;错误：文件 $file_path 不存在。&quot;
+        return 1
+    fi
+    local value=$(grep -o &quot;\&quot;$json_key\&quot;[[:space:]]*:[[:space:]]*\&quot;[^\&quot;]*\&quot;&quot; &quot;$file_path&quot; | sed -n &quot;s/.*: *\&quot;\(.*\)\&quot;.*/\1/p&quot;)
+    if [ -z &quot;$value&quot; ]; then
+        echo -n &quot;错误：未找到键 $json_key。&quot;
+        return 1
+    else
+        echo -n &quot;$value&quot;
+    fi
+}
+
+# 日志输出函数
+dlog() {
+    local datetime=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+    local exit_status=$1
+    echo &quot;[$datetime] 操作: $exit_status&quot; &gt;&gt; $log
+}
+errlog() {
+    local datetime=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+    local exit_status=$1
+    echo &quot;[$datetime] 错误: $exit_status&quot; &gt;&gt; $log
+}
+finlog() {
+    local datetime=$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)
+    local exit_status=$1
+    echo &quot;[$datetime] 完成: $exit_status&quot; &gt;&gt; $log
+}
+
+# 卡死判断函数
+jam() {
+    local i
+    local err_num_yule=$1
+    if [[ $err_num_yule -lt &quot;10&quot; ]]; then
+        for i in {0..4}; do
+            printf &quot;\033[1G&quot;
+            printf &quot;\033[K&quot;
+            printf &quot;\033[A&quot;
+        done
+    else
+        for n in {0..1}; do
+            printf &quot;\033[1G&quot;
+            printf &quot;\033[K&quot;
+            printf &quot;\033[A&quot;
+        done
+    fi
+    printf &quot;\033[B\033[1G&quot;
+    yule &quot;${RE}输入错误，请输入[1]/[2]/[3]${RES}，你的输入：$2&quot;
+    yule &quot;再错误$err_num_yule次会退出脚本&quot;
+}
+
+# 微信操作部分函数
+wechatdo() {
+    sepa
+    cd /data/data/com.tencent.mm/MicroMsg/${1}/attachment
+    wechat_file_num=$(ls -C | wc -l)
+    wechatfilecopy=$1
+    ls -C
+    sepa
+    yule &quot;共有：${YE}${wechat_file_num}个文件${RES}&quot;
+    yule &quot;输入${YE}[y]${RES}进行确认，[n]取消&quot;
+    blank
+    yulen &quot;请输入: &quot;
+    read wechat_choice
+    if [[ $wechat_choice == &quot;y&quot; ]]; then
+        sepa
+        yule &quot;${CY}- 复制文件...${RES}&quot;
+        yulen &quot;· 创建./微信/&quot;
+        mkdir &quot;${output}/微信&quot; 2&gt;/dev/null
+        yule &quot;${GR} [完成]${RES}&quot;
+        yulen &quot;· 移动文件到./微信/&quot;
+        cp /data/data/com.tencent.mm/MicroMsg/${wechatfilecopy}/attachment/* ${output}/微信 2&gt;/${output}/error
+        err=$?
+        yule &quot;${GR} [完成]${RES}&quot;
+        # 复制成功
+        if [[ $err == &quot;0&quot; ]]; then
+            yule &quot;${GR}· 复制完成${RES}&quot;
+            sepa
+            if [[ $delete == &quot;yes&quot; ]]; then
+                rm -rf $dir/*
+                yule &quot;${GR}删除源文件成功${RES}&quot;
+            fi
+            finlog &quot;[$name]转移成功&quot;
+            yule &quot;${GR}已完成转移${RES}&quot;
+            yule &quot;路径${output}/$name&quot;
+        # 复制失败，输出日志
+        else
+            blank
+            sepa
+            blank 2                        
+            errtext=$(cat ${output}/error)           
+            yule &quot;ERR: $errtext&quot;
+            errlog &quot;[$name]复制文件失败: $errtext&quot;
+            blank 2
+            yule &quot;${RE}· 复制出错，请检查：${RES}&quot;
+            yule &quot;  1.存储空间是否足够&quot;
+            yule &quot;  2.是否未下载文件&quot;
+            yule &quot;  3.软件是否为旧版&quot;
+            yule &quot;  4.是否未授权Root&quot;
+        fi        
+    elif [[ $wechat_choice == &quot;n&quot; ]]; then
+        exit 0
+    else
+        blank
+        yule &quot;${RE}输入错误${RES}&quot;
+        exit 0
+    fi
+}
+
+# 哔哩哔哩操作函数
+bilido() { 
+    clear
+    blank 2
+    find &quot;$dir&quot; -maxdepth 10 -type f -name 'entry.json' | while read -r filedir; do
+        prev=$(dirname ${filedir})
+        foldersize=$(du -sh $prev 2&gt;/dev/null | cut -f1 2&gt;/dev/null)
+        echo &quot;$filedir&quot; &gt;&gt; ${output}/bili
+        nowwechatnum=$(cat ${output}/bili | wc -l)
+        yulen &quot;$nowwechatnum&quot;
+        yule &quot;${CY}$(jsonread $filedir &quot;title&quot;)${RES} | ${YE}$foldersize${RES}&quot;
+    done
+    sepa
+    yule &quot;找到 ${YE}$(cat ${output}/bili | wc -l)${RES} 个视频&quot;
+    yule &quot;${GR}[y]确定开始${RES}   ${RE}[n]取消并退出${RES}&quot;
+    read bili_choice
+    rm -f ${output}/bili
+    if [[ $bili_choice == &quot;y&quot; ]]; then
+        # 转移步骤
+        # 创建视频同名文件夹
+        sepa
+        mkdir ${output}/哔哩哔哩
+        find &quot;$dir&quot; -maxdepth 10 -type f -name 'entry.json' | while read -r filedir; do
+            folder_name=$(jsonread $filedir &quot;title&quot;)
+            mkdir ${output}/哔哩哔哩/${folder_name} 2&gt;/dev/null
+            # 复制 m4s 和 json 文件到目录
+            prev=$(dirname ${filedir})
+            audio=$(find &quot;$prev&quot; -maxdepth 10 -type f -name 'audio.m4s')
+            cp $audio ${output}/哔哩哔哩/${folder_name} 2&gt;/dev/null
+            video=$(find &quot;$prev&quot; -maxdepth 10 -type f -name 'video.m4s')
+            cp $video ${output}/哔哩哔哩/${folder_name} 2&gt;/dev/null
+            danmaku=$(find &quot;$prev&quot; -maxdepth 10 -type f -name 'danmaku.xml')
+            cp $danmaku ${output}/哔哩哔哩/${folder_name} 2&gt;/dev/null
+            info=$(find &quot;$prev&quot; -maxdepth 10 -type f -name 'entry.json')
+            cp $info ${output}/哔哩哔哩/${folder_name} 2&gt;/dev/null
+        done
+        if [[ $delete == &quot;yes&quot; ]]; then
+            rm -rf $dir/*
+        fi
+        finlog &quot;[哔哩哔哩]转移成功&quot;
+    else
+        exit 0
+    fi
+}
+
+# 脚本操作部分
+    # dir：文件路径
+    # type：
+        # 1 表示目录用文件夹进行了分类，此时下面的suf不生效
+        # 0 表示文件夹内就是要移动的文件
+    # suf：要搜寻的文件后缀名，type 为 1 时不生效，使用 | 分割，all 表示所有文件
+main() {
+    # 定义哔哩哔哩的信息
+    if [[ $menu == &quot;1&quot; ]]; then
+        name=&quot;哔哩哔哩&quot;
+        dir=&quot;/storage/emulated/0/Android/data/tv.danmaku.bili/download/&quot;
+        type=&quot;1&quot; # 哔哩哔哩对视频做了文件夹区分
+        suf=&quot;.m4s|.json&quot;
+    # 定义微信的信息
+    elif [[ $menu == &quot;2&quot; ]]; then
+        name=&quot;微信&quot;
+        dir=&quot;/data/data/com.tencent.mm/MicroMsg/&quot;
+        type=&quot;1&quot; # 微信对账号做了文件夹区分
+        suf=&quot;wechat file&quot;
+    # 定义QQ的信息
+    elif [[ $menu == &quot;3&quot; ]]; then
+        name=&quot;QQ&quot;
+        dir=&quot;/storage/emulated/0/Android/data/com.tencent.mobileqq/Tencent/QQfile_recv/&quot;
+        type=&quot;0&quot; # 排除子文件夹
+        suf=&quot;all&quot;
+    # 定义Nekogram的信息
+    elif [[ $menu == &quot;4&quot; ]]; then
+        name=&quot;Nekogram&quot;
+        dir=&quot;/storage/emulated/0/Android/data/tw.nekomimi.nekogram/files/Telegram/&quot;
+        type=&quot;1&quot;
+        suf=&quot;all&quot;
+    fi
+    main2
+}
+
+main2() {
+    blank 2
+    yule &quot;${YE}你选择了${RES} [${BL} $name ${RES}]&quot;
+    if [[ $menu != &quot;2&quot; ]]; then
+        size=$(du -sh &quot;$dir&quot; | cut -f1)
+        yule &quot;${BL}目录大小：${size}${RES}&quot;
+    fi      
+    blank
+
+    # 询问用户是否要删除源文件
+    yulen &quot;是否${RE}删除原文件${RES} (yes / no): &quot;
+    read delete    
+    blank
+    case $delete in
+        yes)
+            yule &quot;操作完成后会删除源文件哦&quot;
+            ;;
+        no)
+            yule &quot;操作完成后不会删除源文件哦&quot;
+            ;;
+        *|\n)
+            yule &quot;输入错误，奖励退出脚本哦&quot;
+            exit 1
+            ;;
+    esac
+    main3
+}
+
+main3() {
+    # 面向 type 0 | suf all 进行操作
+    if [[ $type == &quot;0&quot; &amp;&amp; $suf == &quot;all&quot; ]]; then
+        sepa
+        yule &quot;${CY}- 复制文件...${RES}&quot;
+        yulen &quot;· 创建./$name/&quot;
+        mkdir &quot;${output}/$name&quot; 2&gt;/dev/null
+        yule &quot;${GR} [完成]${RES}&quot;
+        yulen &quot;· 移动文件到./$name/&quot;
+        find $dir -maxdepth 1 -type f -exec cp {} ${output}/$name \; 2&gt;/${output}/error
+        err=$?
+        yule &quot;${GR} [完成]${RES}&quot;
+        # 复制成功
+        if [[ $err == &quot;0&quot; ]]; then
+            yule &quot;${GR}· 复制完成${RES}&quot;
+            sepa
+            if [[ $delete == &quot;yes&quot; ]]; then
+                rm -rf $dir/*
+                yule &quot;${GR}删除源文件成功${RES}&quot;
+            fi
+            finlog &quot;[$name]转移成功&quot;
+            yule &quot;${GR}已完成转移${RES}&quot;
+            yule &quot;路径${output}/$name&quot;
+        # 复制失败，输出日志
+        else
+            blank
+            sepa
+            blank 2                        
+            errtext=$(cat ${output}/error)           
+            yule &quot;ERR: $errtext&quot;
+            errlog &quot;[$name]复制文件失败: $errtext&quot;
+            blank 2
+            yule &quot;${RE}· 复制出错，请检查：${RES}&quot;
+            yule &quot;  1.存储空间是否足够&quot;
+            yule &quot;  2.是否未下载文件&quot;
+            yule &quot;  3.软件是否为旧版&quot;
+            yule &quot;  4.是否未授权Root&quot;
+            exit 1
+        fi
+
+    # 面向 type 1 | suf all 进行操作
+    elif [[ $type == &quot;1&quot; &amp;&amp; $suf == &quot;all&quot; ]]; then
+        sepa
+        yule &quot;${CY}- 复制文件...${RES}&quot;
+        yulen &quot;· 创建./$name/&quot;
+        mkdir &quot;${output}/$name&quot; 2&gt;/dev/null
+        yule &quot;${GR} [完成]${RES}&quot;
+        yulen &quot;· 移动文件到./$name/&quot;
+        cp -r ${dir}* ${output}/${name} 2&gt;/${output}/error
+        err=$?
+        yule &quot;${GR} [完成]${RES}&quot;
+        # 复制成功
+        if [[ $err == &quot;0&quot; ]]; then
+            yule &quot;${GR}· 复制完成${RES}&quot;
+            sepa
+            if [[ $delete == &quot;yes&quot; ]]; then
+                rm -rf $dir/*
+                yule &quot;${GR}删除源文件成功${RES}&quot;
+            fi
+            finlog &quot;[$name]转移成功&quot;
+            yule &quot;${GR}已完成转移${RES}&quot;
+            yule &quot;路径${output}/$name&quot;
+        # 复制失败，输出日志
+        else
+            blank
+            sepa
+            blank 2                        
+            errtext=$(cat ${output}/error)           
+            yule &quot;ERR: $errtext&quot;
+            errlog &quot;[$name]复制文件失败: $errtext&quot;
+            blank 2
+            yule &quot;${RE}· 复制出错，请检查：${RES}&quot;
+            yule &quot;  1.存储空间是否足够&quot;
+            yule &quot;  2.是否未下载文件&quot;
+            yule &quot;  3.软件是否为旧版&quot;
+            yule &quot;  4.是否未授权Root&quot;
+            exit 1
+        fi
+
+    # 面向 微信 的操作
+    elif [[ $name == &quot;微信&quot; ]]; then
+        clear
+        blank 2
+        cd $dir 2&gt;/dev/null
+        foldernum=$(find &quot;$dir&quot; -maxdepth 1 -type d -name &quot;????????????????????????????????&quot; | wc -l)
+        if [[ $foldernum -gt &quot;1&quot; ]]; then
+            yule &quot;${BL}您登录过 $foldernum 个微信号，产生了多个目录${RES}&quot;
+            sepa
+            yule &quot;请选择一个目录进行查看：&quot;
+            find &quot;$dir&quot; -maxdepth 1 -type d -name &quot;????????????????????????????????&quot; | while read -r folderdir; do
+                foldername=$(basename $folderdir)
+                foldersize=$(du -sh ${folderdir}/attachment 2&gt;/dev/null | cut -f1 2&gt;/dev/null)
+                if [[ $foldersize == &quot;&quot; ]]; then
+                    foldersize=&quot;0KB&quot;
+                fi
+                echo &quot;$foldername&quot; &gt;&gt; ${output}/wechat
+                nowwechatnum=$(cat ${output}/wechat | wc -l)
+                yulen &quot;${BL}[$nowwechatnum]&quot;
+                yule &quot;账号:${CY}$foldername${RES} | ${YE}$foldersize${RES}&quot;
+            done
+            yule &quot;- 当前脚本版本最多可支持6个微信号&quot;
+            sepa
+            yulen &quot;请输入[序号]: &quot;
+            read wechat_account
+            case $wechat_account in
+                1)
+                    account_c=$(sed -n &quot;1p&quot; &quot;${output}/wechat&quot;)
+                    yule &quot;你选择了 ${BL}${account_c}${RES}&quot;
+                    wechatdo ${account_c}
+                    ;;
+                2)
+                    account_c=$(sed -n &quot;2p&quot; &quot;${output}/wechat&quot;)
+                    yule &quot;你选择了 ${BL}${account_c}${RES}&quot;
+                    wechatdo ${account_c}
+                    ;;
+                3)
+                    account_c=$(sed -n &quot;3p&quot; &quot;${output}/wechat&quot;)
+                    yule &quot;你选择了 ${BL}${account_c}${RES}&quot;
+                    wechatdo ${account_c}
+                    ;;
+                4)
+                    account_c=$(sed -n &quot;4p&quot; &quot;${output}/wechat&quot;)
+                    yule &quot;你选择了 ${BL}${account_c}${RES}&quot;
+                    wechatdo ${account_c}
+                    ;;
+                5)
+                    account_c=$(sed -n &quot;5p&quot; &quot;${output}/wechat&quot;)
+                    yule &quot;你选择了 ${BL}${account_c}${RES}&quot;
+                    wechatdo ${account_c}
+                    ;;
+                6)
+                    account_c=$(sed -n &quot;6p&quot; &quot;${output}/wechat&quot;)
+                    yule &quot;你选择了 ${BL}${account_c}${RES}&quot;
+                    wechatdo ${account_c}
+                    ;;
+                *)
+                    yule &quot;${RE}选择错误或超出最大账号限制${RES}&quot;
+                    exit 1
+                    ;;
+            esac
+            rm -f ${output}/wechat
+        else
+            exit 0
+        fi
+
+    # 面向哔哩哔哩的操作
+    elif [[ $name == &quot;哔哩哔哩&quot; ]]; then
+        bilido
+    fi
+
+    # 生成本次配置的 json
+    touch ${output}/last.json
+    echo &quot;{\&quot;name\&quot;:\&quot;$name\&quot;,\&quot;type\&quot;:\&quot;$type\&quot;,\&quot;suf\&quot;:\&quot;$suf\&quot;,\&quot;dir\&quot;:\&quot;$dir\&quot;,\&quot;del\&quot;:\&quot;$delete\&quot;,\&quot;data\&quot;:\&quot;$(date +&quot;%Y-%m-%d %H:%M:%S&quot;)\&quot;}&quot; &gt; ${output}/last.json
+    rm -f ${output}/error
+    exit 0
+}
+
+# 脚本菜单部分
+menu() {
+    yule &quot;${YE}欢迎使用《缓存转移》${RES}&quot;
+    sepa
+    yule &quot;${BL}- 哔哩哔哩    [1]${RES}&quot;
+    yule &quot;${BL}- 微信        [2]${RES}&quot;
+    yule &quot;${BL}- QQ          [3]&quot;
+    yule &quot;${BL}- Nekogram    [4]${RES}&quot;
+    # 选择菜单
+    for err_num_2 in {10..0}; do
+        sepa
+        yulen &quot;请输入[1]/[2]/[3]/[4]：&quot;    
+        read menu_2
+        case $menu_2 in
+            1)
+                # 哔哩哔哩
+                menu=1
+                main
+                ;;
+            2)
+                # 微信
+                menu=2
+                main
+                ;;
+            3)
+                # QQ
+                menu=3
+                main
+                ;;
+            4)
+                # Nekogram
+                menu=4
+                main
+                ;;
+            *|\n)
+                # 输入错误
+                jam $err_num_2 $menu_2
+                ;;
+        esac
+    done
+}
+
+# 主标题：CY
+# 副标题：YE
+# 三级文字：BL
+# 文字：WH (没有)
+
+# 脚本介绍
+mkdir &quot;${output}&quot;
+echo &quot;$log&quot;
+touch /storage/emulated/0/Download/缓存转移/log.log
+if [ -e &quot;$log&quot; ]; then
+    echo &quot;日志文件存在&quot;
+else
+    touch &quot;$log&quot;
+fi
+rm -f ${output}/wechat
+rm -f ${output}/bili
+rm -f ${output}/error
+clear
+
+# 读取上一次保存的配置
+if [[ -e &quot;${output}/last.json&quot; ]]; then
+    blank 2
+    yule &quot;上次配置：&quot;
+    yulen &quot;&quot;
+    jsonread ${output}/last.json &quot;data&quot;
+    blank 2
+    yule &quot;${YE}应用名：${RES}&quot;
+    yulen &quot;&quot;
+    jsonread ${output}/last.json &quot;name&quot;
+    blank 2
+    yule &quot;${YE}路径：${RES}&quot;
+    yulen &quot;&quot;
+    jsonread ${output}/last.json &quot;dir&quot;
+    blank 2
+    yule &quot;${YE}是否已分类：${RES}&quot;
+    yulen &quot;&quot;
+    jsonread ${output}/last.json &quot;type&quot;
+    blank 2
+    yule &quot;${YE}移动的文件后缀：${RES}&quot;
+    yulen &quot;&quot;
+    jsonread ${output}/last.json &quot;suf&quot;
+    blank 2
+    yule &quot;${YE}完成后删除源文件：${RES}&quot;
+    yulen &quot;&quot;
+    jsonread ${output}/last.json &quot;del&quot;
+    blank 2
+    sepa
+    yulen &quot;要用上一次的配置吗(yes / no): &quot;
+    read last
+    if [[ $last == &quot;yes&quot; ]]; then
+        name=$(jsonread ${output}/last.json &quot;name&quot;)
+        dir=$(jsonread ${output}/last.json &quot;dir&quot;)
+        type=$(jsonread ${output}/last.json &quot;type&quot;)
+        yule &quot;$type&quot;
+        sleep 5
+        delete=$(jsonread ${output}/last.json &quot;del&quot;)
+        suf=$(jsonread ${output}/last.json &quot;suf&quot;)
+        yule &quot;跳转到main3...&quot;
+        main3
+    fi
+fi
+
+# 介绍
+clear
+blank 2
+yule &quot;${YE}本脚本可以将应用所下载的文件转移到你设定的目录${RES}&quot;
+blank
+yule &quot;${BL}已支持应用：${RES}&quot;
+yule &quot;- 哔哩哔哩&quot;
+yule &quot;- 微信&quot;
+yule &quot;- QQ&quot;
+yule &quot;- Nekogram&quot;
+blank
+sepa
+yulen &quot;${GR}开始[1]${RES}&quot;
+yulen &quot;${RE}  退出[2]${RES}&quot;
+yule &quot;${CY}  配置路径[3]${RES}&quot;
+yule &quot;${BL}    我要学习自己适配应用[4]${RES}&quot;
+
+# 选择开始菜单
+for err_num in {10..0}; do
+    sepa
+    yulen &quot;请输入[1]/[2]/[3]/[4]：&quot;
+    read menu_1 
+    case $menu_1 in
+        1)
+            # 开始
+            clear
+            blank 2
+            menu
+            exit 0
+            ;;
+        2)
+            # 退出
+            blank
+            yule &quot;${GR}脚本已退出，欢迎下次使用${RES}&quot;          
+            exit 0
+            ;;
+        3)
+            # 配置路径
+            clear
+            blank 2
+            yulen &quot;功能研发中，请编辑脚本顶部的 output= 进行配置&quot;
+            exit 0
+            ;;
+        4)
+            # 使用浏览器打开教程
+            am start -a android.intent.action.VIEW -d &quot;https://baidu.com/&quot;
+            exit 0
+            ;;
+        *|\n)
+            # 输入错误
+            jam $err_num $menu_1
+            ;;
+    esac
+done
+
+blank
+yule &quot;${RE}你已连续输入错误10次，被系统判定为卡死，已退出脚本&quot;
+</code></pre>
+            </div>
+
+            <div class="post-footer">
+                <div class="copyright-notice">
+                    <h3><i class="fas fa-copyright"></i> 版权声明</h3>
+                    <p>本文作者：YuleFree</p>
+                    <p>本文链接：<a href="/post/post12/">/post/post12/</a></p>
+                    <p>版权声明：本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</p>
+                </div>
+                <div class="download-section">
+                    <a href="/markdown/" class="download-button">
+                        <i class="fas fa-download"></i> 下载文章 Markdown
+                    </a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/YuleBest/" target="_blank" class="footer-link">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <span class="footer-divider">|</span>
+                <a href="/friends/" class="footer-link">友情链接</a>
+            </div>
+        </div>
+    </footer>
+    <script src="/src/js/index.js"></script>
+    <script src="/src/js/post.js"></script>
+</body>
+</html> 

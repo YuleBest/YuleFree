@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的博客</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/style/index.css">
+    <link rel="stylesheet" href="src/style/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="top-nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>YuleFree</h1>
+                </div>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="nav-links">
+                    <a href="." class="active">首页</a>
+                    <a href="/categorie/">分类</a>
+                    <a href="/tag/">标签</a>
+                    <a href="/time/">时间线</a>
+                </div>
+            </div>
+        </nav>
+        <div class="mobile-nav">
+            <a href="." class="active">首页</a>
+            <a href="/categorie/">分类</a>
+            <a href="/tag/">标签</a>
+            <a href="/time/">时间线</a>
+        </div>
+        <div class="menu-overlay"></div>
+    </header>
+
+    <main>
+        <!-- 全屏Hero区域 -->
+        <section class="hero" style="background-image: url('{{ hero_background }}')">
+            <div class="hero-content">
+                <h1 class="hero-title">探索、创造、分享</h1>
+                <p class="hero-subtitle">记录技术与生活的点点滴滴</p>
+                <div class="hero-buttons">
+                    <a href="/about/" class="hero-button primary">了解更多</a>
+                    <a href="/time/" class="hero-button secondary">浏览文章</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 特色文章区域 -->
+        <section class="featured-posts">
+            <div class="container">
+                <h2 class="section-title">精选文章</h2>
+                <div class="featured-grid">
+                    {{ featured_posts }}
+                </div>
+            </div>
+        </section>
+
+        <!-- 最新文章区域 -->
+        <section class="latest-posts">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">最新文章</h2>
+                    <a href="/time" class="view-all">查看全部</a>
+                </div>
+                <div class="posts-grid">
+                    {{ posts }}
+                </div>
+            </div>
+        </section>
+
+        <!-- 分类和标签区域 -->
+        <section class="categories-tags">
+            <div class="container">
+                <div class="categories-section">
+                    <h2 class="section-title">文章分类</h2>
+                    <div class="category-list">
+                        {{ categories }}
+                    </div>
+                </div>
+                <div class="tags-section">
+                    <h2 class="section-title">热门标签</h2>
+                    <div class="tag-cloud">
+                        {{ tags }}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/YuleBest/" target="_blank" class="footer-link">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <span class="footer-divider">|</span>
+                <a href="/friends/" class="footer-link">友情链接</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/src/js/index.js"></script>
+</body>
+</html> 

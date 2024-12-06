@@ -1,0 +1,61 @@
+/* 代码块容器 */
+pre {
+    background: #f8f9fa;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 1em;
+    margin: 1em 0;
+    overflow: auto;
+    position: relative;
+}
+
+/* 行内代码 */
+code {
+    background: #f8f9fa;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: Consolas, Monaco, 'Andale Mono', monospace;
+    font-size: 0.9em;
+}
+
+/* 代码块中的代码 */
+pre code {
+    background: none;
+    padding: 0;
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+/* 语言标识 */
+pre::before {
+    content: attr(data-lang);
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.2em 0.5em;
+    font-size: 0.8em;
+    color: #666;
+    background: #f1f3f5;
+    border-radius: 0 3px 0 4px;
+}
+
+/* 行号 */
+.line-numbers {
+    counter-reset: line;
+    padding-left: 3.5em;
+}
+
+.line-numbers > code {
+    counter-increment: line;
+}
+
+.line-numbers > code::before {
+    content: counter(line);
+    position: absolute;
+    left: 0;
+    width: 2.5em;
+    text-align: right;
+    color: #999;
+    padding-right: 1em;
+    border-right: 1px solid #eee;
+}

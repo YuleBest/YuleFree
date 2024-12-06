@@ -1,0 +1,50 @@
+.timeline-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--primary-color);
+}
+
+.timeline-year {
+    margin-bottom: 3rem;
+}
+
+.timeline-month {
+    margin-left: 1rem;
+    position: relative;
+}
+
+.timeline-month::before {
+    content: '';
+    position: absolute;
+    left: -2.5rem;
+    top: 0.5rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: var(--primary-color);
+}
+
+.timeline-posts {
+    list-style: none;
+    padding: 0;
+    margin-left: 1rem;
+}
+
+.timeline-posts li {
+    margin: 1rem 0;
+} 

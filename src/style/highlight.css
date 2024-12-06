@@ -1,0 +1,16 @@
+/* 代码高亮主题 */
+.highlight .hll { background-color: #ffc; }
+.highlight .c { color: #999; font-style: italic } /* Comment */
+.highlight .err { color: #a00; background-color: #faa } /* Error */
+.highlight .k { color: #069; font-weight: bold } /* Keyword */
+.highlight .o { color: #555 } /* Operator */
+.highlight .cm { color: #09f; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #099 } /* Comment.Preproc */
+.highlight .c1 { color: #999; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { background-color: #fcc; border: 1px solid #c00 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #f00 } /* Generic.Error */
+.highlight .gh { color: #030; font-weight: bold } /* Generic.Heading */
+.highlight .gi { background-color: #cfc; border: 1px solid #0c0 } /* Generic.Inserted */
+/* ...更多语法高亮样式... */ 

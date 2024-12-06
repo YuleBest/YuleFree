@@ -1,0 +1,42 @@
+.tag-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.tag-cloud-large {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.tag-cloud-large a {
+    display: inline-block;
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: var(--link-color);
+    border: 1px solid var(--link-color);
+    border-radius: 20px;
+}
+
+.tag-size-1 { font-size: 1rem; }
+.tag-size-2 { font-size: 1.2rem; }
+.tag-size-3 { font-size: 1.4rem; }
+
+.tag-posts {
+    margin-top: 3rem;
+}
+
+.post-list {
+    list-style: none;
+    padding: 0;
+}
+
+.post-list li {
+    margin: 1rem 0;
+}
+
+.post-date {
+    color: #666;
+    margin-right: 1rem;
+} 

@@ -1,0 +1,736 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/rikka_small.png">
+  <link rel="icon" href="/img/rikka_small.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="于乐Yule">
+  <meta name="keywords" content="YuleFree, 邪王真眼, 邪王真眼是最强的！, 邪王真眼是最强的！, Yule">
+  
+    <meta name="description" content="这是一篇适用于 无法获取刷机包 且 没有第三方REC适配 的机型的ROOT教程，前提有二：  解锁了Bootloader  Android版本＞9   下面教程开始~  备份与检查支持情况备份 虽然本教程的操作不需要清除数据，但还是请备份好你的所有重要资料，避免意外情况发生。  下载 打开https:&#x2F;&#x2F;www.123pan.com&#x2F;s&#x2F;iBeVVv-WZ3V.html 下载安装DSU Sidel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Root教程，但无需刷机包和第三方REC（DSU侧载）">
+<meta property="og:url" content="https://blog.yulebest.icu/post3/index.html">
+<meta property="og:site_name" content="YuleFree">
+<meta property="og:description" content="这是一篇适用于 无法获取刷机包 且 没有第三方REC适配 的机型的ROOT教程，前提有二：  解锁了Bootloader  Android版本＞9   下面教程开始~  备份与检查支持情况备份 虽然本教程的操作不需要清除数据，但还是请备份好你的所有重要资料，避免意外情况发生。  下载 打开https:&#x2F;&#x2F;www.123pan.com&#x2F;s&#x2F;iBeVVv-WZ3V.html 下载安装DSU Sidel">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://maxpcimg.cc/i/2024/09/29/66f8cb5c3f890.jpg">
+<meta property="article:published_time" content="2024-07-27T15:12:19.000Z">
+<meta property="article:modified_time" content="2025-01-21T15:01:13.020Z">
+<meta property="article:author" content="于乐Yule">
+<meta property="article:tag" content="Android搞机">
+<meta property="article:tag" content="刷机">
+<meta property="article:tag" content="技术帖">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://maxpcimg.cc/i/2024/09/29/66f8cb5c3f890.jpg">
+  
+  
+  
+  <title>Root教程，但无需刷机包和第三方REC（DSU侧载）丨YuleFree</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.yulebest.icu","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-04-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>YuleFree</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" false
+     style="background: url('https://maxpcimg.cc/i/2024/09/29/66f8cb5c3f890.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Root教程，但无需刷机包和第三方REC（DSU侧载）"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-07-27 23:12" pubdate>
+          2024年7月27日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          789 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          7 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Root教程，但无需刷机包和第三方REC（DSU侧载）</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>这是一篇适用于 <strong>无法获取刷机包</strong> 且 <strong>没有第三方REC适配</strong> 的机型的ROOT教程，前提有二：</p>
+<ul>
+<li><p>解锁了Bootloader</p>
+</li>
+<li><p>Android版本＞9</p>
+</li>
+</ul>
+<p>下面教程开始~</p>
+<hr>
+<h1 id="备份与检查支持情况"><a href="#备份与检查支持情况" class="headerlink" title="备份与检查支持情况"></a>备份与检查支持情况</h1><h3 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h3><ol>
+<li>虽然本教程的操作不需要清除数据，但还是请备份好你的所有重要资料，避免意外情况发生。</li>
+</ol>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><ol start="2">
+<li><p>打开<a target="_blank" rel="noopener" href="https://www.123pan.com/s/iBeVVv-WZ3V.html">https://www.123pan.com/s/iBeVVv-WZ3V.html</a> 下载安装DSU Sideload和Treble Check；</p>
+</li>
+<li><p>打开Treble Check，检查你的CPU体系架构与Project Treble支持情况。</p>
+<img src="https://img.picgo.net/2024/07/27/dc70a92ab1db72ab8a1313cf52744511f14510d93ac98d5.jpg" srcset="/img/loading.gif" lazyload alt="dc70a92ab1db72ab8a1313cf5274451" style="zoom: 33%;" />
+
+<img src="https://img.picgo.net/2024/07/27/a4965c67c3f79af31b0b4c887726878a046ce43d6a17016.jpg" srcset="/img/loading.gif" lazyload alt="a4965c67c3f79af31b0b4c887726878" style="zoom: 50%;" />
+</li>
+<li><p>下载<strong>适合你的</strong><a target="_blank" rel="noopener" href="https://developer.android.google.cn/topic/generic-system-image?hl=zh-cn">GSI</a>，比较推荐<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/andyyan-gsi/files">https://sourceforge.net/projects/andyyan-gsi/files</a> ，怎么选择适合你的呢？我们看看文件的命名：</p>
+<ul>
+<li><em>a64</em> or <em>arm64</em>：指的就是你的CPU架构；</li>
+<li><em>v</em> or <em>g</em>：即 <em>Vanilla</em> 或 <em>Google</em>，<em>v</em> 表示没有自带谷歌框架，<em>g</em> 表示预置了谷歌框架，这个怎么选取决于你的个人爱好；</li>
+<li><em>S</em> or <em>N</em>：即 <em>SuperSU</em> 或 <em>No SuperSU</em>，<strong>我们需要超级用户权限，所以选 <em>S</em> 的</strong>；</li>
+<li><em>vndklite</em> or <em>-</em>：<em>vndklite</em> 适用于VNDKLite设备或非VNDKLite设备上的可读写系统。<strong>如果设备支持Project Treble，选择带 <em>vndklite</em> 的，如果不支持Project Treble，应选择不带的</strong>。</li>
+</ul>
+<img src="https://img.picgo.net/2024/07/28/cee3b5cfa2752b07a61125b57fcc17fb8ff0309142aa984.jpg" srcset="/img/loading.gif" lazyload alt="cee3b5cfa2752b07a61125b57fcc17f" style="zoom: 50%;" /></li>
+</ol>
+<hr>
+<p>确认您的设备支持DSU侧载，并下载对应镜像文件后后，您可进行下一步。</p>
+<h1 id="安装并进入系统"><a href="#安装并进入系统" class="headerlink" title="安装并进入系统"></a>安装并进入系统</h1><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol>
+<li><p>打开DSU Sideload，点击<em>设定 - 新建文件夹 - 随便命名 - 允许 - 继续</em> ；</p>
+<p><img src="https://img.picgo.net/2024/07/28/070758e77e2664f3b0b5d8d3f3c0ad2ee054a610aa13972.jpg" srcset="/img/loading.gif" lazyload alt="070758e77e2664f3b0b5d8d3f3c0ad2"></p>
+</li>
+<li><p>在软件中设定好镜像路径、空间大小（最低5GB）后点击安装，等待进度条跑完，如下图：</p>
+<p><img src="https://img.picgo.net/2024/07/27/a29978e6f0228ba5c33a5244471395ecb10bfa955063c9b.jpg" srcset="/img/loading.gif" lazyload alt="a29978e6f0228ba5c33a5244471395e"></p>
+</li>
+<li><p>将手机打开USB调试，连接电脑；</p>
+</li>
+<li><p>在电脑上打开<a target="_blank" rel="noopener" href="https://mrzzoxo.lanzoue.com/b02plghuh">adb终端</a>，手机上授权调试；</p>
+</li>
+<li><p>终端中执行下面的命令：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">adb shell sh &quot;/storage/emulated/0/Android/data/vegabobo.dsusideloader/files/install&quot;<br></code></pre></td></tr></table></figure>
+<p> 等待终端中返回信息 <code>DSU installation activity has been started!</code> 就安装成功了：</p>
+<p> <img src="https://img.picgo.net/2024/07/28/38a1d04d33579d06185507487e97413bf0af4f7ec389e91.jpg" srcset="/img/loading.gif" lazyload alt="38a1d04d33579d06185507487e97413"></p>
+<p> 没有电脑的话，你也可以使用Termex、Shizuku等进行安装，可进入DSU Sideload点 <em>查看指令</em> 获取指令。</p>
+</li>
+</ol>
+<h3 id="进入系统"><a href="#进入系统" class="headerlink" title="进入系统"></a>进入系统</h3><ol start="6">
+<li><p>等待几秒钟，点击通知中的 <em>重启</em> 进入到侧载的系统；</p>
+<blockquote>
+<p>如果卡Fastboot，说明你配置有误或者你的手机不支持DSU，直接长按电源键重启后舍弃即可。</p>
+</blockquote>
+<img src="https://img.picgo.net/2024/07/28/1e6d8938c1e5a59456f1974a42f1570e717b5b3c3a14109.jpg" srcset="/img/loading.gif" lazyload alt="1e6d8938c1e5a59456f1974a42f1570" style="zoom:25%;" />
+</li>
+<li><p>重启完成后，如果进入原系统，就重试；</p>
+<p>如果成功进入侧载系统，就使用数据线连接电脑，电脑打开adb终端；</p>
+</li>
+<li><p>在adb终端<strong>有序地</strong>执行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">adb shell<br>su<br>cd /dev/block/bootdevice/by-name<br>ls -l<br></code></pre></td></tr></table></figure>
+<p>此时，我们应注意列表中 <em>boot</em> 或 <em>init_boot</em> 镜像的地址，下以 <u>原地址</u> 代称（请忽视图中标号）；</p>
+<blockquote>
+<p>如何选择boot.img或init_boot.img？</p>
+<p>内核版本为…androidx-…（x≥13）的机器，修补&#x2F;刷入&#x2F;备份的镜像分区应为init_boot，其他的为boot，另外，若您使用APatch，则应该使用boot.</p>
+</blockquote>
+<img src="https://img.picgo.net/2024/07/28/e752a652645251a82a6805a0025317317f897f3a023eb9c.jpg" srcset="/img/loading.gif" lazyload alt="e752a652645251a82a6805a00253173" style="zoom: 67%;" />
+</li>
+<li><p>在电脑上任意位置新建一个文件夹，在adb终端有序执行下面的指令，将镜像拷贝到电脑上：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">dd if=原地址 of=/sdcard/镜像名称.img<br>adb pull /sdcard/镜像名称.img D:\aaaa<br></code></pre></td></tr></table></figure>
+
+<img src="https://img.picgo.net/2024/07/28/7ce508bf9cc6b0cc604370a5b6db4c8f73e14cfe22c5266.jpg" srcset="/img/loading.gif" lazyload alt="7ce508bf9cc6b0cc604370a5b6db4c8" style="zoom: 80%;" />
+</li>
+<li><p>重启返回原系统。</p>
+</li>
+</ol>
+<hr>
+<p>目前，我们已经成功获取到了手机的 boot&#x2F;init_boot 镜像，可以使用<a target="_blank" rel="noopener" href="https://www.coolapk.com/feed/57221213?shareKey=ODgyYzI3Y2VmZWExNjY4YTg3ZmM~&shareUid=18214705&shareFrom=com.coolapk.market_14.2.3">我的教程</a>中的第二步开始进行修补，获取Root权限啦~本篇教程到此结束！</p>
+<p align=right>写于2024年7月8日·酷安</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Android%E5%88%B7%E6%9C%BA/" class="category-chain-item">Android刷机</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Android%E6%90%9E%E6%9C%BA/" class="print-no-link">#Android搞机</a>
+      
+        <a href="/tags/%E5%88%B7%E6%9C%BA/" class="print-no-link">#刷机</a>
+      
+        <a href="/tags/%E6%8A%80%E6%9C%AF%E5%B8%96/" class="print-no-link">#技术帖</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Root教程，但无需刷机包和第三方REC（DSU侧载）</div>
+      <div>https://blog.yulebest.icu/post3/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>于乐Yule</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年7月27日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/post4/" title="随笔（始于2024年7月30日）">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">随笔（始于2024年7月30日）</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/post2/" title="赠友人、赠故乡、赠雨">
+                        <span class="hidden-mobile">赠友人、赠故乡、赠雨</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>爱来自 </span></a> <i class="iconfont icon-github-fill"></i> <a href="https://github.com/YuleBest" target="_blank" rel="nofollow noopener"><span>Yule</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

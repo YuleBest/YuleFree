@@ -1,0 +1,816 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/rikka_small.png">
+  <link rel="icon" href="/img/rikka_small.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="于乐Yule">
+  <meta name="keywords" content="YuleFree, 邪王真眼, 邪王真眼是最强的！, 邪王真眼是最强的！, Yule">
+  
+    <meta name="description" content="Android 部分机型修改开机第一屏[TOC]  0	确认手机系统版本有以下情况之一的不可以修改  手机系统 OS 为 MIUI 13 以及 MIUI 13 以上版本的（包括澎湃） 手机为小米 10s 或红米 K40 之后发布的机型  小米在上述版本系统&#x2F;机型中为 logo &#x2F; splash 分区添加了签名验证   不能解锁 Bootloader 锁（BL 锁）的  修改系统">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android部分机型修改开机第一屏logo">
+<meta property="og:url" content="https://blog.yulebest.icu/post14/index.html">
+<meta property="og:site_name" content="YuleFree">
+<meta property="og:description" content="Android 部分机型修改开机第一屏[TOC]  0	确认手机系统版本有以下情况之一的不可以修改  手机系统 OS 为 MIUI 13 以及 MIUI 13 以上版本的（包括澎湃） 手机为小米 10s 或红米 K40 之后发布的机型  小米在上述版本系统&#x2F;机型中为 logo &#x2F; splash 分区添加了签名验证   不能解锁 Bootloader 锁（BL 锁）的  修改系统">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://maxpcimg.cc/i/2024/10/22/6716bada8b5a5.png">
+<meta property="article:published_time" content="2024-10-21T17:09:47.000Z">
+<meta property="article:modified_time" content="2025-01-21T15:01:13.016Z">
+<meta property="article:author" content="于乐Yule">
+<meta property="article:tag" content="Android搞机">
+<meta property="article:tag" content="刷机">
+<meta property="article:tag" content="技术帖">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://maxpcimg.cc/i/2024/10/22/6716bada8b5a5.png">
+  
+  
+  
+  <title>Android部分机型修改开机第一屏logo丨YuleFree</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"blog.yulebest.icu","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-04-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>YuleFree</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" false
+     style="background: url('https://maxpcimg.cc/i/2024/10/22/6716bada8b5a5.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Android部分机型修改开机第一屏logo"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-10-22 01:09" pubdate>
+          2024年10月22日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          10 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Android部分机型修改开机第一屏logo</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Android-部分机型修改开机第一屏"><a href="#Android-部分机型修改开机第一屏" class="headerlink" title="Android 部分机型修改开机第一屏"></a>Android 部分机型修改开机第一屏</h1><p>[TOC]</p>
+<hr>
+<h2 id="0确认手机系统版本"><a href="#0确认手机系统版本" class="headerlink" title="0	确认手机系统版本"></a>0	确认手机系统版本</h2><p><strong>有以下情况之一的不可以修改</strong></p>
+<ul>
+<li><p>手机系统 OS 为 MIUI 13 以及 MIUI 13 以上版本的（包括澎湃）</p>
+<p>手机为小米 10s 或红米 K40 之后发布的机型</p>
+<ul>
+<li>小米在上述版本系统&#x2F;机型中为 logo &#x2F; splash 分区添加了签名验证</li>
+</ul>
+</li>
+<li><p>不能解锁 Bootloader 锁（BL 锁）的</p>
+<ul>
+<li>修改系统分区需要解锁 BL</li>
+</ul>
+</li>
+<li><p>其余未列出情况请自测</p>
+</li>
+</ul>
+<hr>
+<h2 id="1解锁"><a href="#1解锁" class="headerlink" title="1	解锁"></a>1	解锁</h2><p>首先你需要将手机的 BL 锁进行解锁，最好可以获取 Root 权限</p>
+<hr>
+<h2 id="2备份-logo-或-splash-分区镜像文件"><a href="#2备份-logo-或-splash-分区镜像文件" class="headerlink" title="2	备份 logo 或 splash 分区镜像文件"></a>2	备份 logo 或 splash 分区镜像文件</h2><h3 id="2-1方法-1：Root-提取法"><a href="#2-1方法-1：Root-提取法" class="headerlink" title="2.1	方法 1：Root 提取法"></a>2.1	方法 1：Root 提取法</h3><ol>
+<li><p>将手机 Root</p>
+</li>
+<li><p>在手机上下载安装 <a target="_blank" rel="noopener" href="https://mt2.cn/">MT 管理器</a></p>
+</li>
+<li><p>下载 <a target="_blank" rel="noopener" href="https://www.123684.com/s/iBeVVv-KqhV">我制作的脚本</a></p>
+</li>
+<li><p>打开 MT 管理器，使用 Root 权限执行脚本</p>
+<img src="https://maxpcimg.cc/i/2024/10/22/67168e5e03cd2.jpg" srcset="/img/loading.gif" lazyload style="zoom:33%;" />
+</li>
+<li><p>观察下图界面，是否有 logo 或 splash 分区</p>
+ <img src="https://maxpcimg.cc/i/2024/10/22/67168e72d853e.jpg" srcset="/img/loading.gif" lazyload style="zoom: 25%;" />
+ 
+<ul>
+<li><p>如果只有 logo 分区，请按照下文 logo 分区教程操作</p>
+</li>
+<li><p>如果只有 splash 分区，请按照下文 splash 分区教程操作</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-2方法-2：系统包提取法"><a href="#2-2方法-2：系统包提取法" class="headerlink" title="2.2	方法 2：系统包提取法"></a>2.2	方法 2：系统包提取法</h3><p>如果你有你的机器正在运行的系统的系统包，那么你可以使用该方法</p>
+<ol>
+<li><p>解压系统包</p>
+</li>
+<li><p>观察系统包内是否有 logo 或 splash 分区</p>
+<ul>
+<li><p>如果只有 logo 分区，请按照下文 logo 分区教程操作</p>
+</li>
+<li><p>如果只有 splash 分区，请按照下文 splash 分区教程操作</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="3logo-分区教程"><a href="#3logo-分区教程" class="headerlink" title="3	logo 分区教程"></a>3	logo 分区教程</h2><h3 id="3-1提取分区"><a href="#3-1提取分区" class="headerlink" title="3.1	提取分区"></a>3.1	提取分区</h3><ol>
+<li><p>在脚本中输入</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">logo</span><br><span class="hljs-attribute">n</span><br></code></pre></td></tr></table></figure>
+
+<p> 脚本会把 logo 分区的镜像文件（<code>logo.img</code>）保存到 <code>/sdcard/</code> 下</p>
+</li>
+<li><p>将 <code>logo.img</code> 复制一份到电脑上</p>
+</li>
+</ol>
+<h3 id="3-2镜像文件的操作"><a href="#3-2镜像文件的操作" class="headerlink" title="3.2	镜像文件的操作"></a>3.2	镜像文件的操作</h3><h5 id="3-2-0一些理论知识（可以不看）"><a href="#3-2-0一些理论知识（可以不看）" class="headerlink" title="3.2.0	一些理论知识（可以不看）"></a>3.2.0	一些理论知识（可以不看）</h5><ol>
+<li><p>修改的原理</p>
+<p><code>logo.img</code> 里面包含了几个 <code>.bmp</code> 文件，这些就是手机开机的时候要显示的图片，其中就包含我们需要的 logo。那要怎么修改呢？你或许会说直接解包，但是大部分时候解包工具是无法解包 Android 7 的 <code>logo.img</code> 的，我们需要一种通用的解决方式——<strong>直接修改文件的 16 进制值</strong>。</p>
+</li>
+<li><p>实践</p>
+<p>首先，IMG 文件的 16 进制值里面会包含 bmp 图片的偏移地址，我们只需要找到这个偏移地址，然后把图片部分截取出来，就可以实现提取了。</p>
+<p>我们知道，BMP 图片开头两个字节是固定的 <code>42 4D</code>（也就是 <code>BM</code>），紧接着四个字节就是整个图片的大小（Little-Endian），在 UE 编辑器用 <code>dd</code> 命令可以很容易地把图片截出来。</p>
+<blockquote>
+<p>参见：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/wainiwann/p/7086844.html">BMP 格式详解</a></p>
+</blockquote>
+<p>但是每次都这样找会很麻烦，所以我准备了配置文件，这样就可以方便的进行替换了，详见下文。</p>
+</li>
+</ol>
+<h5 id="3-2-1下载配置文件以及工具"><a href="#3-2-1下载配置文件以及工具" class="headerlink" title="3.2.1	下载配置文件以及工具"></a>3.2.1	下载配置文件以及工具</h5><ol start="0">
+<li><p>下载链接：<a target="_blank" rel="noopener" href="https://www.123684.com/s/iBeVVv-lqhV">https://www.123684.com/s/iBeVVv-lqhV</a></p>
+</li>
+<li><p>解压你下载的工具包，你应该可以看到 <code>dist</code> 和 <code>配置文件</code> 两个文件夹</p>
+<p><img src="https://maxpcimg.cc/i/2024/10/22/6716af78e3a64.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+<li><p>打开 <code>dist/</code> ，里面有 5 个 <code>bmp</code> 文件还有 1 个 <code>exe</code> 文件，那些 <code>bmp</code> 文件就是你以后要使用的开机画面</p>
+<p><img src="https://maxpcimg.cc/i/2024/10/22/6716af79a7efe.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+<li><p>其中：</p>
+<ul>
+<li><code>1.bmp</code>：手机开机时显示的 logo，只会显示 1 秒不到的时间，接下来会显示 <code>4.bmp</code></li>
+<li><code>2.bmp</code>：手机进入 FASTBOOT 模式时显示的 logo</li>
+<li><code>3.bmp</code>：手机进入缺电状态时显示的 logo</li>
+<li><strong><code>4.bmp</code>：手机开机时第一屏显示的图片，我们主要需要修改这个图片</strong></li>
+<li><code>5.bmp</code>：手机系统损坏时显示的图片</li>
+</ul>
+</li>
+<li><p>编辑图片</p>
+<blockquote>
+<p>这里只展示 <code>4.bmp</code> 的修改</p>
+</blockquote>
+<ul>
+<li><p>首先你需要找一张你喜欢的图片，然后看看他的分辨率是多少，如果与你手机的分辨率不一致，就按照下面进行修改，如果一致就直接进行下一步</p>
+</li>
+<li><p>使用画图打开图片，点击重新调整大小，设置为你手机的分辨率</p>
+</li>
+</ul>
+<p> <img src="https://maxpcimg.cc/i/2024/10/22/6716b7cf33f51.png" srcset="/img/loading.gif" lazyload></p>
+<p> <img src="https://maxpcimg.cc/i/2024/10/22/6716b7ce8205b.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li>使用选择工具调整中间的 logo 的位置，大小和比例</li>
+</ul>
+ <img src="https://maxpcimg.cc/i/2024/10/22/6716b7ce53ccb.png" srcset="/img/loading.gif" lazyload style="zoom: 80%;" />
+
+<ul>
+<li>使用填充工具填充黑色到图片中空白的部分</li>
+</ul>
+ <img src="https://maxpcimg.cc/i/2024/10/22/6716b7cddc2f4.png" srcset="/img/loading.gif" lazyload style="zoom:80%;" />
+
+<ul>
+<li>另存为图片为 <code>4.bmp</code></li>
+</ul>
+<p> <img src="https://maxpcimg.cc/i/2024/10/22/6716b94a5dd7f.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li>使用新的 <code>4.bmp</code> 替换工具里的 <code>4.bmp</code></li>
+</ul>
+<p> <img src="https://maxpcimg.cc/i/2024/10/22/6716b9b0f3a4f.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+<li><p>生成新的镜像文件</p>
+<ul>
+<li><p>在 配置文件 文件夹里找到你的机型（如果没有，见下文生成教程）</p>
+</li>
+<li><p>将配置文件拖动到 <code>genlogo.exe</code></p>
+<p><img src="https://maxpcimg.cc/i/2024/10/22/6716bada8b5a5.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+<li><p>等待片刻，脚本会在 <code>配置文件/</code> 文件夹里生成一个 <code>new_logo.img</code></p>
+<p><img src="https://maxpcimg.cc/i/2024/10/22/6716bb6d4ac2f.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+</ul>
+</li>
+<li><p>刷入镜像</p>
+<ul>
+<li><p>将 <code>new_logo.img</code> 移动到手机上</p>
+</li>
+<li><p>在手机上下载安装工具箱，授权 ROOT <a target="_blank" rel="noopener" href="https://npm.elemecdn.com/staticdn@latest/lasystools/latools.apk">https://npm.elemecdn.com/staticdn@latest/lasystools/latools.apk</a></p>
+</li>
+<li><p>点击工具箱左侧的分区管理</p>
+<img src="https://maxpcimg.cc/i/2024/10/22/6716bc7d3504f.png" srcset="/img/loading.gif" lazyload style="zoom: 25%;" />
+</li>
+<li><p>找到 logo 分区，点击它，然后点击刷入镜像</p>
+<img src="https://maxpcimg.cc/i/2024/10/22/6716bc991d606.png" srcset="/img/loading.gif" lazyload style="zoom:33%;" />
+</li>
+<li><p>选择 <code>new_logo.img</code> ，刷入重启即可</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>至此，修改完毕！</p>
+<hr>
+<h2 id="4splash-分区教程"><a href="#4splash-分区教程" class="headerlink" title="4	splash 分区教程"></a>4	splash 分区教程</h2><p>由于老板的手机是 logo 分区的，所以这部分内容以后更新。。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Android%E5%88%B7%E6%9C%BA/" class="category-chain-item">Android刷机</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Android%E6%90%9E%E6%9C%BA/" class="print-no-link">#Android搞机</a>
+      
+        <a href="/tags/%E5%88%B7%E6%9C%BA/" class="print-no-link">#刷机</a>
+      
+        <a href="/tags/%E6%8A%80%E6%9C%AF%E5%B8%96/" class="print-no-link">#技术帖</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Android部分机型修改开机第一屏logo</div>
+      <div>https://blog.yulebest.icu/post14/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>于乐Yule</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年10月22日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/pinglun001/" title="普通也可以自信，杨笠也一样【熙评】">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">普通也可以自信，杨笠也一样【熙评】</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/film/001/" title="749局，再次焊上了中国科幻片的大门">
+                        <span class="hidden-mobile">749局，再次焊上了中国科幻片的大门</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>爱来自 </span></a> <i class="iconfont icon-github-fill"></i> <a href="https://github.com/YuleBest" target="_blank" rel="nofollow noopener"><span>Yule</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
